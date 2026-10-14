@@ -1,0 +1,3633 @@
+[
+  {
+    "id": "dep-svc-trade-intake-development-current",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "3.7.3-dev",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-07T09:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-development-previous-day",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "3.7.3-dev",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-development-before-rc",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "3.7.3-dev",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-test-current",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-08T09:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-test-previous-day",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-test-before-rc",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-uat-current",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-09T09:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-uat-previous-day",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-uat-before-rc",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-preproduction-current",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-10T09:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-preproduction-previous-day",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-preproduction-before-rc",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-production-current",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T09:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-production-previous-day",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-intake-production-before-rc",
+    "serviceId": "svc-trade-intake",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "3.7.2",
+    "commit": "a1f9c2d",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-development-current",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-07T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-development-previous-day",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-development-before-rc",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-test-current",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-08T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-test-previous-day",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-test-before-rc",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-uat-current",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-09T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-uat-previous-day",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-uat-before-rc",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "4.3.0-rc1",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-preproduction-current",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-10T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-preproduction-previous-day",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-preproduction-before-rc",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-production-current",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-production-previous-day",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-validator-production-before-rc",
+    "serviceId": "svc-trade-validator",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "4.2.0",
+    "commit": "b7e31a4",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-development-current",
+    "serviceId": "svc-reference-data",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-07T11:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-development-previous-day",
+    "serviceId": "svc-reference-data",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-development-before-rc",
+    "serviceId": "svc-reference-data",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-test-current",
+    "serviceId": "svc-reference-data",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-08T11:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-test-previous-day",
+    "serviceId": "svc-reference-data",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-test-before-rc",
+    "serviceId": "svc-reference-data",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-uat-current",
+    "serviceId": "svc-reference-data",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-09T11:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-uat-previous-day",
+    "serviceId": "svc-reference-data",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-uat-before-rc",
+    "serviceId": "svc-reference-data",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-preproduction-current",
+    "serviceId": "svc-reference-data",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-10T11:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-preproduction-previous-day",
+    "serviceId": "svc-reference-data",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-preproduction-before-rc",
+    "serviceId": "svc-reference-data",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-production-current",
+    "serviceId": "svc-reference-data",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T11:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-production-previous-day",
+    "serviceId": "svc-reference-data",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-reference-data-production-before-rc",
+    "serviceId": "svc-reference-data",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "5.1.0",
+    "commit": "c30d92f",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-development-current",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-07T12:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-development-previous-day",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-development-before-rc",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-test-current",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-08T12:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-test-previous-day",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-test-before-rc",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-uat-current",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-09T12:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-uat-previous-day",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-uat-before-rc",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-preproduction-current",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-10T12:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-preproduction-previous-day",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "2.9.0",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-preproduction-before-rc",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-production-current",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T12:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-production-previous-day",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-trade-enricher-production-before-rc",
+    "serviceId": "svc-trade-enricher",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "2.8.4",
+    "commit": "d2a8f11",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-development-current",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-07T13:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-development-previous-day",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-development-before-rc",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-test-current",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-08T13:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-test-previous-day",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-test-before-rc",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-uat-current",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-09T13:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-uat-previous-day",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-uat-before-rc",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-preproduction-current",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-10T13:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-preproduction-previous-day",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-preproduction-before-rc",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-production-current",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T13:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-production-previous-day",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-ledger-posting-production-before-rc",
+    "serviceId": "svc-ledger-posting",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "6.4.1",
+    "commit": "e71bc42",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-development-current",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-07T14:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-development-previous-day",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-development-before-rc",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-test-current",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-08T14:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-test-previous-day",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-test-before-rc",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-uat-current",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-09T14:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-uat-previous-day",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-uat-before-rc",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-preproduction-current",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-10T14:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-preproduction-previous-day",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "2.4.1",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-preproduction-before-rc",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-production-current",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T14:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-production-previous-day",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-job-reporting-etl-production-before-rc",
+    "serviceId": "job-reporting-etl",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "2.3.8",
+    "commit": "f61d8a0",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-development-current",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-07T15:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-development-previous-day",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-development-before-rc",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-test-current",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-08T15:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-test-previous-day",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-test-before-rc",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-uat-current",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-09T15:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-uat-previous-day",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-uat-before-rc",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-preproduction-current",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-10T15:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-preproduction-previous-day",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "3.2.0-rc2",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-preproduction-before-rc",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-production-current",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T15:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-production-previous-day",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-regulatory-reporting-production-before-rc",
+    "serviceId": "svc-regulatory-reporting",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "3.1.5",
+    "commit": "9ac42ef",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-development-current",
+    "serviceId": "svc-notification",
+    "environmentId": "development",
+    "snapshotId": "current",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-07T16:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-development-previous-day",
+    "serviceId": "svc-notification",
+    "environmentId": "development",
+    "snapshotId": "previous-day",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-development-before-rc",
+    "serviceId": "svc-notification",
+    "environmentId": "development",
+    "snapshotId": "before-rc",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "false",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": true
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-test-current",
+    "serviceId": "svc-notification",
+    "environmentId": "test",
+    "snapshotId": "current",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-08T16:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-test-previous-day",
+    "serviceId": "svc-notification",
+    "environmentId": "test",
+    "snapshotId": "previous-day",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-test-before-rc",
+    "serviceId": "svc-notification",
+    "environmentId": "test",
+    "snapshotId": "before-rc",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "false",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": false,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-uat-current",
+    "serviceId": "svc-notification",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-09T16:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": true,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-uat-previous-day",
+    "serviceId": "svc-notification",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-uat-before-rc",
+    "serviceId": "svc-notification",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "2000",
+      "reference-data.provider": "synthetic",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "simulation"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": true,
+      "synthetic-reference-data": true,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-preproduction-current",
+    "serviceId": "svc-notification",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-10T16:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-preproduction-previous-day",
+    "serviceId": "svc-notification",
+    "environmentId": "preproduction",
+    "snapshotId": "previous-day",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-preproduction-before-rc",
+    "serviceId": "svc-notification",
+    "environmentId": "preproduction",
+    "snapshotId": "before-rc",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-production-current",
+    "serviceId": "svc-notification",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T16:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-production-previous-day",
+    "serviceId": "svc-notification",
+    "environmentId": "production",
+    "snapshotId": "previous-day",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-11T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-production-before-rc",
+    "serviceId": "svc-notification",
+    "environmentId": "production",
+    "snapshotId": "before-rc",
+    "version": "1.9.0",
+    "commit": "81bd5c7",
+    "deployedAt": "2026-10-05T10:00:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "05:30 UTC",
+      "reporting.batch-size": "5000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "5",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": false,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "dep-svc-notification-preproduction-retired",
+    "serviceId": "svc-notification",
+    "environmentId": "preproduction",
+    "snapshotId": "current",
+    "version": "1.8.2",
+    "commit": "7ab39d0",
+    "deployedAt": "2026-07-18T09:20:00Z",
+    "configuration": {
+      "reporting.cutoff-time": "06:00 UTC",
+      "reporting.batch-size": "1000",
+      "reference-data.provider": "authoritative",
+      "trade-validation.strict-lei": "true",
+      "etl.retry-count": "3",
+      "etl.warehouse-schema": "regulatory",
+      "notifications.enabled": "true",
+      "journal-posting.mode": "committed"
+    },
+    "featureToggles": {
+      "new-netting-model": false,
+      "legacy-netting-mode": false,
+      "synthetic-reference-data": false,
+      "strict-lei-validation": true,
+      "exposure-report-v2": true,
+      "fast-reconciliation": false
+    },
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "retired": true
+  }
+]

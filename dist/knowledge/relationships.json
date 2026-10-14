@@ -1,0 +1,674 @@
+[
+  {
+    "id": "rel-call-0",
+    "type": "CALLS",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "svc-trade-validator",
+    "description": "Trade Intake calls Trade Validator.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-1",
+    "type": "CALLS",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "svc-notification",
+    "description": "Trade Intake calls Notification.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-2",
+    "type": "CALLS",
+    "fromEntityId": "svc-trade-enricher",
+    "toEntityId": "svc-reference-data",
+    "description": "Trade Enricher calls Reference Data.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-3",
+    "type": "CALLS",
+    "fromEntityId": "svc-trade-enricher",
+    "toEntityId": "svc-ledger-posting",
+    "description": "Trade Enricher calls Ledger Posting.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-4",
+    "type": "CALLS",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "svc-ledger-posting",
+    "description": "Reporting ETL calls Ledger Posting.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-5",
+    "type": "CALLS",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "job-reporting-etl",
+    "description": "Regulatory Reporting calls Reporting ETL.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-call-6",
+    "type": "CALLS",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "svc-notification",
+    "description": "Regulatory Reporting calls Notification.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-0",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "api-post-trades",
+    "description": "Trade Intake provides POST /trades.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-1",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "api-put-trade",
+    "description": "Trade Intake provides PUT /trades/{tradeId}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-2",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "api-get-trade",
+    "description": "Trade Intake provides GET /trades/{tradeId}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-3",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-trade-validator",
+    "toEntityId": "api-post-validate",
+    "description": "Trade Validator provides POST /validation/trades.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-4",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "api-get-instrument",
+    "description": "Reference Data provides GET /reference/instruments/{id}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-5",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "api-get-rate",
+    "description": "Reference Data provides GET /reference/rates/{pair}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-6",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "api-get-counterparty",
+    "description": "Reference Data provides GET /reference/counterparties/{id}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-7",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-ledger-posting",
+    "toEntityId": "api-post-journal",
+    "description": "Ledger Posting provides POST /journals.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-8",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-ledger-posting",
+    "toEntityId": "api-get-journal",
+    "description": "Ledger Posting provides GET /journals/{tradeId}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-9",
+    "type": "PROVIDES",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "api-post-etl",
+    "description": "Reporting ETL provides POST /jobs/reporting-etl/runs.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-10",
+    "type": "PROVIDES",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "api-get-etl",
+    "description": "Reporting ETL provides GET /jobs/reporting-etl/runs/{id}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-11",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "api-get-exposure",
+    "description": "Regulatory Reporting provides GET /reports/exposure/{date}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-12",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "api-post-report",
+    "description": "Regulatory Reporting provides POST /reports/exposure/runs.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-13",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-notification",
+    "toEntityId": "api-post-notification",
+    "description": "Notification provides POST /notifications.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-0",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "repo-trade-intake",
+    "description": "Trade Intake is built from trade-intake.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-1",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-trade-validator",
+    "toEntityId": "repo-trade-validator",
+    "description": "Trade Validator is built from trade-validator.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-2",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "repo-reference-data",
+    "description": "Reference Data is built from reference-data.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-3",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-trade-enricher",
+    "toEntityId": "repo-trade-enricher",
+    "description": "Trade Enricher is built from trade-enricher.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-4",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-ledger-posting",
+    "toEntityId": "repo-ledger-posting",
+    "description": "Ledger Posting is built from ledger-posting.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-5",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "repo-reporting-etl",
+    "description": "Reporting ETL is built from reporting-etl.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-6",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "repo-regulatory-reporting",
+    "description": "Regulatory Reporting is built from regulatory-reporting.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-repo-7",
+    "type": "IMPLEMENTED_BY",
+    "fromEntityId": "svc-notification",
+    "toEntityId": "repo-notification",
+    "description": "Notification is built from notification.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-trade-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-trade-enricher",
+    "toEntityId": "tbl-trade",
+    "description": "Trade Enricher reads trade.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-trade-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "tbl-trade",
+    "description": "Trade Intake writes trade.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-trade-event-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-trade-validator",
+    "toEntityId": "tbl-trade-event",
+    "description": "Trade Validator reads trade_event.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-trade-event-1",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-trade-enricher",
+    "toEntityId": "tbl-trade-event",
+    "description": "Trade Enricher reads trade_event.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-trade-event-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "tbl-trade-event",
+    "description": "Trade Intake writes trade_event.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-validation-error-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-trade-intake",
+    "toEntityId": "tbl-validation-error",
+    "description": "Trade Intake reads validation_error.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-validation-error-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-trade-validator",
+    "toEntityId": "tbl-validation-error",
+    "description": "Trade Validator writes validation_error.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-instrument-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-instrument",
+    "description": "Reference Data reads instrument.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-instrument-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-instrument",
+    "description": "Reference Data writes instrument.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-counterparty-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-counterparty",
+    "description": "Reference Data reads counterparty.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-counterparty-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-counterparty",
+    "description": "Reference Data writes counterparty.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-exchange-rate-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-exchange-rate",
+    "description": "Reference Data reads exchange_rate.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-exchange-rate-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-reference-data",
+    "toEntityId": "tbl-exchange-rate",
+    "description": "Reference Data writes exchange_rate.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-journal-entry-0",
+    "type": "READS_FROM",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-journal-entry",
+    "description": "Reporting ETL reads journal_entry.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-journal-entry-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-ledger-posting",
+    "toEntityId": "tbl-journal-entry",
+    "description": "Ledger Posting writes journal_entry.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-journal-line-0",
+    "type": "READS_FROM",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-journal-line",
+    "description": "Reporting ETL reads journal_line.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-journal-line-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "svc-ledger-posting",
+    "toEntityId": "tbl-journal-line",
+    "description": "Ledger Posting writes journal_line.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-fact-trade-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "tbl-fact-trade",
+    "description": "Regulatory Reporting reads fact_trade.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-fact-trade-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-fact-trade",
+    "description": "Reporting ETL writes fact_trade.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-fact-exposure-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "tbl-fact-exposure",
+    "description": "Regulatory Reporting reads fact_exposure.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-fact-exposure-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-fact-exposure",
+    "description": "Reporting ETL writes fact_exposure.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-dim-counterparty-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "tbl-dim-counterparty",
+    "description": "Regulatory Reporting reads dim_counterparty.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-dim-counterparty-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-dim-counterparty",
+    "description": "Reporting ETL writes dim_counterparty.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-dim-instrument-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "tbl-dim-instrument",
+    "description": "Regulatory Reporting reads dim_instrument.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-dim-instrument-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-dim-instrument",
+    "description": "Reporting ETL writes dim_instrument.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-read-tbl-load-audit-0",
+    "type": "READS_FROM",
+    "fromEntityId": "svc-regulatory-reporting",
+    "toEntityId": "tbl-load-audit",
+    "description": "Regulatory Reporting reads load_audit.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-write-tbl-load-audit-0",
+    "type": "WRITES_TO",
+    "fromEntityId": "job-reporting-etl",
+    "toEntityId": "tbl-load-audit",
+    "description": "Reporting ETL writes load_audit.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  }
+]

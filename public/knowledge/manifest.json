@@ -1,0 +1,63 @@
+{
+  "title": "System Atlas knowledge export",
+  "generatedFrom": "Fictional Northstar Regulatory Reporting demonstration data",
+  "snapshot": "2026-10-13T08:00:00Z",
+  "warning": "Passing executable requirements are evidence under recorded conditions, not proof of correctness.",
+  "deepLinkFormat": "#/{entity.pageUrl}",
+  "resources": [
+    {
+      "name": "entities",
+      "path": "entities.json",
+      "mediaType": "application/json",
+      "records": 64
+    },
+    {
+      "name": "relationships",
+      "path": "relationships.json",
+      "mediaType": "application/json",
+      "records": 56
+    },
+    {
+      "name": "deployments",
+      "path": "deployments.json",
+      "mediaType": "application/json",
+      "records": 121
+    },
+    {
+      "name": "requirements",
+      "path": "requirements.json",
+      "mediaType": "application/json",
+      "records": 10
+    },
+    {
+      "name": "executions",
+      "path": "executions.json",
+      "mediaType": "application/json",
+      "records": 22
+    },
+    {
+      "name": "findings",
+      "path": "findings.json",
+      "mediaType": "application/json",
+      "records": 6
+    },
+    {
+      "name": "networkRules",
+      "path": "networkRules.json",
+      "mediaType": "application/json",
+      "records": 12
+    },
+    {
+      "name": "sources",
+      "path": "sources.json",
+      "mediaType": "application/json",
+      "records": 14
+    },
+    {
+      "name": "snapshots",
+      "path": "snapshots.json",
+      "mediaType": "application/json",
+      "records": 3
+    }
+  ]
+}

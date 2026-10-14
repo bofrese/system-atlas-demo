@@ -1,0 +1,17 @@
+[
+  {
+    "id": "before-rc",
+    "name": "Before release candidate",
+    "at": "2026-10-06T08:00:00Z"
+  },
+  {
+    "id": "previous-day",
+    "name": "Previous day",
+    "at": "2026-10-12T08:00:00Z"
+  },
+  {
+    "id": "current",
+    "name": "Current demo snapshot",
+    "at": "2026-10-13T08:00:00Z"
+  }
+]

@@ -1,0 +1,221 @@
+[
+  {
+    "id": "finding-etl-drift",
+    "type": "deployment-drift",
+    "severity": "attention",
+    "title": "UAT Reporting ETL is one release ahead",
+    "summary": "UAT runs 2.4.1 while Production runs 2.3.8.",
+    "affectedEntityIds": [
+      "job-reporting-etl"
+    ],
+    "applicableRoles": [
+      "developer",
+      "tester",
+      "operations"
+    ],
+    "environmentId": "uat",
+    "detectionRule": "Compare deployed versions across selected environments.",
+    "supportingFacts": [
+      "UAT deployment manifest reports 2.4.1.",
+      "Production deployment manifest reports 2.3.8."
+    ],
+    "correlatedChanges": [
+      "The UAT exposure scenario last passed on 2.3.8."
+    ],
+    "counterEvidence": [
+      "2.4.1 is running in Pre-production."
+    ],
+    "unknowns": [
+      "Whether the version difference contributed to the failure."
+    ],
+    "recommendedInspection": "Compare the ETL release manifest and failed execution step.",
+    "sourceReferences": [
+      "src-deploy",
+      "src-tests"
+    ],
+    "freshness": "current",
+    "actionUrl": "/compare?left=uat&right=production"
+  },
+  {
+    "id": "finding-uat-failure",
+    "type": "execution-failure",
+    "severity": "failure",
+    "title": "Latest FX exposure scenario failed in UAT",
+    "summary": "The run stopped at the warehouse-load step at 06:44 UTC.",
+    "affectedEntityIds": [
+      "job-reporting-etl",
+      "svc-regulatory-reporting"
+    ],
+    "applicableRoles": [
+      "tester",
+      "developer"
+    ],
+    "environmentId": "uat",
+    "detectionRule": "Latest main-scenario execution is failed.",
+    "supportingFacts": [
+      "Steps 1–4 passed.",
+      "Warehouse load timed out.",
+      "Final report assertion did not run."
+    ],
+    "correlatedChanges": [
+      "Reporting ETL changed from 2.3.8 to 2.4.1.",
+      "The expected UAT database route is absent."
+    ],
+    "counterEvidence": [
+      "The same scenario passed in Production under older versions."
+    ],
+    "unknowns": [
+      "The direct cause of the timeout."
+    ],
+    "recommendedInspection": "Inspect route policy, ETL deployment and execution evidence together.",
+    "sourceReferences": [
+      "src-tests",
+      "src-deploy",
+      "src-network"
+    ],
+    "freshness": "current",
+    "actionUrl": "/requirements/req-exposure"
+  },
+  {
+    "id": "finding-route",
+    "type": "network-gap",
+    "severity": "failure",
+    "title": "Expected UAT warehouse route is absent",
+    "summary": "No harvested allow rule connects Reporting ETL to the warehouse on TCP 5432.",
+    "affectedEntityIds": [
+      "job-reporting-etl",
+      "db-warehouse"
+    ],
+    "applicableRoles": [
+      "operations",
+      "tester",
+      "developer"
+    ],
+    "environmentId": "uat",
+    "detectionRule": "Expected deployment dependency has no matching allow rule.",
+    "supportingFacts": [
+      "The ETL manifest declares a warehouse dependency.",
+      "No UAT allow rule was harvested."
+    ],
+    "correlatedChanges": [
+      "The latest UAT scenario failed during warehouse load."
+    ],
+    "counterEvidence": [
+      "Matching rules exist in Pre-production and Production."
+    ],
+    "unknowns": [
+      "Whether an unharvested or dynamic route exists."
+    ],
+    "recommendedInspection": "Review the UAT infrastructure plan and collector scope.",
+    "sourceReferences": [
+      "src-network",
+      "src-deploy"
+    ],
+    "freshness": "current",
+    "actionUrl": "/network"
+  },
+  {
+    "id": "finding-stale-enricher",
+    "type": "stale-source",
+    "severity": "attention",
+    "title": "Trade Enricher evidence is stale",
+    "summary": "Repository evidence is more than five hours old against an hourly expectation.",
+    "affectedEntityIds": [
+      "svc-trade-enricher"
+    ],
+    "applicableRoles": [
+      "developer",
+      "operations"
+    ],
+    "detectionRule": "Last successful harvest exceeds twice the expected interval.",
+    "supportingFacts": [
+      "Last harvest: 02:11 UTC.",
+      "Expected interval: 1 hour."
+    ],
+    "correlatedChanges": [
+      "Trade Enricher is ahead of Production in UAT."
+    ],
+    "counterEvidence": [
+      "Deployment evidence is current."
+    ],
+    "unknowns": [
+      "Whether repository changes after 02:11 are missing."
+    ],
+    "recommendedInspection": "Check the repository collector before trusting commit-level comparisons.",
+    "sourceReferences": [
+      "src-git-enricher"
+    ],
+    "freshness": "stale",
+    "actionUrl": "/services/svc-trade-enricher"
+  },
+  {
+    "id": "finding-legacy-toggle",
+    "type": "unused-configuration",
+    "severity": "attention",
+    "title": "legacy-netting-mode has no current manifest references",
+    "summary": "The toggle remains configured in three environments but no current deployment manifest references it.",
+    "affectedEntityIds": [
+      "toggle-legacy-netting"
+    ],
+    "applicableRoles": [
+      "operations",
+      "developer"
+    ],
+    "detectionRule": "Configuration exists while reference count across current manifests is zero.",
+    "supportingFacts": [
+      "Present in Development, Test and UAT.",
+      "No current manifest reference was harvested."
+    ],
+    "correlatedChanges": [
+      "new-netting-model is enabled only in UAT."
+    ],
+    "counterEvidence": [
+      "Historical releases referenced the legacy toggle."
+    ],
+    "unknowns": [
+      "Whether an unharvested operational script reads it."
+    ],
+    "recommendedInspection": "Run the relationship autopsy before removal.",
+    "sourceReferences": [
+      "src-deploy",
+      "src-git-enricher"
+    ],
+    "freshness": "current",
+    "actionUrl": "/hygiene"
+  },
+  {
+    "id": "finding-retired-notify",
+    "type": "retired-deployment",
+    "severity": "attention",
+    "title": "Pre-production retains Notification 1.8.2",
+    "summary": "A retired deployment remains beside current version 1.9.0.",
+    "affectedEntityIds": [
+      "svc-notification"
+    ],
+    "applicableRoles": [
+      "operations"
+    ],
+    "environmentId": "preproduction",
+    "detectionRule": "Deployment version is marked retired but remains present.",
+    "supportingFacts": [
+      "1.8.2 was retired on 18 July.",
+      "1.9.0 is the current deployment."
+    ],
+    "correlatedChanges": [
+      "An old mail-relay rule still names the retired destination."
+    ],
+    "counterEvidence": [
+      "No current request traffic is represented in this prototype."
+    ],
+    "unknowns": [
+      "Whether rollback procedures still require the deployment."
+    ],
+    "recommendedInspection": "Confirm rollback policy and the linked network rule before cleanup.",
+    "sourceReferences": [
+      "src-deploy",
+      "src-network"
+    ],
+    "freshness": "current",
+    "actionUrl": "/hygiene"
+  }
+]

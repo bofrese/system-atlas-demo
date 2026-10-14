@@ -1,0 +1,1491 @@
+[
+  {
+    "id": "svc-trade-intake",
+    "type": "service",
+    "name": "Trade Intake",
+    "slug": "svc-trade-intake",
+    "serviceType": "REST service",
+    "ownerTeamId": "team-trade",
+    "responsibility": "Receives new and amended trades",
+    "description": "Receives new and amended trades",
+    "repositoryId": "repo-trade-intake",
+    "capability": "Trade capture",
+    "tags": [
+      "rest service",
+      "trade-capture"
+    ],
+    "sourceReferences": [
+      "src-git-intake",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-intake"
+  },
+  {
+    "id": "svc-trade-validator",
+    "type": "service",
+    "name": "Trade Validator",
+    "slug": "svc-trade-validator",
+    "serviceType": "Service",
+    "ownerTeamId": "team-trade",
+    "responsibility": "Applies business and compliance validation",
+    "description": "Applies business and compliance validation",
+    "repositoryId": "repo-trade-validator",
+    "capability": "Trade validation",
+    "tags": [
+      "service",
+      "trade-validation"
+    ],
+    "sourceReferences": [
+      "src-git-validator",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-validator"
+  },
+  {
+    "id": "svc-reference-data",
+    "type": "service",
+    "name": "Reference Data",
+    "slug": "svc-reference-data",
+    "serviceType": "REST service",
+    "ownerTeamId": "team-finance",
+    "responsibility": "Supplies instruments, currencies and counterparties",
+    "description": "Supplies instruments, currencies and counterparties",
+    "repositoryId": "repo-reference-data",
+    "capability": "Reference data",
+    "tags": [
+      "rest service",
+      "reference-data"
+    ],
+    "sourceReferences": [
+      "src-git-reference",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-reference-data"
+  },
+  {
+    "id": "svc-trade-enricher",
+    "type": "service",
+    "name": "Trade Enricher",
+    "slug": "svc-trade-enricher",
+    "serviceType": "Worker",
+    "ownerTeamId": "team-trade",
+    "responsibility": "Enriches accepted trades with reference data",
+    "description": "Enriches accepted trades with reference data",
+    "repositoryId": "repo-trade-enricher",
+    "capability": "Trade enrichment",
+    "tags": [
+      "worker",
+      "trade-enrichment"
+    ],
+    "sourceReferences": [
+      "src-git-enricher",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T02:11:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-enricher"
+  },
+  {
+    "id": "svc-ledger-posting",
+    "type": "service",
+    "name": "Ledger Posting",
+    "slug": "svc-ledger-posting",
+    "serviceType": "Service",
+    "ownerTeamId": "team-finance",
+    "responsibility": "Creates balanced journal entries",
+    "description": "Creates balanced journal entries",
+    "repositoryId": "repo-ledger-posting",
+    "capability": "Accounting",
+    "tags": [
+      "service",
+      "accounting"
+    ],
+    "sourceReferences": [
+      "src-git-ledger",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-ledger-posting"
+  },
+  {
+    "id": "job-reporting-etl",
+    "type": "service",
+    "name": "Reporting ETL",
+    "slug": "job-reporting-etl",
+    "serviceType": "Scheduled pipeline",
+    "ownerTeamId": "team-reporting",
+    "responsibility": "Loads reporting facts and dimensions",
+    "description": "Loads reporting facts and dimensions",
+    "repositoryId": "repo-reporting-etl",
+    "capability": "Regulatory reporting",
+    "tags": [
+      "scheduled pipeline",
+      "regulatory-reporting"
+    ],
+    "sourceReferences": [
+      "src-git-etl",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/job-reporting-etl"
+  },
+  {
+    "id": "svc-regulatory-reporting",
+    "type": "service",
+    "name": "Regulatory Reporting",
+    "slug": "svc-regulatory-reporting",
+    "serviceType": "REST and batch service",
+    "ownerTeamId": "team-reporting",
+    "responsibility": "Produces daily exposure reports",
+    "description": "Produces daily exposure reports",
+    "repositoryId": "repo-regulatory-reporting",
+    "capability": "Regulatory reporting",
+    "tags": [
+      "rest and batch service",
+      "regulatory-reporting"
+    ],
+    "sourceReferences": [
+      "src-git-reporting",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-regulatory-reporting"
+  },
+  {
+    "id": "svc-notification",
+    "type": "service",
+    "name": "Notification",
+    "slug": "svc-notification",
+    "serviceType": "Service",
+    "ownerTeamId": "team-platform",
+    "responsibility": "Sends processing and report notifications",
+    "description": "Sends processing and report notifications",
+    "repositoryId": "repo-notification",
+    "capability": "Platform communication",
+    "tags": [
+      "service",
+      "platform-communication"
+    ],
+    "sourceReferences": [
+      "src-git-notification",
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-notification"
+  },
+  {
+    "id": "api-post-trades",
+    "type": "endpoint",
+    "name": "Submit trade",
+    "slug": "api-post-trades",
+    "method": "POST",
+    "path": "/trades",
+    "providerId": "svc-trade-intake",
+    "consumers": [
+      "portal-trade-entry"
+    ],
+    "description": "Accept a new trade for processing.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-trades",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-put-trade",
+    "type": "endpoint",
+    "name": "Amend trade",
+    "slug": "api-put-trade",
+    "method": "PUT",
+    "path": "/trades/{tradeId}",
+    "providerId": "svc-trade-intake",
+    "consumers": [
+      "portal-trade-entry"
+    ],
+    "description": "Submit a corrected trade version.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "api",
+      "put"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-put-trade",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-trade",
+    "type": "endpoint",
+    "name": "Get trade status",
+    "slug": "api-get-trade",
+    "method": "GET",
+    "path": "/trades/{tradeId}",
+    "providerId": "svc-trade-intake",
+    "consumers": [
+      "svc-notification"
+    ],
+    "description": "Return processing state for one trade.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-trade",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-post-validate",
+    "type": "endpoint",
+    "name": "Validate trade",
+    "slug": "api-post-validate",
+    "method": "POST",
+    "path": "/validation/trades",
+    "providerId": "svc-trade-validator",
+    "consumers": [
+      "svc-trade-intake"
+    ],
+    "description": "Apply compliance and business validation.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-validate",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-instrument",
+    "type": "endpoint",
+    "name": "Get instrument",
+    "slug": "api-get-instrument",
+    "method": "GET",
+    "path": "/reference/instruments/{id}",
+    "providerId": "svc-reference-data",
+    "consumers": [
+      "svc-trade-enricher"
+    ],
+    "description": "Resolve instrument reference data.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-instrument",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-rate",
+    "type": "endpoint",
+    "name": "Get exchange rate",
+    "slug": "api-get-rate",
+    "method": "GET",
+    "path": "/reference/rates/{pair}",
+    "providerId": "svc-reference-data",
+    "consumers": [
+      "svc-trade-enricher"
+    ],
+    "description": "Return the applicable exchange rate.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-rate",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-counterparty",
+    "type": "endpoint",
+    "name": "Get counterparty",
+    "slug": "api-get-counterparty",
+    "method": "GET",
+    "path": "/reference/counterparties/{id}",
+    "providerId": "svc-reference-data",
+    "consumers": [
+      "svc-trade-enricher"
+    ],
+    "description": "Resolve counterparty data.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-counterparty",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-post-journal",
+    "type": "endpoint",
+    "name": "Post journal",
+    "slug": "api-post-journal",
+    "method": "POST",
+    "path": "/journals",
+    "providerId": "svc-ledger-posting",
+    "consumers": [
+      "svc-trade-enricher"
+    ],
+    "description": "Create a balanced journal entry.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-journal",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-journal",
+    "type": "endpoint",
+    "name": "Get journal",
+    "slug": "api-get-journal",
+    "method": "GET",
+    "path": "/journals/{tradeId}",
+    "providerId": "svc-ledger-posting",
+    "consumers": [
+      "job-reporting-etl"
+    ],
+    "description": "Retrieve journal entries for a trade.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-journal",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-post-etl",
+    "type": "endpoint",
+    "name": "Run warehouse load",
+    "slug": "api-post-etl",
+    "method": "POST",
+    "path": "/jobs/reporting-etl/runs",
+    "providerId": "job-reporting-etl",
+    "consumers": [
+      "scheduler"
+    ],
+    "description": "Start a reporting warehouse load.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-etl",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-etl",
+    "type": "endpoint",
+    "name": "Get load status",
+    "slug": "api-get-etl",
+    "method": "GET",
+    "path": "/jobs/reporting-etl/runs/{id}",
+    "providerId": "job-reporting-etl",
+    "consumers": [
+      "svc-regulatory-reporting"
+    ],
+    "description": "Return warehouse-load status.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-etl",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-get-exposure",
+    "type": "endpoint",
+    "name": "Get exposure report",
+    "slug": "api-get-exposure",
+    "method": "GET",
+    "path": "/reports/exposure/{date}",
+    "providerId": "svc-regulatory-reporting",
+    "consumers": [
+      "portal-regulatory"
+    ],
+    "description": "Return the daily exposure report.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "api",
+      "get"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-get-exposure",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "No request body",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-post-report",
+    "type": "endpoint",
+    "name": "Generate report",
+    "slug": "api-post-report",
+    "method": "POST",
+    "path": "/reports/exposure/runs",
+    "providerId": "svc-regulatory-reporting",
+    "consumers": [
+      "scheduler"
+    ],
+    "description": "Generate daily regulatory exposure output.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-report",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "api-post-notification",
+    "type": "endpoint",
+    "name": "Send notification",
+    "slug": "api-post-notification",
+    "method": "POST",
+    "path": "/notifications",
+    "providerId": "svc-notification",
+    "consumers": [
+      "svc-regulatory-reporting",
+      "svc-trade-intake"
+    ],
+    "description": "Send a processing or report notification.",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "api",
+      "post"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-post-notification",
+    "auth": "Mutual TLS with service identity",
+    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
+    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+  },
+  {
+    "id": "db-trade",
+    "type": "database",
+    "name": "Trade Operations DB",
+    "slug": "db-trade",
+    "description": "Operational trade capture and validation state",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "database"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/databases/db-trade"
+  },
+  {
+    "id": "db-reference",
+    "type": "database",
+    "name": "Reference Data DB",
+    "slug": "db-reference",
+    "description": "Controlled instruments, counterparties and rates",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "database"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/databases/db-reference"
+  },
+  {
+    "id": "db-ledger",
+    "type": "database",
+    "name": "Ledger DB",
+    "slug": "db-ledger",
+    "description": "Balanced accounting journals",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "database"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/databases/db-ledger"
+  },
+  {
+    "id": "db-warehouse",
+    "type": "database",
+    "name": "Reporting Warehouse",
+    "slug": "db-warehouse",
+    "description": "Regulatory facts and dimensions",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "database"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/databases/db-warehouse"
+  },
+  {
+    "id": "tbl-trade",
+    "type": "table",
+    "name": "trade",
+    "slug": "tbl-trade",
+    "databaseId": "db-trade",
+    "description": "Current accepted trade state",
+    "ownerTeamId": "team-trade",
+    "readers": [
+      "svc-trade-enricher"
+    ],
+    "writers": [
+      "svc-trade-intake"
+    ],
+    "columns": [
+      "trade_id",
+      "version",
+      "product_type",
+      "status"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Trade Intake",
+    "tags": [
+      "table",
+      "db-trade"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-trade"
+  },
+  {
+    "id": "tbl-trade-event",
+    "type": "table",
+    "name": "trade_event",
+    "slug": "tbl-trade-event",
+    "databaseId": "db-trade",
+    "description": "Immutable processing events",
+    "ownerTeamId": "team-trade",
+    "readers": [
+      "svc-trade-validator",
+      "svc-trade-enricher"
+    ],
+    "writers": [
+      "svc-trade-intake"
+    ],
+    "columns": [
+      "event_id",
+      "trade_id",
+      "event_type",
+      "occurred_at"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Trade Intake",
+    "tags": [
+      "table",
+      "db-trade"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-trade-event"
+  },
+  {
+    "id": "tbl-validation-error",
+    "type": "table",
+    "name": "validation_error",
+    "slug": "tbl-validation-error",
+    "databaseId": "db-trade",
+    "description": "Current validation failures",
+    "ownerTeamId": "team-trade",
+    "readers": [
+      "svc-trade-intake"
+    ],
+    "writers": [
+      "svc-trade-validator"
+    ],
+    "columns": [
+      "trade_id",
+      "code",
+      "field",
+      "message"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Trade Validator",
+    "tags": [
+      "table",
+      "db-trade"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-validation-error"
+  },
+  {
+    "id": "tbl-validation-error-legacy",
+    "type": "table",
+    "name": "validation_error_legacy",
+    "slug": "tbl-validation-error-legacy",
+    "databaseId": "db-trade",
+    "description": "Legacy validation error archive",
+    "ownerTeamId": "team-trade",
+    "readers": [],
+    "writers": [],
+    "columns": [
+      "trade_id",
+      "legacy_code",
+      "created_at"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "No producing deployment mapped",
+    "tags": [
+      "table",
+      "db-trade"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-validation-error-legacy"
+  },
+  {
+    "id": "tbl-instrument",
+    "type": "table",
+    "name": "instrument",
+    "slug": "tbl-instrument",
+    "databaseId": "db-reference",
+    "description": "Tradable instrument definitions",
+    "ownerTeamId": "team-finance",
+    "readers": [
+      "svc-reference-data"
+    ],
+    "writers": [
+      "svc-reference-data"
+    ],
+    "columns": [
+      "instrument_id",
+      "asset_class",
+      "currency"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reference Data",
+    "tags": [
+      "table",
+      "db-reference"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-instrument"
+  },
+  {
+    "id": "tbl-counterparty",
+    "type": "table",
+    "name": "counterparty",
+    "slug": "tbl-counterparty",
+    "databaseId": "db-reference",
+    "description": "Approved counterparty reference",
+    "ownerTeamId": "team-finance",
+    "readers": [
+      "svc-reference-data"
+    ],
+    "writers": [
+      "svc-reference-data"
+    ],
+    "columns": [
+      "counterparty_id",
+      "lei",
+      "status"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reference Data",
+    "tags": [
+      "table",
+      "db-reference"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-counterparty"
+  },
+  {
+    "id": "tbl-exchange-rate",
+    "type": "table",
+    "name": "exchange_rate",
+    "slug": "tbl-exchange-rate",
+    "databaseId": "db-reference",
+    "description": "Daily currency conversion rates",
+    "ownerTeamId": "team-finance",
+    "readers": [
+      "svc-reference-data"
+    ],
+    "writers": [
+      "svc-reference-data"
+    ],
+    "columns": [
+      "currency_pair",
+      "rate",
+      "effective_date"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reference Data",
+    "tags": [
+      "table",
+      "db-reference"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-exchange-rate"
+  },
+  {
+    "id": "tbl-journal-entry",
+    "type": "table",
+    "name": "journal_entry",
+    "slug": "tbl-journal-entry",
+    "databaseId": "db-ledger",
+    "description": "Journal headers by source trade",
+    "ownerTeamId": "team-finance",
+    "readers": [
+      "job-reporting-etl"
+    ],
+    "writers": [
+      "svc-ledger-posting"
+    ],
+    "columns": [
+      "journal_id",
+      "trade_id",
+      "posting_date"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Ledger Posting",
+    "tags": [
+      "table",
+      "db-ledger"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-journal-entry"
+  },
+  {
+    "id": "tbl-journal-line",
+    "type": "table",
+    "name": "journal_line",
+    "slug": "tbl-journal-line",
+    "databaseId": "db-ledger",
+    "description": "Debit and credit journal lines",
+    "ownerTeamId": "team-finance",
+    "readers": [
+      "job-reporting-etl"
+    ],
+    "writers": [
+      "svc-ledger-posting"
+    ],
+    "columns": [
+      "journal_id",
+      "account",
+      "debit",
+      "credit"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Ledger Posting",
+    "tags": [
+      "table",
+      "db-ledger"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-journal-line"
+  },
+  {
+    "id": "tbl-fact-trade",
+    "type": "table",
+    "name": "fact_trade",
+    "slug": "tbl-fact-trade",
+    "databaseId": "db-warehouse",
+    "description": "Reporting grain for accepted trades",
+    "ownerTeamId": "team-reporting",
+    "readers": [
+      "svc-regulatory-reporting"
+    ],
+    "writers": [
+      "job-reporting-etl"
+    ],
+    "columns": [
+      "trade_key",
+      "counterparty_key",
+      "amount_base"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reporting ETL",
+    "tags": [
+      "table",
+      "db-warehouse"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-fact-trade"
+  },
+  {
+    "id": "tbl-fact-exposure",
+    "type": "table",
+    "name": "fact_exposure",
+    "slug": "tbl-fact-exposure",
+    "databaseId": "db-warehouse",
+    "description": "Aggregated regulatory exposure",
+    "ownerTeamId": "team-reporting",
+    "readers": [
+      "svc-regulatory-reporting"
+    ],
+    "writers": [
+      "job-reporting-etl"
+    ],
+    "columns": [
+      "report_date",
+      "counterparty_key",
+      "net_exposure"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reporting ETL",
+    "tags": [
+      "table",
+      "db-warehouse"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-fact-exposure"
+  },
+  {
+    "id": "tbl-dim-counterparty",
+    "type": "table",
+    "name": "dim_counterparty",
+    "slug": "tbl-dim-counterparty",
+    "databaseId": "db-warehouse",
+    "description": "Reporting counterparty dimension",
+    "ownerTeamId": "team-reporting",
+    "readers": [
+      "svc-regulatory-reporting"
+    ],
+    "writers": [
+      "job-reporting-etl"
+    ],
+    "columns": [
+      "counterparty_key",
+      "lei",
+      "valid_from"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reporting ETL",
+    "tags": [
+      "table",
+      "db-warehouse"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-dim-counterparty"
+  },
+  {
+    "id": "tbl-dim-instrument",
+    "type": "table",
+    "name": "dim_instrument",
+    "slug": "tbl-dim-instrument",
+    "databaseId": "db-warehouse",
+    "description": "Reporting instrument dimension",
+    "ownerTeamId": "team-reporting",
+    "readers": [
+      "svc-regulatory-reporting"
+    ],
+    "writers": [
+      "job-reporting-etl"
+    ],
+    "columns": [
+      "instrument_key",
+      "asset_class",
+      "currency"
+    ],
+    "classification": "Confidential business data",
+    "lineage": "Derived from Reporting ETL",
+    "tags": [
+      "table",
+      "db-warehouse"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-dim-instrument"
+  },
+  {
+    "id": "tbl-load-audit",
+    "type": "table",
+    "name": "load_audit",
+    "slug": "tbl-load-audit",
+    "databaseId": "db-warehouse",
+    "description": "Warehouse load evidence and reconciliation",
+    "ownerTeamId": "team-reporting",
+    "readers": [
+      "svc-regulatory-reporting"
+    ],
+    "writers": [
+      "job-reporting-etl"
+    ],
+    "columns": [
+      "run_id",
+      "row_count",
+      "status",
+      "completed_at"
+    ],
+    "classification": "Internal operational data",
+    "lineage": "Derived from Reporting ETL",
+    "tags": [
+      "table",
+      "db-warehouse"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-load-audit"
+  },
+  {
+    "id": "cfg-cutoff",
+    "type": "configuration",
+    "name": "reporting.cutoff-time",
+    "slug": "cfg-cutoff",
+    "description": "Daily report completion target",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-cutoff"
+  },
+  {
+    "id": "cfg-batch",
+    "type": "configuration",
+    "name": "reporting.batch-size",
+    "slug": "cfg-batch",
+    "description": "Warehouse load batch size",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-batch"
+  },
+  {
+    "id": "cfg-provider",
+    "type": "configuration",
+    "name": "reference-data.provider",
+    "slug": "cfg-provider",
+    "description": "Reference-data provider selection",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-provider"
+  },
+  {
+    "id": "cfg-lei",
+    "type": "configuration",
+    "name": "trade-validation.strict-lei",
+    "slug": "cfg-lei",
+    "description": "Strict LEI validation",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-lei"
+  },
+  {
+    "id": "cfg-retry",
+    "type": "configuration",
+    "name": "etl.retry-count",
+    "slug": "cfg-retry",
+    "description": "Warehouse load retry limit",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-retry"
+  },
+  {
+    "id": "cfg-schema",
+    "type": "configuration",
+    "name": "etl.warehouse-schema",
+    "slug": "cfg-schema",
+    "description": "Target warehouse schema",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-schema"
+  },
+  {
+    "id": "cfg-notify",
+    "type": "configuration",
+    "name": "notifications.enabled",
+    "slug": "cfg-notify",
+    "description": "Notification delivery switch",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-notify"
+  },
+  {
+    "id": "cfg-journal",
+    "type": "configuration",
+    "name": "journal-posting.mode",
+    "slug": "cfg-journal",
+    "description": "Journal posting mode",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-journal"
+  },
+  {
+    "id": "cfg-retention",
+    "type": "configuration",
+    "name": "trade-event.retention-days",
+    "slug": "cfg-retention",
+    "description": "Trade event retention",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-retention"
+  },
+  {
+    "id": "cfg-report-format",
+    "type": "configuration",
+    "name": "reporting.output-format",
+    "slug": "cfg-report-format",
+    "description": "Regulatory report output format",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "configuration"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/cfg-report-format"
+  },
+  {
+    "id": "toggle-new-netting",
+    "type": "toggle",
+    "name": "new-netting-model",
+    "slug": "toggle-new-netting",
+    "description": "Feature toggle controlling new netting model.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-new-netting"
+  },
+  {
+    "id": "toggle-legacy-netting",
+    "type": "toggle",
+    "name": "legacy-netting-mode",
+    "slug": "toggle-legacy-netting",
+    "description": "Feature toggle controlling legacy netting mode.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-legacy-netting"
+  },
+  {
+    "id": "toggle-synthetic-reference",
+    "type": "toggle",
+    "name": "synthetic-reference-data",
+    "slug": "toggle-synthetic-reference",
+    "description": "Feature toggle controlling synthetic reference data.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-synthetic-reference"
+  },
+  {
+    "id": "toggle-strict-lei",
+    "type": "toggle",
+    "name": "strict-lei-validation",
+    "slug": "toggle-strict-lei",
+    "description": "Feature toggle controlling strict lei validation.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-strict-lei"
+  },
+  {
+    "id": "toggle-exposure-v2",
+    "type": "toggle",
+    "name": "exposure-report-v2",
+    "slug": "toggle-exposure-v2",
+    "description": "Feature toggle controlling exposure report v2.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-exposure-v2"
+  },
+  {
+    "id": "toggle-fast-reconcile",
+    "type": "toggle",
+    "name": "fast-reconciliation",
+    "slug": "toggle-fast-reconcile",
+    "description": "Feature toggle controlling fast reconciliation.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "feature-toggle"
+    ],
+    "sourceReferences": [
+      "src-deploy"
+    ],
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "pageUrl": "/impact/toggle-fast-reconcile"
+  },
+  {
+    "id": "repo-trade-intake",
+    "type": "repository",
+    "name": "trade-intake",
+    "slug": "repo-trade-intake",
+    "description": "Source repository for Trade Intake.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-intake"
+    ],
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-intake"
+  },
+  {
+    "id": "repo-trade-validator",
+    "type": "repository",
+    "name": "trade-validator",
+    "slug": "repo-trade-validator",
+    "description": "Source repository for Trade Validator.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-validator"
+    ],
+    "harvestedAt": "2026-10-13T07:46:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-validator"
+  },
+  {
+    "id": "repo-reference-data",
+    "type": "repository",
+    "name": "reference-data",
+    "slug": "repo-reference-data",
+    "description": "Source repository for Reference Data.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-reference"
+    ],
+    "harvestedAt": "2026-10-13T07:42:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-reference-data"
+  },
+  {
+    "id": "repo-trade-enricher",
+    "type": "repository",
+    "name": "trade-enricher",
+    "slug": "repo-trade-enricher",
+    "description": "Source repository for Trade Enricher.",
+    "ownerTeamId": "team-trade",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-enricher"
+    ],
+    "harvestedAt": "2026-10-13T02:11:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-trade-enricher"
+  },
+  {
+    "id": "repo-ledger-posting",
+    "type": "repository",
+    "name": "ledger-posting",
+    "slug": "repo-ledger-posting",
+    "description": "Source repository for Ledger Posting.",
+    "ownerTeamId": "team-finance",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-ledger"
+    ],
+    "harvestedAt": "2026-10-13T07:52:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-ledger-posting"
+  },
+  {
+    "id": "repo-reporting-etl",
+    "type": "repository",
+    "name": "reporting-etl",
+    "slug": "repo-reporting-etl",
+    "description": "Source repository for Reporting ETL.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-etl"
+    ],
+    "harvestedAt": "2026-10-13T07:45:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/job-reporting-etl"
+  },
+  {
+    "id": "repo-regulatory-reporting",
+    "type": "repository",
+    "name": "regulatory-reporting",
+    "slug": "repo-regulatory-reporting",
+    "description": "Source repository for Regulatory Reporting.",
+    "ownerTeamId": "team-reporting",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-reporting"
+    ],
+    "harvestedAt": "2026-10-13T07:41:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-regulatory-reporting"
+  },
+  {
+    "id": "repo-notification",
+    "type": "repository",
+    "name": "notification",
+    "slug": "repo-notification",
+    "description": "Source repository for Notification.",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "repository"
+    ],
+    "sourceReferences": [
+      "src-git-notification"
+    ],
+    "harvestedAt": "2026-10-13T07:39:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/services/svc-notification"
+  }
+]

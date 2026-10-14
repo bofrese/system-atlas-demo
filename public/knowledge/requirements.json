@@ -1,0 +1,702 @@
+[
+  {
+    "id": "req-valid-fx",
+    "title": "A valid FX trade is accepted",
+    "capability": "Trade capture",
+    "narrative": "Demonstrates how Northstar records evidence that a valid FX trade is accepted.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-trade",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-valid-fx-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise a valid fx trade is accepted",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-intake",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-trade"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-valid-fx-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-validator",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-trade-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-valid-fx-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-invalid-lei",
+    "title": "A trade with an invalid Legal Entity Identifier is rejected",
+    "capability": "Trade validation",
+    "narrative": "Demonstrates how Northstar records evidence that a trade with an invalid Legal Entity Identifier is rejected.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-trade",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-invalid-lei-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-validator",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-trade-event"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-invalid-lei-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-invalid-lei-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-ledger-posting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error-legacy"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-idempotent",
+    "title": "Duplicate trade submission is idempotent",
+    "capability": "Trade capture",
+    "narrative": "Demonstrates how Northstar records evidence that duplicate trade submission is idempotent.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-trade",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-idempotent-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise duplicate trade submission is idempotent",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-idempotent-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-ledger-posting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error-legacy"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-idempotent-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "job-reporting-etl",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-instrument"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-enrichment",
+    "title": "An accepted FX trade is enriched with the applicable exchange rate",
+    "capability": "Trade enrichment",
+    "narrative": "Demonstrates how Northstar records evidence that an accepted FX trade is enriched with the applicable exchange rate.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-trade",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-enrichment-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-ledger-posting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-validation-error-legacy"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-enrichment-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "job-reporting-etl",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-instrument"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-enrichment-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-regulatory-reporting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-counterparty"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-balanced-journal",
+    "title": "Accepted trades create balanced journal entries",
+    "capability": "Accounting",
+    "narrative": "Demonstrates how Northstar records evidence that accepted trades create balanced journal entries.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-reporting",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-balanced-journal-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise accepted trades create balanced journal entries",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "job-reporting-etl",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-instrument"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-balanced-journal-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-regulatory-reporting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-counterparty"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-balanced-journal-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-notification",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-exchange-rate"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-exposure",
+    "title": "Accepted FX trades appear in the daily exposure report",
+    "capability": "Regulatory reporting",
+    "narrative": "Demonstrates how Northstar records evidence that accepted FX trades appear in the daily exposure report.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-reporting",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-exposure-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Submit a valid FX trade",
+            "expected": "The trade is accepted",
+            "componentId": "svc-trade-intake",
+            "operation": "POST /trades",
+            "dataIds": [
+              "tbl-trade",
+              "tbl-trade-event"
+            ]
+          },
+          {
+            "title": "Validate compliance fields",
+            "expected": "Compliance fields pass validation",
+            "componentId": "svc-trade-validator",
+            "operation": "POST /validation/trades",
+            "dataIds": [
+              "tbl-validation-error"
+            ]
+          },
+          {
+            "title": "Enrich the trade with reference data",
+            "expected": "Instrument, counterparty and rate are resolved",
+            "componentId": "svc-trade-enricher",
+            "operation": "Consume reference APIs",
+            "dataIds": [
+              "tbl-instrument",
+              "tbl-counterparty",
+              "tbl-exchange-rate"
+            ]
+          },
+          {
+            "title": "Create balanced journal entries",
+            "expected": "Debits equal credits",
+            "componentId": "svc-ledger-posting",
+            "operation": "POST /journals",
+            "dataIds": [
+              "tbl-journal-entry",
+              "tbl-journal-line"
+            ]
+          },
+          {
+            "title": "Load the Reporting Warehouse",
+            "expected": "Reporting facts and dimensions are committed",
+            "componentId": "job-reporting-etl",
+            "operation": "Warehouse load",
+            "dataIds": [
+              "tbl-fact-trade",
+              "tbl-fact-exposure"
+            ]
+          },
+          {
+            "title": "Confirm that the exposure report contains the trade",
+            "expected": "The trade contributes to the daily exposure",
+            "componentId": "svc-regulatory-reporting",
+            "operation": "GET /reports/exposure/{date}",
+            "dataIds": [
+              "tbl-fact-exposure"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-exposure-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-notification",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-exchange-rate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-exposure-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-trade-intake",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-entry"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-cutoff",
+    "title": "The daily exposure report is available before its cutoff",
+    "capability": "Regulatory reporting",
+    "narrative": "Demonstrates how Northstar records evidence that the daily exposure report is available before its cutoff.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-reporting",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-cutoff-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise the daily exposure report is available before its cutoff",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-notification",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-exchange-rate"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-cutoff-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-intake",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-entry"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-cutoff-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-trade-validator",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-line"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-correction",
+    "title": "Corrected trades are reflected in the next report",
+    "capability": "Regulatory reporting",
+    "narrative": "Demonstrates how Northstar records evidence that corrected trades are reflected in the next report.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-reporting",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-correction-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise corrected trades are reflected in the next report",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-intake",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-entry"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-correction-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-validator",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-line"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-correction-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-fact-trade"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-network",
+    "title": "Only approved network paths can reach the Reporting Warehouse",
+    "capability": "Platform controls",
+    "narrative": "Demonstrates how Northstar records evidence that only approved network paths can reach the Reporting Warehouse.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-platform",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-network-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise only approved network paths can reach the reporting warehouse",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-validator",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-journal-line"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-network-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-fact-trade"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-network-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "svc-ledger-posting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-fact-exposure"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "req-no-synthetic",
+    "title": "Production configuration contains no synthetic data providers",
+    "capability": "Platform controls",
+    "narrative": "Demonstrates how Northstar records evidence that production configuration contains no synthetic data providers.",
+    "preconditions": [
+      "The selected environment has a known deployment inventory",
+      "Test data is explicitly identified as synthetic"
+    ],
+    "ownerTeamId": "team-platform",
+    "sourceReferences": [
+      "src-tests",
+      "src-curated"
+    ],
+    "scenarios": [
+      {
+        "id": "req-no-synthetic-main",
+        "title": "Primary business path",
+        "kind": "main",
+        "steps": [
+          {
+            "title": "Exercise production configuration contains no synthetic data providers",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-trade-enricher",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-fact-trade"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-no-synthetic-alternate",
+        "title": "Alternate input or timing",
+        "kind": "alternate",
+        "steps": [
+          {
+            "title": "Exercise an alternate business condition",
+            "expected": "The expected business outcome is recorded",
+            "componentId": "svc-ledger-posting",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-fact-exposure"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "req-no-synthetic-failure",
+        "title": "Failure or unavailable dependency",
+        "kind": "failure",
+        "steps": [
+          {
+            "title": "Exercise a rejected or unavailable condition",
+            "expected": "The condition is rejected with traceable evidence",
+            "componentId": "job-reporting-etl",
+            "operation": "Executable scenario step",
+            "dataIds": [
+              "tbl-dim-counterparty"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,848 @@
+[
+  {
+    "id": "exec-exposure-uat-current",
+    "requirementId": "req-exposure",
+    "scenarioId": "req-exposure-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "failed",
+    "executedAt": "2026-10-13T06:44:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Submit a valid FX trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Validate compliance fields",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Enrich the trade with reference data",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Load the Reporting Warehouse",
+        "status": "failed",
+        "actual": "Connection to the warehouse timed out; no route was observed in harvested policy.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Confirm that the exposure report contains the trade",
+        "status": "not-executed",
+        "actual": "Step did not run after the warehouse-load failure.",
+        "componentId": "svc-regulatory-reporting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-network",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-exposure-prod-current",
+    "requirementId": "req-exposure",
+    "scenarioId": "req-exposure-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-13T05:12:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Submit a valid FX trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Validate compliance fields",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Enrich the trade with reference data",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Load the Reporting Warehouse",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Confirm that the exposure report contains the trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-regulatory-reporting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-network",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-exposure-uat-previous",
+    "requirementId": "req-exposure",
+    "scenarioId": "req-exposure-main",
+    "environmentId": "uat",
+    "snapshotId": "previous-day",
+    "status": "passed",
+    "executedAt": "2026-10-12T06:38:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Submit a valid FX trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Validate compliance fields",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Enrich the trade with reference data",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Load the Reporting Warehouse",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Confirm that the exposure report contains the trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-regulatory-reporting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-exposure-uat-before",
+    "requirementId": "req-exposure",
+    "scenarioId": "req-exposure-main",
+    "environmentId": "uat",
+    "snapshotId": "before-rc",
+    "status": "passed",
+    "executedAt": "2026-10-06T06:35:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Submit a valid FX trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Validate compliance fields",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Enrich the trade with reference data",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Load the Reporting Warehouse",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      },
+      {
+        "title": "Confirm that the exposure report contains the trade",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-regulatory-reporting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-valid-fx-uat-current",
+    "requirementId": "req-valid-fx",
+    "scenarioId": "req-valid-fx-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise a valid fx trade is accepted",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-valid-fx-production-current",
+    "requirementId": "req-valid-fx",
+    "scenarioId": "req-valid-fx-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise a valid fx trade is accepted",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-invalid-lei-uat-current",
+    "requirementId": "req-invalid-lei",
+    "scenarioId": "req-invalid-lei-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-invalid-lei-production-current",
+    "requirementId": "req-invalid-lei",
+    "scenarioId": "req-invalid-lei-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-idempotent-uat-current",
+    "requirementId": "req-idempotent",
+    "scenarioId": "req-idempotent-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-12T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise duplicate trade submission is idempotent",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-idempotent-production-current",
+    "requirementId": "req-idempotent",
+    "scenarioId": "req-idempotent-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-12T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise duplicate trade submission is idempotent",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-enrichment-uat-current",
+    "requirementId": "req-enrichment",
+    "scenarioId": "req-enrichment-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-enrichment-production-current",
+    "requirementId": "req-enrichment",
+    "scenarioId": "req-enrichment-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-ledger-posting",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-balanced-journal-uat-current",
+    "requirementId": "req-balanced-journal",
+    "scenarioId": "req-balanced-journal-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise accepted trades create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-balanced-journal-production-current",
+    "requirementId": "req-balanced-journal",
+    "scenarioId": "req-balanced-journal-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise accepted trades create balanced journal entries",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "job-reporting-etl",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-cutoff-uat-current",
+    "requirementId": "req-cutoff",
+    "scenarioId": "req-cutoff-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "stale",
+    "executedAt": "2026-10-12T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise the daily exposure report is available before its cutoff",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-notification",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-cutoff-production-current",
+    "requirementId": "req-cutoff",
+    "scenarioId": "req-cutoff-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-12T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise the daily exposure report is available before its cutoff",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-notification",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-correction-uat-current",
+    "requirementId": "req-correction",
+    "scenarioId": "req-correction-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise corrected trades are reflected in the next report",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-correction-production-current",
+    "requirementId": "req-correction",
+    "scenarioId": "req-correction-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-10T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise corrected trades are reflected in the next report",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-intake",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-network-uat-current",
+    "requirementId": "req-network",
+    "scenarioId": "req-network-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise only approved network paths can reach the reporting warehouse",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-network-production-current",
+    "requirementId": "req-network",
+    "scenarioId": "req-network-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-11T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise only approved network paths can reach the reporting warehouse",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-validator",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-no-synthetic-uat-current",
+    "requirementId": "req-no-synthetic",
+    "scenarioId": "req-no-synthetic-main",
+    "environmentId": "uat",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-12T05:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.3.0-rc1",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.9.0",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.4.1",
+      "svc-regulatory-reporting": "3.2.0-rc2",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise production configuration contains no synthetic data providers",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  },
+  {
+    "id": "exec-req-no-synthetic-production-current",
+    "requirementId": "req-no-synthetic",
+    "scenarioId": "req-no-synthetic-main",
+    "environmentId": "production",
+    "snapshotId": "current",
+    "status": "passed",
+    "executedAt": "2026-10-12T06:20:00Z",
+    "serviceVersions": {
+      "svc-trade-intake": "3.7.2",
+      "svc-trade-validator": "4.2.0",
+      "svc-reference-data": "5.1.0",
+      "svc-trade-enricher": "2.8.4",
+      "svc-ledger-posting": "6.4.1",
+      "job-reporting-etl": "2.3.8",
+      "svc-regulatory-reporting": "3.1.5",
+      "svc-notification": "1.9.0"
+    },
+    "steps": [
+      {
+        "title": "Exercise production configuration contains no synthetic data providers",
+        "status": "passed",
+        "actual": "Observed result matched the recorded expectation.",
+        "componentId": "svc-trade-enricher",
+        "evidenceReferenceId": "src-tests"
+      }
+    ],
+    "evidenceReferences": [
+      "src-tests",
+      "src-deploy"
+    ]
+  }
+]

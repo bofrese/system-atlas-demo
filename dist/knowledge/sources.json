@@ -1,0 +1,142 @@
+[
+  {
+    "id": "src-git-intake",
+    "sourceType": "Git",
+    "sourceName": "trade-intake repository",
+    "sourceLocation": "mock://git/trade-intake/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:48:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-validator",
+    "sourceType": "Git",
+    "sourceName": "trade-validator repository",
+    "sourceLocation": "mock://git/trade-validator/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:46:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-reference",
+    "sourceType": "Git",
+    "sourceName": "reference-data repository",
+    "sourceLocation": "mock://git/reference-data/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:42:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-enricher",
+    "sourceType": "Git",
+    "sourceName": "trade-enricher repository",
+    "sourceLocation": "mock://git/trade-enricher/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T02:11:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "stale"
+  },
+  {
+    "id": "src-git-ledger",
+    "sourceType": "Git",
+    "sourceName": "ledger-posting repository",
+    "sourceLocation": "mock://git/ledger-posting/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:52:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-etl",
+    "sourceType": "Git",
+    "sourceName": "reporting-etl repository",
+    "sourceLocation": "mock://git/reporting-etl/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:45:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-reporting",
+    "sourceType": "Git",
+    "sourceName": "regulatory-reporting repository",
+    "sourceLocation": "mock://git/regulatory-reporting/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:41:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-git-notification",
+    "sourceType": "Git",
+    "sourceName": "notification repository",
+    "sourceLocation": "mock://git/notification/refs/main",
+    "collector": "Repository metadata collector",
+    "harvestedAt": "2026-10-13T07:39:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-deploy",
+    "sourceType": "Deployment manifests",
+    "sourceName": "Northstar deployment inventory",
+    "sourceLocation": "mock://deployments/northstar/current",
+    "collector": "Deployment manifest collector",
+    "harvestedAt": "2026-10-13T07:55:00Z",
+    "expectedRefreshInterval": "15 minutes",
+    "freshness": "current"
+  },
+  {
+    "id": "src-openapi",
+    "sourceType": "OpenAPI",
+    "sourceName": "Published API contracts",
+    "sourceLocation": "mock://contracts/openapi/catalogue",
+    "collector": "OpenAPI collector",
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-db",
+    "sourceType": "Database catalogue",
+    "sourceName": "Northstar schema catalogue",
+    "sourceLocation": "mock://database/catalogue/northstar",
+    "collector": "Schema catalogue collector",
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "freshness": "current"
+  },
+  {
+    "id": "src-tests",
+    "sourceType": "Executable-test output",
+    "sourceName": "Northstar acceptance results",
+    "sourceLocation": "mock://ci/acceptance-tests/2026-10-13",
+    "collector": "Test evidence collector",
+    "harvestedAt": "2026-10-13T07:25:00Z",
+    "expectedRefreshInterval": "30 minutes",
+    "freshness": "current"
+  },
+  {
+    "id": "src-network",
+    "sourceType": "Infrastructure-as-code",
+    "sourceName": "Northstar network policy",
+    "sourceLocation": "mock://iac/network/northstar.tf",
+    "collector": "Network policy collector",
+    "harvestedAt": "2026-10-13T07:50:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "freshness": "current"
+  },
+  {
+    "id": "src-curated",
+    "sourceType": "Curated description",
+    "sourceName": "Northstar capability catalogue",
+    "sourceLocation": "mock://catalogue/northstar/capabilities",
+    "collector": "Manual stewardship",
+    "harvestedAt": "2026-10-12T15:00:00Z",
+    "expectedRefreshInterval": "30 days",
+    "freshness": "current"
+  }
+]
