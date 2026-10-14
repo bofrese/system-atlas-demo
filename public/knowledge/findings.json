@@ -3,8 +3,8 @@
     "id": "finding-etl-drift",
     "type": "deployment-drift",
     "severity": "attention",
-    "title": "UAT Reporting ETL is one release ahead",
-    "summary": "UAT runs 2.4.1 while Production runs 2.3.8.",
+    "title": "The user-acceptance data loader is one release ahead",
+    "summary": "User Acceptance Test runs Reporting Data Loader 2.4.1 while Production runs 2.3.8.",
     "affectedEntityIds": [
       "job-reporting-etl"
     ],
@@ -16,11 +16,11 @@
     "environmentId": "uat",
     "detectionRule": "Compare deployed versions across selected environments.",
     "supportingFacts": [
-      "UAT deployment manifest reports 2.4.1.",
-      "Production deployment manifest reports 2.3.8."
+      "The User Acceptance Test deployment manifest reports 2.4.1.",
+      "The Production deployment manifest reports 2.3.8."
     ],
     "correlatedChanges": [
-      "The UAT exposure scenario last passed on 2.3.8."
+      "The user-acceptance exposure scenario last passed on 2.3.8."
     ],
     "counterEvidence": [
       "2.4.1 is running in Pre-production."
@@ -28,7 +28,7 @@
     "unknowns": [
       "Whether the version difference contributed to the failure."
     ],
-    "recommendedInspection": "Compare the ETL release manifest and failed execution step.",
+    "recommendedInspection": "Compare the data-loader release manifest and failed execution step.",
     "sourceReferences": [
       "src-deploy",
       "src-tests"
@@ -40,8 +40,8 @@
     "id": "finding-uat-failure",
     "type": "execution-failure",
     "severity": "failure",
-    "title": "Latest FX exposure scenario failed in UAT",
-    "summary": "The run stopped at the warehouse-load step at 06:44 UTC.",
+    "title": "The latest exposure-report scenario failed in User Acceptance Test",
+    "summary": "The run stopped while loading the reporting database at 06:44 UTC. Exposure means the amount of money at risk.",
     "affectedEntityIds": [
       "job-reporting-etl",
       "svc-regulatory-reporting"
@@ -54,12 +54,12 @@
     "detectionRule": "Latest main-scenario execution is failed.",
     "supportingFacts": [
       "Steps 1–4 passed.",
-      "Warehouse load timed out.",
-      "Final report assertion did not run."
+      "The reporting-database load timed out.",
+      "The final report check did not run."
     ],
     "correlatedChanges": [
-      "Reporting ETL changed from 2.3.8 to 2.4.1.",
-      "The expected UAT database route is absent."
+      "Reporting Data Loader changed from 2.3.8 to 2.4.1.",
+      "The expected user-acceptance database route is absent."
     ],
     "counterEvidence": [
       "The same scenario passed in Production under older versions."
@@ -67,7 +67,7 @@
     "unknowns": [
       "The direct cause of the timeout."
     ],
-    "recommendedInspection": "Inspect route policy, ETL deployment and execution evidence together.",
+    "recommendedInspection": "Inspect route policy, data-loader deployment and execution evidence together.",
     "sourceReferences": [
       "src-tests",
       "src-deploy",
@@ -80,8 +80,8 @@
     "id": "finding-route",
     "type": "network-gap",
     "severity": "failure",
-    "title": "Expected UAT warehouse route is absent",
-    "summary": "No harvested allow rule connects Reporting ETL to the warehouse on TCP 5432.",
+    "title": "The expected user-acceptance database route is absent",
+    "summary": "No harvested allow rule connects the Reporting Data Loader to the database network port (TCP 5432).",
     "affectedEntityIds": [
       "job-reporting-etl",
       "db-warehouse"
@@ -94,11 +94,11 @@
     "environmentId": "uat",
     "detectionRule": "Expected deployment dependency has no matching allow rule.",
     "supportingFacts": [
-      "The ETL manifest declares a warehouse dependency.",
-      "No UAT allow rule was harvested."
+      "The data-loader deployment definition declares a reporting-database dependency.",
+      "No matching User Acceptance Test allow rule was harvested."
     ],
     "correlatedChanges": [
-      "The latest UAT scenario failed during warehouse load."
+      "The latest user-acceptance scenario failed during the database load."
     ],
     "counterEvidence": [
       "Matching rules exist in Pre-production and Production."
@@ -106,7 +106,7 @@
     "unknowns": [
       "Whether an unharvested or dynamic route exists."
     ],
-    "recommendedInspection": "Review the UAT infrastructure plan and collector scope.",
+    "recommendedInspection": "Review the User Acceptance Test infrastructure plan and collector scope.",
     "sourceReferences": [
       "src-network",
       "src-deploy"
@@ -133,7 +133,7 @@
       "Expected interval: 1 hour."
     ],
     "correlatedChanges": [
-      "Trade Enricher is ahead of Production in UAT."
+      "Trade Enricher is ahead of Production in User Acceptance Test."
     ],
     "counterEvidence": [
       "Deployment evidence is current."
@@ -152,8 +152,8 @@
     "id": "finding-legacy-toggle",
     "type": "unused-configuration",
     "severity": "attention",
-    "title": "legacy-netting-mode has no current manifest references",
-    "summary": "The toggle remains configured in three environments but no current deployment manifest references it.",
+    "title": "legacy-netting-mode has no current deployment references",
+    "summary": "This feature switch remains configured in three environments, but no current component definition refers to it. Netting means offsetting amounts.",
     "affectedEntityIds": [
       "toggle-legacy-netting"
     ],
@@ -163,11 +163,11 @@
     ],
     "detectionRule": "Configuration exists while reference count across current manifests is zero.",
     "supportingFacts": [
-      "Present in Development, Test and UAT.",
-      "No current manifest reference was harvested."
+      "Present in Development, Test and User Acceptance Test.",
+      "No current deployment-manifest reference was harvested."
     ],
     "correlatedChanges": [
-      "new-netting-model is enabled only in UAT."
+      "new-netting-model is enabled only in User Acceptance Test."
     ],
     "counterEvidence": [
       "Historical releases referenced the legacy toggle."

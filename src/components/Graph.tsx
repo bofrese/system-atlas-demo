@@ -3,7 +3,7 @@ import cytoscape, { type Core } from 'cytoscape'
 import { Maximize2, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react'
 import { getEntity, relationships, services } from '../data/atlas'
 
-const category = (serviceType: string) => serviceType.includes('REST') ? 'API' : serviceType.includes('Worker') ? 'Worker' : serviceType.includes('pipeline') ? 'Pipeline' : 'Service'
+const category = (serviceType: string) => serviceType.includes('HTTP') ? 'HTTP service' : serviceType.includes('Worker') ? 'Worker' : serviceType.includes('pipeline') ? 'Pipeline' : 'Service'
 
 export function SystemGraph({ focusId, compact=false, depth=1, direction='both', visibleTypes, onSelect }: { focusId?: string; compact?: boolean; depth?: number; direction?: 'upstream'|'downstream'|'both'; visibleTypes?: string[]; onSelect?: (id:string)=>void }) {
   const container = useRef<HTMLDivElement>(null)
@@ -35,8 +35,8 @@ export function SystemGraph({ focusId, compact=false, depth=1, direction='both',
   const action=(type:'in'|'out'|'fit'|'reset')=>{ const cy=cyRef.current;if(!cy)return;if(type==='in')cy.zoom({level:cy.zoom()*1.2,renderedPosition:{x:cy.width()/2,y:cy.height()/2}});if(type==='out')cy.zoom({level:cy.zoom()*.8,renderedPosition:{x:cy.width()/2,y:cy.height()/2}});if(type==='fit')cy.fit(undefined,24);if(type==='reset'){cy.elements().removeClass('selected faded path');cy.fit(undefined,24);setSelected('')} }
   return <div className={`graph-frame ${compact?'compact':''}`}>
     <div ref={container} className="graph-canvas" role="img" aria-label="Directed service dependency map"/>
-    <div ref={minimap} className="graph-minimap" aria-label="Graph minimap"/>
+    <div ref={minimap} className="graph-minimap" aria-hidden="true"/>
     <div className="graph-toolbar"><button onClick={()=>action('in')} aria-label="Zoom in"><ZoomIn size={16}/></button><button onClick={()=>action('out')} aria-label="Zoom out"><ZoomOut size={16}/></button><button onClick={()=>action('fit')} aria-label="Fit graph"><Maximize2 size={16}/></button><button onClick={()=>action('reset')} aria-label="Reset graph"><RotateCcw size={16}/></button></div>
-    <div className="graph-legend"><span><i className="legend-service"/> Service or job</span><span><i className="legend-edge"/> calls</span>{selected&&<strong>{getEntity(selected)?.name}</strong>}</div>
+    <div className="graph-legend"><span><i className="legend-service"/> Deployable component</span><span><i className="legend-edge"/> calls</span>{selected&&<strong>{getEntity(selected)?.name}</strong>}</div>
   </div>
 }

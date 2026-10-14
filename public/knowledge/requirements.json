@@ -1,9 +1,9 @@
 [
   {
     "id": "req-valid-fx",
-    "title": "A valid FX trade is accepted",
+    "title": "A valid foreign-exchange transaction is accepted",
     "capability": "Trade capture",
-    "narrative": "Demonstrates how Northstar records evidence that a valid FX trade is accepted.",
+    "narrative": "Demonstrates how Northstar records evidence that a valid foreign-exchange transaction is accepted.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -20,7 +20,7 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise a valid fx trade is accepted",
+            "title": "Exercise a valid foreign-exchange transaction is accepted",
             "expected": "The expected business outcome is recorded",
             "componentId": "svc-trade-intake",
             "operation": "Executable scenario step",
@@ -66,9 +66,9 @@
   },
   {
     "id": "req-invalid-lei",
-    "title": "A trade with an invalid Legal Entity Identifier is rejected",
+    "title": "A transaction with an invalid Legal Entity Identifier is rejected",
     "capability": "Trade validation",
-    "narrative": "Demonstrates how Northstar records evidence that a trade with an invalid Legal Entity Identifier is rejected.",
+    "narrative": "Demonstrates how Northstar records evidence that a transaction with an invalid Legal Entity Identifier is rejected.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -85,7 +85,7 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+            "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
             "expected": "The expected business outcome is recorded",
             "componentId": "svc-trade-validator",
             "operation": "Executable scenario step",
@@ -131,9 +131,9 @@
   },
   {
     "id": "req-idempotent",
-    "title": "Duplicate trade submission is idempotent",
+    "title": "Submitting the same transaction twice does not create a duplicate",
     "capability": "Trade capture",
-    "narrative": "Demonstrates how Northstar records evidence that duplicate trade submission is idempotent.",
+    "narrative": "Demonstrates how Northstar records evidence that submitting the same transaction twice does not create a duplicate.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -150,7 +150,7 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise duplicate trade submission is idempotent",
+            "title": "Exercise submitting the same transaction twice does not create a duplicate",
             "expected": "The expected business outcome is recorded",
             "componentId": "svc-trade-enricher",
             "operation": "Executable scenario step",
@@ -196,9 +196,9 @@
   },
   {
     "id": "req-enrichment",
-    "title": "An accepted FX trade is enriched with the applicable exchange rate",
+    "title": "An accepted foreign-exchange transaction receives the applicable exchange rate",
     "capability": "Trade enrichment",
-    "narrative": "Demonstrates how Northstar records evidence that an accepted FX trade is enriched with the applicable exchange rate.",
+    "narrative": "Demonstrates how Northstar records evidence that an accepted foreign-exchange transaction receives the applicable exchange rate.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -215,7 +215,7 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+            "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
             "expected": "The expected business outcome is recorded",
             "componentId": "svc-ledger-posting",
             "operation": "Executable scenario step",
@@ -261,9 +261,9 @@
   },
   {
     "id": "req-balanced-journal",
-    "title": "Accepted trades create balanced journal entries",
+    "title": "Accepted transactions create balanced accounting entries",
     "capability": "Accounting",
-    "narrative": "Demonstrates how Northstar records evidence that accepted trades create balanced journal entries.",
+    "narrative": "Demonstrates how Northstar records evidence that accepted transactions create balanced accounting entries.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -280,7 +280,7 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise accepted trades create balanced journal entries",
+            "title": "Exercise accepted transactions create balanced accounting entries",
             "expected": "The expected business outcome is recorded",
             "componentId": "job-reporting-etl",
             "operation": "Executable scenario step",
@@ -326,9 +326,9 @@
   },
   {
     "id": "req-exposure",
-    "title": "Accepted FX trades appear in the daily exposure report",
+    "title": "Accepted foreign-exchange transactions appear in the daily exposure report",
     "capability": "Regulatory reporting",
-    "narrative": "Demonstrates how Northstar records evidence that accepted FX trades appear in the daily exposure report.",
+    "narrative": "Demonstrates how Northstar records evidence that accepted foreign-exchange transactions appear in the daily exposure report.",
     "preconditions": [
       "The selected environment has a known deployment inventory",
       "Test data is explicitly identified as synthetic"
@@ -345,8 +345,8 @@
         "kind": "main",
         "steps": [
           {
-            "title": "Submit a valid FX trade",
-            "expected": "The trade is accepted",
+            "title": "Submit a valid foreign-exchange transaction",
+            "expected": "The transaction is accepted",
             "componentId": "svc-trade-intake",
             "operation": "POST /trades",
             "dataIds": [

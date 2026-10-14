@@ -4,14 +4,14 @@
     "type": "service",
     "name": "Trade Intake",
     "slug": "svc-trade-intake",
-    "serviceType": "REST service",
+    "serviceType": "HTTP API service",
     "ownerTeamId": "team-trade",
-    "responsibility": "Receives new and amended trades",
-    "description": "Receives new and amended trades",
+    "responsibility": "Receives new and amended financial transactions",
+    "description": "Receives new and amended financial transactions",
     "repositoryId": "repo-trade-intake",
     "capability": "Trade capture",
     "tags": [
-      "rest service",
+      "http api service",
       "trade-capture"
     ],
     "sourceReferences": [
@@ -50,14 +50,14 @@
     "type": "service",
     "name": "Reference Data",
     "slug": "svc-reference-data",
-    "serviceType": "REST service",
+    "serviceType": "HTTP API service",
     "ownerTeamId": "team-finance",
-    "responsibility": "Supplies instruments, currencies and counterparties",
-    "description": "Supplies instruments, currencies and counterparties",
+    "responsibility": "Supplies financial products, currencies and trading parties",
+    "description": "Supplies financial products, currencies and trading parties",
     "repositoryId": "repo-reference-data",
     "capability": "Reference data",
     "tags": [
-      "rest service",
+      "http api service",
       "reference-data"
     ],
     "sourceReferences": [
@@ -117,16 +117,16 @@
   {
     "id": "job-reporting-etl",
     "type": "service",
-    "name": "Reporting ETL",
+    "name": "Reporting Data Loader (ETL)",
     "slug": "job-reporting-etl",
-    "serviceType": "Scheduled pipeline",
+    "serviceType": "Scheduled data pipeline",
     "ownerTeamId": "team-reporting",
-    "responsibility": "Loads reporting facts and dimensions",
-    "description": "Loads reporting facts and dimensions",
+    "responsibility": "Loads reporting records into the reporting database",
+    "description": "Loads reporting records into the reporting database",
     "repositoryId": "repo-reporting-etl",
     "capability": "Regulatory reporting",
     "tags": [
-      "scheduled pipeline",
+      "scheduled data pipeline",
       "regulatory-reporting"
     ],
     "sourceReferences": [
@@ -142,14 +142,14 @@
     "type": "service",
     "name": "Regulatory Reporting",
     "slug": "svc-regulatory-reporting",
-    "serviceType": "REST and batch service",
+    "serviceType": "HTTP API and batch service",
     "ownerTeamId": "team-reporting",
-    "responsibility": "Produces daily exposure reports",
-    "description": "Produces daily exposure reports",
+    "responsibility": "Produces daily reports of money at risk",
+    "description": "Produces daily reports of money at risk",
     "repositoryId": "repo-regulatory-reporting",
     "capability": "Regulatory reporting",
     "tags": [
-      "rest and batch service",
+      "http api and batch service",
       "regulatory-reporting"
     ],
     "sourceReferences": [
@@ -206,7 +206,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-trades",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -233,7 +233,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-put-trade",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -260,7 +260,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-trade",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -287,7 +287,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-validate",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -314,7 +314,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-instrument",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -341,7 +341,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-rate",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -368,7 +368,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-counterparty",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -395,7 +395,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-journal",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -422,7 +422,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-journal",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -449,7 +449,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-etl",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -476,7 +476,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-etl",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -503,7 +503,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-exposure",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "No request body",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -530,7 +530,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-report",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -558,7 +558,7 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-notification",
-    "auth": "Mutual TLS with service identity",
+    "auth": "Mutual TLS: each calling service proves its identity",
     "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
     "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
   },
@@ -939,7 +939,7 @@
       "amount_base"
     ],
     "classification": "Confidential business data",
-    "lineage": "Derived from Reporting ETL",
+    "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
       "db-warehouse"
@@ -971,7 +971,7 @@
       "net_exposure"
     ],
     "classification": "Confidential business data",
-    "lineage": "Derived from Reporting ETL",
+    "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
       "db-warehouse"
@@ -1003,7 +1003,7 @@
       "valid_from"
     ],
     "classification": "Confidential business data",
-    "lineage": "Derived from Reporting ETL",
+    "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
       "db-warehouse"
@@ -1035,7 +1035,7 @@
       "currency"
     ],
     "classification": "Confidential business data",
-    "lineage": "Derived from Reporting ETL",
+    "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
       "db-warehouse"
@@ -1068,7 +1068,7 @@
       "completed_at"
     ],
     "classification": "Internal operational data",
-    "lineage": "Derived from Reporting ETL",
+    "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
       "db-warehouse"
@@ -1442,7 +1442,7 @@
     "type": "repository",
     "name": "reporting-etl",
     "slug": "repo-reporting-etl",
-    "description": "Source repository for Reporting ETL.",
+    "description": "Source repository for Reporting Data Loader (ETL).",
     "ownerTeamId": "team-reporting",
     "tags": [
       "repository"

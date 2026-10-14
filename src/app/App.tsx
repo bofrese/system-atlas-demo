@@ -31,9 +31,9 @@ function AtlasProvider({ children }: { children: ReactNode }) {
 }
 
 const navigation = [
-  ['/', 'Overview', CircleGauge], ['/map','System map',Network], ['/requirements','Requirements',BookOpenCheck], ['/services','Services',Boxes],
-  ['/environments','Environments',Activity], ['/compare?left=uat&right=production','Compare',GitCompareArrows], ['/impact/api-post-trades','Impact explorer',Sparkles],
-  ['/hygiene','Hygiene',ShieldCheck], ['/data','Data catalogue',Database], ['/network','Network rules',ArrowLeftRight], ['/sources','Sources',TestTube2], ['/machine-access','Machine access',Bot],
+  { label:'Explore', items:[['/', 'Overview', CircleGauge], ['/map','System map',Network], ['/requirements','Requirements',BookOpenCheck], ['/services','Software components',Boxes], ['/environments','Environments',Activity]] },
+  { label:'Investigate', items:[['/compare?left=uat&right=production','Environment comparison',GitCompareArrows], ['/impact/api-post-trades','Impact explorer',Sparkles], ['/hygiene','Cleanup candidates',ShieldCheck]] },
+  { label:'Evidence', items:[['/data','Data & tables',Database], ['/network','Network policy',ArrowLeftRight], ['/sources','Evidence sources',TestTube2], ['/machine-access','Machine exports',Bot]] },
 ] as const
 
 function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -80,18 +80,18 @@ function Shell() {
   const navigate = useNavigate()
   useEffect(() => { const onKey=(e:KeyboardEvent)=>{ if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setSearchOpen(true)} }; window.addEventListener('keydown',onKey); return()=>window.removeEventListener('keydown',onKey) },[])
   return <div className={`app-shell ${navOpen?'':'nav-collapsed'} ${evidence?'drawer-open':''}`}>
-    <aside className="sidebar">
+    <aside className="sidebar" aria-label="Application navigation">
       <div className="brand"><div className="brand-mark" aria-hidden="true"><span/><span/><span/></div>{navOpen&&<div><strong>System Atlas</strong><small>Northstar</small></div>}<button className="nav-toggle" onClick={()=>setNavOpen(x=>!x)} aria-label={navOpen?'Collapse navigation':'Expand navigation'}>{navOpen?<ChevronLeft size={17}/>:<Menu size={18}/>}</button></div>
-      <nav aria-label="Primary navigation">{navigation.map(([url,label,Icon])=><NavLink key={url} to={url} end={url==='/' } className={({isActive})=>isActive||location.pathname===url.split('?')[0]?'active':''} title={navOpen?undefined:label}><Icon size={18}/>{navOpen&&<span>{label}</span>}</NavLink>)}</nav>
-      <div className="sidebar-foot">{navOpen&&<><span className="demo-dot"/> <span>Fictional demonstration data</span></>}</div>
+      <nav aria-label="Primary navigation">{navigation.map(group=><div className="nav-group" key={group.label}>{navOpen&&<span className="nav-group-label">{group.label}</span>}{group.items.map(([url,label,Icon])=><NavLink key={url} to={url} end={url==='/' } className={({isActive})=>isActive||location.pathname===url.split('?')[0]?'active':''} title={label} aria-label={label}><Icon size={18}/>{navOpen&&<span>{label}</span>}</NavLink>)}</div>)}</nav>
+      <div className="sidebar-foot" aria-label="Fictional demonstration data" title="Fictional demonstration data"><span className="demo-dot"/><span className="demo-label-full">Fictional demonstration data</span><span className="demo-label-short">Demo</span></div>
     </aside>
     <header className="topbar">
-      <button className="global-search" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search the atlas</span><kbd><Command size={12}/> K</kbd></button>
+      <button className="global-search" title="Search System Atlas" onClick={()=>setSearchOpen(true)}><Search size={17}/><span>Search the atlas</span><kbd><Command size={12}/> K</kbd></button>
       <div className="topbar-controls">
-        <label><span>Lens</span><select aria-label="Lens" value={role} onChange={e=>setRole(e.target.value as RoleLens)}><option value="all">All perspectives</option><option value="developer">Developer</option><option value="tester">Tester</option><option value="operations">Operations</option></select></label>
-        <label><span>Environment</span><select aria-label="Environment" value={environment} onChange={e=>setEnvironment(e.target.value)}>{environments.map(x=><option key={x.id} value={x.id}>{x.shortName}</option>)}</select></label>
+        <label><span>View as</span><select aria-label="View as role" value={role} onChange={e=>setRole(e.target.value as RoleLens)}><option value="all">All perspectives</option><option value="developer">Developer</option><option value="tester">Tester</option><option value="operations">Operations</option></select></label>
+        <label><span>Environment</span><select aria-label="Environment" value={environment} onChange={e=>setEnvironment(e.target.value)}>{environments.map(x=><option key={x.id} value={x.id}>{x.shortName} · {x.name}</option>)}</select></label>
         <label><span>Snapshot</span><select aria-label="Snapshot" value={snapshot} onChange={e=>setSnapshot(e.target.value)}>{snapshots.map(x=><option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
-        <button className="demo-button" onClick={()=>navigate('/presenter')}><Sparkles size={16}/> Guided demo</button>
+        <button className="demo-button" aria-label="Open guided demo" onClick={()=>navigate('/presenter')}><Sparkles size={16}/> Guided demo</button>
       </div>
     </header>
     <main id="main-content">

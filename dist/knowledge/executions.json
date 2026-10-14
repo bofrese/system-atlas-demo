@@ -19,7 +19,7 @@
     },
     "steps": [
       {
-        "title": "Submit a valid FX trade",
+        "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -87,7 +87,7 @@
     },
     "steps": [
       {
-        "title": "Submit a valid FX trade",
+        "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -155,7 +155,7 @@
     },
     "steps": [
       {
-        "title": "Submit a valid FX trade",
+        "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -222,7 +222,7 @@
     },
     "steps": [
       {
-        "title": "Submit a valid FX trade",
+        "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -289,7 +289,7 @@
     },
     "steps": [
       {
-        "title": "Exercise a valid fx trade is accepted",
+        "title": "Exercise a valid foreign-exchange transaction is accepted",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -321,7 +321,7 @@
     },
     "steps": [
       {
-        "title": "Exercise a valid fx trade is accepted",
+        "title": "Exercise a valid foreign-exchange transaction is accepted",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-intake",
@@ -353,7 +353,7 @@
     },
     "steps": [
       {
-        "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+        "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-validator",
@@ -385,7 +385,7 @@
     },
     "steps": [
       {
-        "title": "Exercise a trade with an invalid legal entity identifier is rejected",
+        "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-validator",
@@ -417,7 +417,7 @@
     },
     "steps": [
       {
-        "title": "Exercise duplicate trade submission is idempotent",
+        "title": "Exercise submitting the same transaction twice does not create a duplicate",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-enricher",
@@ -449,7 +449,7 @@
     },
     "steps": [
       {
-        "title": "Exercise duplicate trade submission is idempotent",
+        "title": "Exercise submitting the same transaction twice does not create a duplicate",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-trade-enricher",
@@ -481,7 +481,7 @@
     },
     "steps": [
       {
-        "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+        "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-ledger-posting",
@@ -513,7 +513,7 @@
     },
     "steps": [
       {
-        "title": "Exercise an accepted fx trade is enriched with the applicable exchange rate",
+        "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "svc-ledger-posting",
@@ -545,7 +545,7 @@
     },
     "steps": [
       {
-        "title": "Exercise accepted trades create balanced journal entries",
+        "title": "Exercise accepted transactions create balanced accounting entries",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "job-reporting-etl",
@@ -577,7 +577,7 @@
     },
     "steps": [
       {
-        "title": "Exercise accepted trades create balanced journal entries",
+        "title": "Exercise accepted transactions create balanced accounting entries",
         "status": "passed",
         "actual": "Observed result matched the recorded expectation.",
         "componentId": "job-reporting-etl",

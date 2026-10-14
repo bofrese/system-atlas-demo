@@ -52,7 +52,7 @@
     "type": "CALLS",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "svc-ledger-posting",
-    "description": "Reporting ETL calls Ledger Posting.",
+    "description": "Reporting Data Loader (ETL) calls Ledger Posting.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -64,7 +64,7 @@
     "type": "CALLS",
     "fromEntityId": "svc-regulatory-reporting",
     "toEntityId": "job-reporting-etl",
-    "description": "Regulatory Reporting calls Reporting ETL.",
+    "description": "Regulatory Reporting calls Reporting Data Loader (ETL).",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -196,7 +196,7 @@
     "type": "PROVIDES",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "api-post-etl",
-    "description": "Reporting ETL provides POST /jobs/reporting-etl/runs.",
+    "description": "Reporting Data Loader (ETL) provides POST /jobs/reporting-etl/runs.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -208,7 +208,7 @@
     "type": "PROVIDES",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "api-get-etl",
-    "description": "Reporting ETL provides GET /jobs/reporting-etl/runs/{id}.",
+    "description": "Reporting Data Loader (ETL) provides GET /jobs/reporting-etl/runs/{id}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -316,7 +316,7 @@
     "type": "IMPLEMENTED_BY",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "repo-reporting-etl",
-    "description": "Reporting ETL is built from reporting-etl.",
+    "description": "Reporting Data Loader (ETL) is built from reporting-etl.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -508,7 +508,7 @@
     "type": "READS_FROM",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-journal-entry",
-    "description": "Reporting ETL reads journal_entry.",
+    "description": "Reporting Data Loader (ETL) reads journal_entry.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -532,7 +532,7 @@
     "type": "READS_FROM",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-journal-line",
-    "description": "Reporting ETL reads journal_line.",
+    "description": "Reporting Data Loader (ETL) reads journal_line.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -568,7 +568,7 @@
     "type": "WRITES_TO",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-fact-trade",
-    "description": "Reporting ETL writes fact_trade.",
+    "description": "Reporting Data Loader (ETL) writes fact_trade.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -592,7 +592,7 @@
     "type": "WRITES_TO",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-fact-exposure",
-    "description": "Reporting ETL writes fact_exposure.",
+    "description": "Reporting Data Loader (ETL) writes fact_exposure.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -616,7 +616,7 @@
     "type": "WRITES_TO",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-dim-counterparty",
-    "description": "Reporting ETL writes dim_counterparty.",
+    "description": "Reporting Data Loader (ETL) writes dim_counterparty.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -640,7 +640,7 @@
     "type": "WRITES_TO",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-dim-instrument",
-    "description": "Reporting ETL writes dim_instrument.",
+    "description": "Reporting Data Loader (ETL) writes dim_instrument.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -664,7 +664,7 @@
     "type": "WRITES_TO",
     "fromEntityId": "job-reporting-etl",
     "toEntityId": "tbl-load-audit",
-    "description": "Reporting ETL writes load_audit.",
+    "description": "Reporting Data Loader (ETL) writes load_audit.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
