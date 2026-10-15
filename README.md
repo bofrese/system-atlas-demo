@@ -53,7 +53,9 @@ The interface provides several views over the same typed records:
 - an overview of evidence-backed findings;
 - a component dependency map;
 - business requirements traced through technical steps to execution evidence;
-- component, API, environment, database and table detail pages;
+- component, environment, and fully documented API and database-table pages;
+- API field references and table relationship diagrams;
+- tester-focused requirement pages with expected and observed step results;
 - environment comparison across versions, commits, configuration and network paths;
 - an impact explorer that presents hypotheses rather than certainty;
 - a hygiene queue for possible obsolete configuration;

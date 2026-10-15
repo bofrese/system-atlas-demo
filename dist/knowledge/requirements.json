@@ -3,10 +3,15 @@
     "id": "req-valid-fx",
     "title": "A valid foreign-exchange transaction is accepted",
     "capability": "Trade capture",
-    "narrative": "Demonstrates how Northstar records evidence that a valid foreign-exchange transaction is accepted.",
+    "narrative": "Northstar must show that a valid foreign-exchange transaction is accepted.",
+    "acceptanceCriteria": [
+      "The system records the transaction once.",
+      "The system returns an acceptance event identifier."
+    ],
+    "businessRisk": "A lost transaction can produce an incomplete report.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-trade",
     "sourceReferences": [
@@ -68,10 +73,15 @@
     "id": "req-invalid-lei",
     "title": "A transaction with an invalid Legal Entity Identifier is rejected",
     "capability": "Trade validation",
-    "narrative": "Demonstrates how Northstar records evidence that a transaction with an invalid Legal Entity Identifier is rejected.",
+    "narrative": "Northstar must show that a transaction with an invalid Legal Entity Identifier is rejected.",
+    "acceptanceCriteria": [
+      "The system rejects an invalid Legal Entity Identifier.",
+      "The result identifies the field and validation rule."
+    ],
+    "businessRisk": "An invalid trading party can enter regulated processing.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-trade",
     "sourceReferences": [
@@ -133,10 +143,15 @@
     "id": "req-idempotent",
     "title": "Submitting the same transaction twice does not create a duplicate",
     "capability": "Trade capture",
-    "narrative": "Demonstrates how Northstar records evidence that submitting the same transaction twice does not create a duplicate.",
+    "narrative": "Northstar must show that submitting the same transaction twice does not create a duplicate.",
+    "acceptanceCriteria": [
+      "A repeated transaction identifier does not create a second transaction.",
+      "The response returns the stored transaction identifier."
+    ],
+    "businessRisk": "A duplicate can overstate accounting and exposure.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-trade",
     "sourceReferences": [
@@ -198,10 +213,15 @@
     "id": "req-enrichment",
     "title": "An accepted foreign-exchange transaction receives the applicable exchange rate",
     "capability": "Trade enrichment",
-    "narrative": "Demonstrates how Northstar records evidence that an accepted foreign-exchange transaction receives the applicable exchange rate.",
+    "narrative": "Northstar must show that an accepted foreign-exchange transaction receives the applicable exchange rate.",
+    "acceptanceCriteria": [
+      "The system applies the rate for the transaction date.",
+      "The evidence identifies the rate source."
+    ],
+    "businessRisk": "An incorrect rate can change accounting and exposure values.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-trade",
     "sourceReferences": [
@@ -263,10 +283,15 @@
     "id": "req-balanced-journal",
     "title": "Accepted transactions create balanced accounting entries",
     "capability": "Accounting",
-    "narrative": "Demonstrates how Northstar records evidence that accepted transactions create balanced accounting entries.",
+    "narrative": "Northstar must show that accepted transactions create balanced accounting entries.",
+    "acceptanceCriteria": [
+      "Total debit equals total credit.",
+      "The journal links to the source transaction."
+    ],
+    "businessRisk": "An unbalanced journal can corrupt financial records.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -328,10 +353,16 @@
     "id": "req-exposure",
     "title": "Accepted foreign-exchange transactions appear in the daily exposure report",
     "capability": "Regulatory reporting",
-    "narrative": "Demonstrates how Northstar records evidence that accepted foreign-exchange transactions appear in the daily exposure report.",
+    "narrative": "Northstar must show that accepted foreign-exchange transactions appear in the daily exposure report.",
+    "acceptanceCriteria": [
+      "An accepted transaction appears in the report for its business date.",
+      "The reported amount uses the applicable exchange rate.",
+      "The evidence links the report row to the source transaction."
+    ],
+    "businessRisk": "A missing transaction can understate the amount of money at risk.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -386,7 +417,7 @@
           },
           {
             "title": "Load the Reporting Warehouse",
-            "expected": "Reporting facts and dimensions are committed",
+            "expected": "The reporting rows are stored in the warehouse",
             "componentId": "job-reporting-etl",
             "operation": "Warehouse load",
             "dataIds": [
@@ -443,10 +474,15 @@
     "id": "req-cutoff",
     "title": "The daily exposure report is available before its cutoff",
     "capability": "Regulatory reporting",
-    "narrative": "Demonstrates how Northstar records evidence that the daily exposure report is available before its cutoff.",
+    "narrative": "Northstar must show that the daily exposure report is available before its cutoff.",
+    "acceptanceCriteria": [
+      "The report is available before 06:00 UTC.",
+      "The completion time is recorded."
+    ],
+    "businessRisk": "A late report can miss a regulatory submission window.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -508,10 +544,15 @@
     "id": "req-correction",
     "title": "Corrected trades are reflected in the next report",
     "capability": "Regulatory reporting",
-    "narrative": "Demonstrates how Northstar records evidence that corrected trades are reflected in the next report.",
+    "narrative": "Northstar must show that corrected trades are reflected in the next report.",
+    "acceptanceCriteria": [
+      "The next report uses the latest accepted transaction version.",
+      "The prior value does not remain in the total."
+    ],
+    "businessRisk": "A stale value can make the report incorrect.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -573,10 +614,15 @@
     "id": "req-network",
     "title": "Only approved network paths can reach the Reporting Warehouse",
     "capability": "Platform controls",
-    "narrative": "Demonstrates how Northstar records evidence that only approved network paths can reach the Reporting Warehouse.",
+    "narrative": "Northstar must show that only approved network paths can reach the Reporting Warehouse.",
+    "acceptanceCriteria": [
+      "Only recorded source and destination pairs can connect.",
+      "The rule identifies the environment, protocol and port."
+    ],
+    "businessRisk": "An unapproved path can expose regulated data.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-platform",
     "sourceReferences": [
@@ -638,10 +684,15 @@
     "id": "req-no-synthetic",
     "title": "Production configuration contains no synthetic data providers",
     "capability": "Platform controls",
-    "narrative": "Demonstrates how Northstar records evidence that production configuration contains no synthetic data providers.",
+    "narrative": "Northstar must show that production configuration contains no synthetic data providers.",
+    "acceptanceCriteria": [
+      "Production uses the authoritative reference-data provider.",
+      "No enabled setting names a synthetic provider."
+    ],
+    "businessRisk": "Synthetic data can make a live report invalid.",
     "preconditions": [
-      "The selected environment has a known deployment inventory",
-      "Test data is explicitly identified as synthetic"
+      "The deployment inventory exists for the selected environment.",
+      "The test data is marked as synthetic."
     ],
     "ownerTeamId": "team-platform",
     "sourceReferences": [

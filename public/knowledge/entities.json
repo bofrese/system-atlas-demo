@@ -194,7 +194,7 @@
     "consumers": [
       "portal-trade-entry"
     ],
-    "description": "Accept a new trade for processing.",
+    "description": "Accept one new financial transaction for processing.",
     "ownerTeamId": "team-trade",
     "tags": [
       "api",
@@ -206,9 +206,110 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-trades",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Idempotent by tradeId. A repeated identifier must not create a second transaction.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Unique transaction identifier.",
+        "example": "TRD-DEMO-1042",
+        "constraints": "1–40 characters."
+      },
+      {
+        "name": "productType",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Product category.",
+        "example": "FX_FORWARD",
+        "constraints": "FX_FORWARD exchanges currencies on a future date. FX_SPOT settles promptly."
+      },
+      {
+        "name": "currencyPair",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Two ISO currency codes.",
+        "example": "EUR/USD",
+        "constraints": "Format: AAA/BBB."
+      },
+      {
+        "name": "notional",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Transaction amount in the base currency.",
+        "example": "1250000.00",
+        "constraints": "Must be greater than 0."
+      },
+      {
+        "name": "tradeDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Business date of the transaction.",
+        "example": "2026-10-13",
+        "constraints": "ISO 8601 date."
+      },
+      {
+        "name": "counterpartyId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Identifier of the other trading party.",
+        "example": "CP-0042"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Accepted transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Initial processing state.",
+        "example": "accepted",
+        "constraints": "Value: accepted."
+      },
+      {
+        "name": "evidenceId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Identifier for the recorded acceptance event.",
+        "example": "evt-demo-1042"
+      }
+    ],
+    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"productType\": \"FX_FORWARD\",\n  \"currencyPair\": \"EUR/USD\",\n  \"notional\": 1250000.00,\n  \"tradeDate\": \"2026-10-13\",\n  \"counterpartyId\": \"CP-0042\"\n}",
+    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"status\": \"accepted\",\n  \"evidenceId\": \"evt-demo-1042\"\n}"
   },
   {
     "id": "api-put-trade",
@@ -221,7 +322,7 @@
     "consumers": [
       "portal-trade-entry"
     ],
-    "description": "Submit a corrected trade version.",
+    "description": "Replace the current version of one transaction.",
     "ownerTeamId": "team-trade",
     "tags": [
       "api",
@@ -233,9 +334,89 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-put-trade",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Idempotent for the same tradeId and version.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Transaction to amend.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "version",
+        "location": "body",
+        "dataType": "integer",
+        "required": true,
+        "description": "Current version used for concurrency control.",
+        "example": "3",
+        "constraints": "Must equal the stored version."
+      },
+      {
+        "name": "notional",
+        "location": "body",
+        "dataType": "decimal",
+        "required": false,
+        "description": "Replacement transaction amount.",
+        "example": "1275000.00"
+      },
+      {
+        "name": "tradeDate",
+        "location": "body",
+        "dataType": "date",
+        "required": false,
+        "description": "Replacement business date.",
+        "example": "2026-10-13"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Amended transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "version",
+        "location": "body",
+        "dataType": "integer",
+        "required": true,
+        "description": "New stored version.",
+        "example": "4"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Processing state after the amendment.",
+        "example": "accepted"
+      }
+    ],
+    "requestExample": "{\n  \"version\": 3,\n  \"notional\": 1275000.00,\n  \"tradeDate\": \"2026-10-13\"\n}",
+    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"accepted\"\n}"
   },
   {
     "id": "api-get-trade",
@@ -248,7 +429,7 @@
     "consumers": [
       "svc-notification"
     ],
-    "description": "Return processing state for one trade.",
+    "description": "Return the current processing state of one transaction.",
     "ownerTeamId": "team-trade",
     "tags": [
       "api",
@@ -260,9 +441,73 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-trade",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Transaction to retrieve.",
+        "example": "TRD-DEMO-1042"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "version",
+        "location": "body",
+        "dataType": "integer",
+        "required": true,
+        "description": "Current stored version.",
+        "example": "4"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Current processing state.",
+        "example": "enriched",
+        "constraints": "Allowed values: accepted, rejected, enriched, posted."
+      },
+      {
+        "name": "updatedAt",
+        "location": "body",
+        "dataType": "date-time",
+        "required": true,
+        "description": "Time of the latest state change.",
+        "example": "2026-10-13T06:18:42Z"
+      }
+    ],
+    "requestExample": "Path: tradeId=TRD-DEMO-1042",
+    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"enriched\",\n  \"updatedAt\": \"2026-10-13T06:18:42Z\"\n}"
   },
   {
     "id": "api-post-validate",
@@ -275,7 +520,7 @@
     "consumers": [
       "svc-trade-intake"
     ],
-    "description": "Apply compliance and business validation.",
+    "description": "Check one transaction against business and compliance rules.",
     "ownerTeamId": "team-trade",
     "tags": [
       "api",
@@ -287,9 +532,90 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-validate",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Not guaranteed. Use the documented business identifier to prevent duplicates.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "legalEntityId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Legal Entity Identifier of the trading party.",
+        "example": "5493001KJTIIGC8Y1R12",
+        "constraints": "20 characters."
+      },
+      {
+        "name": "productType",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Product category.",
+        "example": "FX_FORWARD",
+        "constraints": "FX_FORWARD exchanges currencies on a future date. FX_SPOT settles promptly."
+      },
+      {
+        "name": "notional",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Transaction amount.",
+        "example": "1250000.00"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "valid",
+        "location": "body",
+        "dataType": "boolean",
+        "required": true,
+        "description": "States whether all checks passed.",
+        "example": "true"
+      },
+      {
+        "name": "errors",
+        "location": "body",
+        "dataType": "array",
+        "required": true,
+        "description": "Validation errors. The array is empty when valid is true.",
+        "example": "[]"
+      },
+      {
+        "name": "ruleSetVersion",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Version of the applied validation rules.",
+        "example": "2026.10"
+      }
+    ],
+    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"legalEntityId\": \"5493001KJTIIGC8Y1R12\",\n  \"productType\": \"FX_FORWARD\",\n  \"notional\": 1250000.00\n}",
+    "responseExample": "{\n  \"valid\": true,\n  \"errors\": [],\n  \"ruleSetVersion\": \"2026.10\"\n}"
   },
   {
     "id": "api-get-instrument",
@@ -302,7 +628,7 @@
     "consumers": [
       "svc-trade-enricher"
     ],
-    "description": "Resolve instrument reference data.",
+    "description": "Return the controlled data for one financial product.",
     "ownerTeamId": "team-finance",
     "tags": [
       "api",
@@ -314,9 +640,72 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-instrument",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "id",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Instrument identifier.",
+        "example": "INS-9182"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "instrumentId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Instrument identifier.",
+        "example": "INS-9182"
+      },
+      {
+        "name": "assetClass",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "High-level product class.",
+        "example": "Foreign exchange"
+      },
+      {
+        "name": "currency",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "ISO settlement currency.",
+        "example": "EUR"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Reference-data state.",
+        "example": "active"
+      }
+    ],
+    "requestExample": "Path: id=INS-9182",
+    "responseExample": "{\n  \"instrumentId\": \"INS-9182\",\n  \"assetClass\": \"Foreign exchange\",\n  \"currency\": \"EUR\",\n  \"status\": \"active\"\n}"
   },
   {
     "id": "api-get-rate",
@@ -329,7 +718,7 @@
     "consumers": [
       "svc-trade-enricher"
     ],
-    "description": "Return the applicable exchange rate.",
+    "description": "Return the exchange rate for one currency pair and date.",
     "ownerTeamId": "team-finance",
     "tags": [
       "api",
@@ -341,9 +730,82 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-rate",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "pair",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Currency pair.",
+        "example": "EUR-USD",
+        "constraints": "Format: AAA-BBB."
+      },
+      {
+        "name": "date",
+        "location": "query",
+        "dataType": "date",
+        "required": true,
+        "description": "Date for the rate.",
+        "example": "2026-10-13",
+        "constraints": "ISO 8601 date."
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "currencyPair",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Currency pair.",
+        "example": "EUR/USD"
+      },
+      {
+        "name": "rate",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Units of quote currency for one base-currency unit.",
+        "example": "1.0842"
+      },
+      {
+        "name": "effectiveDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Date on which the rate applies.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "source",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Provider of the rate.",
+        "example": "synthetic-demo"
+      }
+    ],
+    "requestExample": "Path: pair=EUR-USD\nQuery: date=2026-10-13",
+    "responseExample": "{\n  \"currencyPair\": \"EUR/USD\",\n  \"rate\": 1.0842,\n  \"effectiveDate\": \"2026-10-13\",\n  \"source\": \"synthetic-demo\"\n}"
   },
   {
     "id": "api-get-counterparty",
@@ -356,7 +818,7 @@
     "consumers": [
       "svc-trade-enricher"
     ],
-    "description": "Resolve counterparty data.",
+    "description": "Return the controlled data for one trading party.",
     "ownerTeamId": "team-finance",
     "tags": [
       "api",
@@ -368,9 +830,72 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-counterparty",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "id",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Trading-party identifier.",
+        "example": "CP-0042"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "counterpartyId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Trading-party identifier.",
+        "example": "CP-0042"
+      },
+      {
+        "name": "legalEntityId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Registered Legal Entity Identifier.",
+        "example": "5493001KJTIIGC8Y1R12"
+      },
+      {
+        "name": "name",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Registered name.",
+        "example": "Example Bank A/S"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Approval state.",
+        "example": "approved"
+      }
+    ],
+    "requestExample": "Path: id=CP-0042",
+    "responseExample": "{\n  \"counterpartyId\": \"CP-0042\",\n  \"legalEntityId\": \"5493001KJTIIGC8Y1R12\",\n  \"name\": \"Example Bank A/S\",\n  \"status\": \"approved\"\n}"
   },
   {
     "id": "api-post-journal",
@@ -383,7 +908,7 @@
     "consumers": [
       "svc-trade-enricher"
     ],
-    "description": "Create a balanced journal entry.",
+    "description": "Create balanced accounting entries for one transaction.",
     "ownerTeamId": "team-finance",
     "tags": [
       "api",
@@ -395,9 +920,89 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-journal",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Idempotent by tradeId. One transaction can create one active journal.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Source transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "postingDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Accounting date.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "lines",
+        "location": "body",
+        "dataType": "array",
+        "required": true,
+        "description": "Debit and credit lines.",
+        "example": "[{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]",
+        "constraints": "At least two lines. Total debit must equal total credit."
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "journalId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Created journal identifier.",
+        "example": "JRN-88014"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Posting result.",
+        "example": "posted"
+      },
+      {
+        "name": "debitTotal",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Sum of debit values.",
+        "example": "1250000.00"
+      },
+      {
+        "name": "creditTotal",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Sum of credit values.",
+        "example": "1250000.00"
+      }
+    ],
+    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"postingDate\": \"2026-10-13\",\n  \"lines\": [{\"account\":\"1100\",\"debit\":1250000,\"credit\":0},{\"account\":\"2100\",\"debit\":0,\"credit\":1250000}]\n}",
+    "responseExample": "{\n  \"journalId\": \"JRN-88014\",\n  \"status\": \"posted\",\n  \"debitTotal\": 1250000.00,\n  \"creditTotal\": 1250000.00\n}"
   },
   {
     "id": "api-get-journal",
@@ -410,7 +1015,7 @@
     "consumers": [
       "job-reporting-etl"
     ],
-    "description": "Retrieve journal entries for a trade.",
+    "description": "Return accounting entries for one transaction.",
     "ownerTeamId": "team-finance",
     "tags": [
       "api",
@@ -422,9 +1027,72 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-journal",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "tradeId",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Source transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "journalId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Journal identifier.",
+        "example": "JRN-88014"
+      },
+      {
+        "name": "tradeId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Source transaction identifier.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "postingDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Accounting date.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "lines",
+        "location": "body",
+        "dataType": "array",
+        "required": true,
+        "description": "Debit and credit lines.",
+        "example": "[{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]"
+      }
+    ],
+    "requestExample": "Path: tradeId=TRD-DEMO-1042",
+    "responseExample": "{\n  \"journalId\": \"JRN-88014\",\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"postingDate\": \"2026-10-13\",\n  \"lines\": [{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]\n}"
   },
   {
     "id": "api-post-etl",
@@ -437,7 +1105,7 @@
     "consumers": [
       "scheduler"
     ],
-    "description": "Start a reporting warehouse load.",
+    "description": "Start one reporting-database load.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -449,9 +1117,81 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-etl",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "One active run is allowed for each businessDate and mode.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "businessDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Date to load.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "mode",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Load mode.",
+        "example": "incremental",
+        "constraints": "Allowed values: incremental, full."
+      },
+      {
+        "name": "requestedBy",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Scheduler or operator identity.",
+        "example": "daily-scheduler"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "runId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Load-run identifier.",
+        "example": "LOAD-20261013-01"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Initial run state.",
+        "example": "queued"
+      },
+      {
+        "name": "queuedAt",
+        "location": "body",
+        "dataType": "date-time",
+        "required": true,
+        "description": "Time at which the run entered the queue.",
+        "example": "2026-10-13T06:00:02Z"
+      }
+    ],
+    "requestExample": "{\n  \"businessDate\": \"2026-10-13\",\n  \"mode\": \"incremental\",\n  \"requestedBy\": \"daily-scheduler\"\n}",
+    "responseExample": "{\n  \"runId\": \"LOAD-20261013-01\",\n  \"status\": \"queued\",\n  \"queuedAt\": \"2026-10-13T06:00:02Z\"\n}"
   },
   {
     "id": "api-get-etl",
@@ -464,7 +1204,7 @@
     "consumers": [
       "svc-regulatory-reporting"
     ],
-    "description": "Return warehouse-load status.",
+    "description": "Return the state of one reporting-database load.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -476,9 +1216,89 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-etl",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "id",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Load-run identifier.",
+        "example": "LOAD-20261013-01"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "runId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Load-run identifier.",
+        "example": "LOAD-20261013-01"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Current run state.",
+        "example": "failed",
+        "constraints": "Allowed values: queued, running, completed, failed."
+      },
+      {
+        "name": "rowsLoaded",
+        "location": "body",
+        "dataType": "integer",
+        "required": true,
+        "description": "Number of rows committed.",
+        "example": "0"
+      },
+      {
+        "name": "startedAt",
+        "location": "body",
+        "dataType": "date-time",
+        "required": false,
+        "description": "Time at which processing started.",
+        "example": "2026-10-13T06:00:04Z"
+      },
+      {
+        "name": "completedAt",
+        "location": "body",
+        "dataType": "date-time",
+        "required": false,
+        "description": "Time at which processing ended.",
+        "example": "2026-10-13T06:44:00Z"
+      },
+      {
+        "name": "errorCode",
+        "location": "body",
+        "dataType": "string",
+        "required": false,
+        "description": "Stable failure code.",
+        "example": "WAREHOUSE_CONNECTION_TIMEOUT"
+      }
+    ],
+    "requestExample": "Path: id=LOAD-20261013-01",
+    "responseExample": "{\n  \"runId\": \"LOAD-20261013-01\",\n  \"status\": \"failed\",\n  \"rowsLoaded\": 0,\n  \"startedAt\": \"2026-10-13T06:00:04Z\",\n  \"completedAt\": \"2026-10-13T06:44:00Z\",\n  \"errorCode\": \"WAREHOUSE_CONNECTION_TIMEOUT\"\n}"
   },
   {
     "id": "api-get-exposure",
@@ -491,7 +1311,7 @@
     "consumers": [
       "portal-regulatory"
     ],
-    "description": "Return the daily exposure report.",
+    "description": "Return the report of money at risk for one date.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -503,9 +1323,80 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-get-exposure",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "No request body",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Safe and idempotent.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "date",
+        "location": "path",
+        "dataType": "date",
+        "required": true,
+        "description": "Report date.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "counterpartyId",
+        "location": "query",
+        "dataType": "string",
+        "required": false,
+        "description": "Limit the report to one trading party.",
+        "example": "CP-0042"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "reportDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Report date.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "currency",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Currency used for totals.",
+        "example": "EUR"
+      },
+      {
+        "name": "totalExposure",
+        "location": "body",
+        "dataType": "decimal",
+        "required": true,
+        "description": "Total money at risk.",
+        "example": "4372500.00"
+      },
+      {
+        "name": "positions",
+        "location": "body",
+        "dataType": "array",
+        "required": true,
+        "description": "Exposure rows by trading party and product.",
+        "example": "[{\"counterpartyId\":\"CP-0042\",\"netExposure\":1250000}]"
+      }
+    ],
+    "requestExample": "Path: date=2026-10-13\nQuery: counterpartyId=CP-0042",
+    "responseExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"currency\": \"EUR\",\n  \"totalExposure\": 4372500.00,\n  \"positions\": [{\"counterpartyId\":\"CP-0042\",\"netExposure\":1250000.00}]\n}"
   },
   {
     "id": "api-post-report",
@@ -518,7 +1409,7 @@
     "consumers": [
       "scheduler"
     ],
-    "description": "Generate daily regulatory exposure output.",
+    "description": "Start one exposure-report run.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -530,9 +1421,81 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-report",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "One report run is allowed for each reportDate and format.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "reportDate",
+        "location": "body",
+        "dataType": "date",
+        "required": true,
+        "description": "Date to report.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "format",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Output format.",
+        "example": "XBRL",
+        "constraints": "Allowed values: XBRL, CSV."
+      },
+      {
+        "name": "requestedBy",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Scheduler or operator identity.",
+        "example": "daily-scheduler"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "reportRunId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Report-run identifier.",
+        "example": "RPT-20261013-01"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Initial run state.",
+        "example": "queued"
+      },
+      {
+        "name": "outputUri",
+        "location": "body",
+        "dataType": "string",
+        "required": false,
+        "description": "Location of the output after completion.",
+        "example": "mock://reports/2026-10-13/exposure.xbrl"
+      }
+    ],
+    "requestExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"format\": \"XBRL\",\n  \"requestedBy\": \"daily-scheduler\"\n}",
+    "responseExample": "{\n  \"reportRunId\": \"RPT-20261013-01\",\n  \"status\": \"queued\"\n}"
   },
   {
     "id": "api-post-notification",
@@ -546,7 +1509,7 @@
       "svc-regulatory-reporting",
       "svc-trade-intake"
     ],
-    "description": "Send a processing or report notification.",
+    "description": "Send one processing or report notification.",
     "ownerTeamId": "team-platform",
     "tags": [
       "api",
@@ -558,9 +1521,80 @@
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
     "pageUrl": "/apis/api-post-notification",
-    "auth": "Mutual TLS: each calling service proves its identity",
-    "requestExample": "{ \"tradeId\": \"TRD-DEMO-1042\", \"currency\": \"EUR\" }",
-    "responseExample": "{ \"status\": \"accepted\", \"evidenceId\": \"evt-demo-1042\" }"
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Not guaranteed. The caller must prevent duplicate messages.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "recipient",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Target address or system identifier.",
+        "example": "ops@example.invalid"
+      },
+      {
+        "name": "template",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Message template identifier.",
+        "example": "report-ready"
+      },
+      {
+        "name": "subjectId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Transaction or report identifier.",
+        "example": "RPT-20261013-01"
+      },
+      {
+        "name": "variables",
+        "location": "body",
+        "dataType": "object",
+        "required": false,
+        "description": "Values used by the message template.",
+        "example": "{\"reportDate\":\"2026-10-13\"}"
+      }
+    ],
+    "responseFields": [
+      {
+        "name": "notificationId",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Notification identifier.",
+        "example": "NTF-44102"
+      },
+      {
+        "name": "status",
+        "location": "body",
+        "dataType": "string",
+        "required": true,
+        "description": "Delivery state.",
+        "example": "queued"
+      }
+    ],
+    "requestExample": "{\n  \"recipient\": \"ops@example.invalid\",\n  \"template\": \"report-ready\",\n  \"subjectId\": \"RPT-20261013-01\",\n  \"variables\": {\"reportDate\":\"2026-10-13\"}\n}",
+    "responseExample": "{\n  \"notificationId\": \"NTF-44102\",\n  \"status\": \"queued\"\n}"
   },
   {
     "id": "db-trade",
@@ -618,7 +1652,7 @@
     "type": "database",
     "name": "Reporting Warehouse",
     "slug": "db-warehouse",
-    "description": "Regulatory facts and dimensions",
+    "description": "Reporting data organised by transaction, trading party, and financial product",
     "ownerTeamId": "team-reporting",
     "tags": [
       "database"
@@ -636,7 +1670,7 @@
     "name": "trade",
     "slug": "tbl-trade",
     "databaseId": "db-trade",
-    "description": "Current accepted trade state",
+    "description": "Stores the current state of each accepted transaction",
     "ownerTeamId": "team-trade",
     "readers": [
       "svc-trade-enricher"
@@ -645,12 +1679,41 @@
       "svc-trade-intake"
     ],
     "columns": [
-      "trade_id",
-      "version",
-      "product_type",
-      "status"
+      {
+        "name": "trade_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial transaction.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "version",
+        "dataType": "integer",
+        "nullable": false,
+        "description": "Increases when the transaction changes.",
+        "example": "4"
+      },
+      {
+        "name": "product_type",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "description": "Identifies the product category.",
+        "example": "FX_FORWARD"
+      },
+      {
+        "name": "status",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "description": "Stores the current processing state.",
+        "example": "accepted"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for the current version of each transaction.",
+    "updatePattern": "Insert on acceptance. Update on amendment or state change.",
+    "retention": "7 years after the transaction closes.",
+    "relationships": [],
     "lineage": "Derived from Trade Intake",
     "tags": [
       "table",
@@ -669,7 +1732,7 @@
     "name": "trade_event",
     "slug": "tbl-trade-event",
     "databaseId": "db-trade",
-    "description": "Immutable processing events",
+    "description": "Stores a permanent record of each transaction state change",
     "ownerTeamId": "team-trade",
     "readers": [
       "svc-trade-validator",
@@ -679,12 +1742,50 @@
       "svc-trade-intake"
     ],
     "columns": [
-      "event_id",
-      "trade_id",
-      "event_type",
-      "occurred_at"
+      {
+        "name": "event_id",
+        "dataType": "uuid",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one processing event.",
+        "example": "7a938d8e-9d35-4cf1-93d7-77aa4c7151a1"
+      },
+      {
+        "name": "trade_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial transaction.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "event_type",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "description": "Identifies the recorded state change.",
+        "example": "TRADE_ACCEPTED"
+      },
+      {
+        "name": "occurred_at",
+        "dataType": "timestamp with time zone",
+        "nullable": false,
+        "description": "Stores the time of the event.",
+        "example": "2026-10-13T06:18:42Z"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each transaction state change.",
+    "updatePattern": "Append only.",
+    "retention": "7 years.",
+    "relationships": [
+      {
+        "column": "trade_id",
+        "targetTableId": "tbl-trade",
+        "targetColumn": "trade_id",
+        "cardinality": "Many events to one transaction",
+        "description": "Each event belongs to one transaction."
+      }
+    ],
     "lineage": "Derived from Trade Intake",
     "tags": [
       "table",
@@ -703,7 +1804,7 @@
     "name": "validation_error",
     "slug": "tbl-validation-error",
     "databaseId": "db-trade",
-    "description": "Current validation failures",
+    "description": "Stores the current validation errors for each transaction",
     "ownerTeamId": "team-trade",
     "readers": [
       "svc-trade-intake"
@@ -712,12 +1813,49 @@
       "svc-trade-validator"
     ],
     "columns": [
-      "trade_id",
-      "code",
-      "field",
-      "message"
+      {
+        "name": "trade_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial transaction.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "code",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "description": "Stable validation error code.",
+        "example": "INVALID_LEI"
+      },
+      {
+        "name": "field",
+        "dataType": "varchar(80)",
+        "nullable": true,
+        "description": "Identifies the input field that failed.",
+        "example": "legalEntityId"
+      },
+      {
+        "name": "message",
+        "dataType": "varchar(500)",
+        "nullable": false,
+        "description": "Explains the validation error.",
+        "example": "Legal Entity Identifier must contain 20 characters."
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each active validation error.",
+    "updatePattern": "Replace errors when validation runs again.",
+    "retention": "90 days after resolution.",
+    "relationships": [
+      {
+        "column": "trade_id",
+        "targetTableId": "tbl-trade",
+        "targetColumn": "trade_id",
+        "cardinality": "Many errors to one transaction",
+        "description": "Each error belongs to one transaction."
+      }
+    ],
     "lineage": "Derived from Trade Validator",
     "tags": [
       "table",
@@ -736,16 +1874,47 @@
     "name": "validation_error_legacy",
     "slug": "tbl-validation-error-legacy",
     "databaseId": "db-trade",
-    "description": "Legacy validation error archive",
+    "description": "Stores validation errors from the retired validator",
     "ownerTeamId": "team-trade",
     "readers": [],
     "writers": [],
     "columns": [
-      "trade_id",
-      "legacy_code",
-      "created_at"
+      {
+        "name": "trade_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial transaction.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "legacy_code",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "description": "Stores the code used by the retired validator.",
+        "example": "E142"
+      },
+      {
+        "name": "created_at",
+        "dataType": "timestamp with time zone",
+        "nullable": false,
+        "description": "Stores the time when the row was created.",
+        "example": "2025-04-18T09:24:12Z"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each archived legacy error.",
+    "updatePattern": "Read-only archive.",
+    "retention": "Until the archive owner approves removal.",
+    "relationships": [
+      {
+        "column": "trade_id",
+        "targetTableId": "tbl-trade",
+        "targetColumn": "trade_id",
+        "cardinality": "Many archived errors to one transaction",
+        "description": "The catalogue records the logical link. It does not record a database constraint."
+      }
+    ],
     "lineage": "No producing deployment mapped",
     "tags": [
       "table",
@@ -764,7 +1933,7 @@
     "name": "instrument",
     "slug": "tbl-instrument",
     "databaseId": "db-reference",
-    "description": "Tradable instrument definitions",
+    "description": "Stores the controlled definition of each financial product",
     "ownerTeamId": "team-finance",
     "readers": [
       "svc-reference-data"
@@ -773,11 +1942,34 @@
       "svc-reference-data"
     ],
     "columns": [
-      "instrument_id",
-      "asset_class",
-      "currency"
+      {
+        "name": "instrument_id",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial product.",
+        "example": "INS-9182"
+      },
+      {
+        "name": "asset_class",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "description": "Groups the financial product.",
+        "example": "Foreign exchange"
+      },
+      {
+        "name": "currency",
+        "dataType": "char(3)",
+        "nullable": false,
+        "description": "Stores an ISO 4217 currency code.",
+        "example": "EUR"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each financial product.",
+    "updatePattern": "Update when controlled reference data changes.",
+    "retention": "Current row plus 7 years of audit history.",
+    "relationships": [],
     "lineage": "Derived from Reference Data",
     "tags": [
       "table",
@@ -796,7 +1988,7 @@
     "name": "counterparty",
     "slug": "tbl-counterparty",
     "databaseId": "db-reference",
-    "description": "Approved counterparty reference",
+    "description": "Stores the approved identity of each trading party",
     "ownerTeamId": "team-finance",
     "readers": [
       "svc-reference-data"
@@ -805,11 +1997,35 @@
       "svc-reference-data"
     ],
     "columns": [
-      "counterparty_id",
-      "lei",
-      "status"
+      {
+        "name": "counterparty_id",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one trading party.",
+        "example": "CP-0042"
+      },
+      {
+        "name": "lei",
+        "dataType": "char(20)",
+        "nullable": false,
+        "key": "Unique key",
+        "description": "Stores the registered Legal Entity Identifier.",
+        "example": "5493001KJTIIGC8Y1R12"
+      },
+      {
+        "name": "status",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "description": "Stores the current processing state.",
+        "example": "accepted"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each approved trading party.",
+    "updatePattern": "Update when controlled reference data changes.",
+    "retention": "Current row plus 7 years of audit history.",
+    "relationships": [],
     "lineage": "Derived from Reference Data",
     "tags": [
       "table",
@@ -828,7 +2044,7 @@
     "name": "exchange_rate",
     "slug": "tbl-exchange-rate",
     "databaseId": "db-reference",
-    "description": "Daily currency conversion rates",
+    "description": "Stores one daily conversion rate for each currency pair",
     "ownerTeamId": "team-finance",
     "readers": [
       "svc-reference-data"
@@ -837,11 +2053,35 @@
       "svc-reference-data"
     ],
     "columns": [
-      "currency_pair",
-      "rate",
-      "effective_date"
+      {
+        "name": "currency_pair",
+        "dataType": "char(7)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies the base and quote currencies.",
+        "example": "EUR/USD"
+      },
+      {
+        "name": "rate",
+        "dataType": "numeric(18,8)",
+        "nullable": false,
+        "description": "Stores units of quote currency for one base-currency unit.",
+        "example": "1.08420000"
+      },
+      {
+        "name": "effective_date",
+        "dataType": "date",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Stores the date on which the rate applies.",
+        "example": "2026-10-13"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each currency pair and effective date.",
+    "updatePattern": "Insert once each business day.",
+    "retention": "10 years.",
+    "relationships": [],
     "lineage": "Derived from Reference Data",
     "tags": [
       "table",
@@ -860,7 +2100,7 @@
     "name": "journal_entry",
     "slug": "tbl-journal-entry",
     "databaseId": "db-ledger",
-    "description": "Journal headers by source trade",
+    "description": "Stores one accounting journal for each processed transaction",
     "ownerTeamId": "team-finance",
     "readers": [
       "job-reporting-etl"
@@ -869,11 +2109,35 @@
       "svc-ledger-posting"
     ],
     "columns": [
-      "journal_id",
-      "trade_id",
-      "posting_date"
+      {
+        "name": "journal_id",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one accounting journal.",
+        "example": "JRN-88014"
+      },
+      {
+        "name": "trade_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one financial transaction.",
+        "example": "TRD-DEMO-1042"
+      },
+      {
+        "name": "posting_date",
+        "dataType": "date",
+        "nullable": false,
+        "description": "Stores the accounting date.",
+        "example": "2026-10-13"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each accounting journal.",
+    "updatePattern": "Insert when Ledger Posting accepts a journal.",
+    "retention": "10 years.",
+    "relationships": [],
     "lineage": "Derived from Ledger Posting",
     "tags": [
       "table",
@@ -892,7 +2156,7 @@
     "name": "journal_line",
     "slug": "tbl-journal-line",
     "databaseId": "db-ledger",
-    "description": "Debit and credit journal lines",
+    "description": "Stores the debit and credit lines of each journal",
     "ownerTeamId": "team-finance",
     "readers": [
       "job-reporting-etl"
@@ -901,12 +2165,49 @@
       "svc-ledger-posting"
     ],
     "columns": [
-      "journal_id",
-      "account",
-      "debit",
-      "credit"
+      {
+        "name": "journal_id",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one accounting journal.",
+        "example": "JRN-88014"
+      },
+      {
+        "name": "account",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "description": "Identifies one ledger account.",
+        "example": "1100"
+      },
+      {
+        "name": "debit",
+        "dataType": "numeric(20,2)",
+        "nullable": false,
+        "description": "Stores the debit amount. Zero means that the line is not a debit.",
+        "example": "1250000.00"
+      },
+      {
+        "name": "credit",
+        "dataType": "numeric(20,2)",
+        "nullable": false,
+        "description": "Stores the credit amount. Zero means that the line is not a credit.",
+        "example": "0.00"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each debit or credit line.",
+    "updatePattern": "Insert with its journal. Do not update after posting.",
+    "retention": "10 years.",
+    "relationships": [
+      {
+        "column": "journal_id",
+        "targetTableId": "tbl-journal-entry",
+        "targetColumn": "journal_id",
+        "cardinality": "Many lines to one journal",
+        "description": "Each line belongs to one journal."
+      }
+    ],
     "lineage": "Derived from Ledger Posting",
     "tags": [
       "table",
@@ -925,7 +2226,7 @@
     "name": "fact_trade",
     "slug": "tbl-fact-trade",
     "databaseId": "db-warehouse",
-    "description": "Reporting grain for accepted trades",
+    "description": "Stores accepted transactions in the reporting format",
     "ownerTeamId": "team-reporting",
     "readers": [
       "svc-regulatory-reporting"
@@ -934,11 +2235,43 @@
       "job-reporting-etl"
     ],
     "columns": [
-      "trade_key",
-      "counterparty_key",
-      "amount_base"
+      {
+        "name": "trade_key",
+        "dataType": "bigint",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Warehouse key for one accepted transaction.",
+        "example": "8800142"
+      },
+      {
+        "name": "counterparty_key",
+        "dataType": "bigint",
+        "nullable": false,
+        "key": "Foreign key",
+        "description": "Links the row to dim_counterparty.",
+        "example": "42018"
+      },
+      {
+        "name": "amount_base",
+        "dataType": "numeric(20,2)",
+        "nullable": false,
+        "description": "Stores the transaction amount in the reporting currency.",
+        "example": "1250000.00"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each accepted transaction and report date.",
+    "updatePattern": "Load during the daily warehouse run.",
+    "retention": "10 years.",
+    "relationships": [
+      {
+        "column": "counterparty_key",
+        "targetTableId": "tbl-dim-counterparty",
+        "targetColumn": "counterparty_key",
+        "cardinality": "Many facts to one trading party",
+        "description": "The key identifies the reporting version of the trading party."
+      }
+    ],
     "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
@@ -957,7 +2290,7 @@
     "name": "fact_exposure",
     "slug": "tbl-fact-exposure",
     "databaseId": "db-warehouse",
-    "description": "Aggregated regulatory exposure",
+    "description": "Stores the amount of money at risk for each trading party and report date",
     "ownerTeamId": "team-reporting",
     "readers": [
       "svc-regulatory-reporting"
@@ -966,11 +2299,43 @@
       "job-reporting-etl"
     ],
     "columns": [
-      "report_date",
-      "counterparty_key",
-      "net_exposure"
+      {
+        "name": "report_date",
+        "dataType": "date",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Stores the date of the exposure report.",
+        "example": "2026-10-13"
+      },
+      {
+        "name": "counterparty_key",
+        "dataType": "bigint",
+        "nullable": false,
+        "key": "Foreign key",
+        "description": "Links the row to dim_counterparty.",
+        "example": "42018"
+      },
+      {
+        "name": "net_exposure",
+        "dataType": "numeric(20,2)",
+        "nullable": false,
+        "description": "Stores the money at risk after offsetting eligible amounts.",
+        "example": "4372500.00"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each report date and trading party.",
+    "updatePattern": "Rebuild during the daily warehouse run.",
+    "retention": "10 years.",
+    "relationships": [
+      {
+        "column": "counterparty_key",
+        "targetTableId": "tbl-dim-counterparty",
+        "targetColumn": "counterparty_key",
+        "cardinality": "Many exposure rows to one trading party",
+        "description": "The key identifies the reporting version of the trading party."
+      }
+    ],
     "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
@@ -989,7 +2354,7 @@
     "name": "dim_counterparty",
     "slug": "tbl-dim-counterparty",
     "databaseId": "db-warehouse",
-    "description": "Reporting counterparty dimension",
+    "description": "Stores reporting versions of each trading party",
     "ownerTeamId": "team-reporting",
     "readers": [
       "svc-regulatory-reporting"
@@ -998,11 +2363,35 @@
       "job-reporting-etl"
     ],
     "columns": [
-      "counterparty_key",
-      "lei",
-      "valid_from"
+      {
+        "name": "counterparty_key",
+        "dataType": "bigint",
+        "nullable": false,
+        "key": "Foreign key",
+        "description": "Links the row to dim_counterparty.",
+        "example": "42018"
+      },
+      {
+        "name": "lei",
+        "dataType": "char(20)",
+        "nullable": false,
+        "key": "Unique key",
+        "description": "Stores the registered Legal Entity Identifier.",
+        "example": "5493001KJTIIGC8Y1R12"
+      },
+      {
+        "name": "valid_from",
+        "dataType": "timestamp with time zone",
+        "nullable": false,
+        "description": "Stores the time from which the dimension row is valid.",
+        "example": "2026-01-01T00:00:00Z"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each reporting version of a trading party.",
+    "updatePattern": "Insert a new row when controlled data changes.",
+    "retention": "10 years after the last valid date.",
+    "relationships": [],
     "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
@@ -1021,7 +2410,7 @@
     "name": "dim_instrument",
     "slug": "tbl-dim-instrument",
     "databaseId": "db-warehouse",
-    "description": "Reporting instrument dimension",
+    "description": "Stores reporting versions of each financial product",
     "ownerTeamId": "team-reporting",
     "readers": [
       "svc-regulatory-reporting"
@@ -1030,11 +2419,34 @@
       "job-reporting-etl"
     ],
     "columns": [
-      "instrument_key",
-      "asset_class",
-      "currency"
+      {
+        "name": "instrument_key",
+        "dataType": "bigint",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Warehouse key for one financial product.",
+        "example": "9182"
+      },
+      {
+        "name": "asset_class",
+        "dataType": "varchar(30)",
+        "nullable": false,
+        "description": "Groups the financial product.",
+        "example": "Foreign exchange"
+      },
+      {
+        "name": "currency",
+        "dataType": "char(3)",
+        "nullable": false,
+        "description": "Stores an ISO 4217 currency code.",
+        "example": "EUR"
+      }
     ],
     "classification": "Confidential business data",
+    "grain": "One row for each reporting version of a financial product.",
+    "updatePattern": "Insert a new row when controlled data changes.",
+    "retention": "10 years after the last valid date.",
+    "relationships": [],
     "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",
@@ -1053,7 +2465,7 @@
     "name": "load_audit",
     "slug": "tbl-load-audit",
     "databaseId": "db-warehouse",
-    "description": "Warehouse load evidence and reconciliation",
+    "description": "Stores the result and row count of each warehouse load",
     "ownerTeamId": "team-reporting",
     "readers": [
       "svc-regulatory-reporting"
@@ -1062,12 +2474,41 @@
       "job-reporting-etl"
     ],
     "columns": [
-      "run_id",
-      "row_count",
-      "status",
-      "completed_at"
+      {
+        "name": "run_id",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Identifies one warehouse load.",
+        "example": "LOAD-20261013-01"
+      },
+      {
+        "name": "row_count",
+        "dataType": "bigint",
+        "nullable": false,
+        "description": "Stores the number of committed rows.",
+        "example": "14862"
+      },
+      {
+        "name": "status",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "description": "Stores the current processing state.",
+        "example": "accepted"
+      },
+      {
+        "name": "completed_at",
+        "dataType": "timestamp with time zone",
+        "nullable": true,
+        "description": "Stores the completion time. The value is null while the load runs.",
+        "example": "2026-10-13T06:31:18Z"
+      }
     ],
     "classification": "Internal operational data",
+    "grain": "One row for each warehouse load.",
+    "updatePattern": "Insert at start. Update at completion or failure.",
+    "retention": "2 years.",
+    "relationships": [],
     "lineage": "Derived from Reporting Data Loader (ETL)",
     "tags": [
       "table",

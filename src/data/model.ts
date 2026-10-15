@@ -44,18 +44,46 @@ export interface Endpoint extends Entity {
   providerId: string
   consumers: string[]
   auth: string
+  contentType: string
+  idempotency: string
+  requestFields: ApiField[]
+  responseFields: ApiField[]
+  errorResponses: Array<{ status: number; meaning: string; when: string }>
   requestExample: string
   responseExample: string
+}
+
+export interface ApiField {
+  name: string
+  location: 'path' | 'query' | 'header' | 'body'
+  dataType: string
+  required: boolean
+  description: string
+  example?: string
+  constraints?: string
+}
+
+export interface TableColumn {
+  name: string
+  dataType: string
+  nullable: boolean
+  key?: 'Primary key' | 'Foreign key' | 'Unique key'
+  description: string
+  example?: string
 }
 
 export interface DataTable extends Entity {
   type: 'table'
   databaseId: string
-  columns: string[]
+  columns: TableColumn[]
   readers: string[]
   writers: string[]
   classification: string
   lineage: string
+  grain: string
+  updatePattern: string
+  retention: string
+  relationships: Array<{ column: string; targetTableId: string; targetColumn: string; cardinality: string; description: string }>
 }
 
 export interface Environment { id: string; name: string; shortName: string; description: string }
@@ -89,6 +117,8 @@ export interface Requirement {
   title: string
   capability: string
   narrative: string
+  acceptanceCriteria: string[]
+  businessRisk: string
   preconditions: string[]
   scenarios: Scenario[]
   ownerTeamId: string
@@ -103,8 +133,12 @@ export interface TestExecution {
   snapshotId: string
   status: ExecutionStatus
   executedAt: string
+  runId: string
+  duration: string
+  trigger: string
+  testData: Record<string, string>
   serviceVersions: Record<string, string>
-  steps: Array<{ title: string; status: ExecutionStatus; actual: string; componentId: string; evidenceReferenceId: string }>
+  steps: Array<{ title: string; status: ExecutionStatus; actual: string; componentId: string; evidenceReferenceId: string; duration?: string }>
   evidenceReferences: string[]
 }
 

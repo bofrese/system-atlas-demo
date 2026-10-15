@@ -7,6 +7,14 @@
     "snapshotId": "current",
     "status": "failed",
     "executedAt": "2026-10-13T06:44:00Z",
+    "runId": "AT-18427",
+    "duration": "35.2 s",
+    "trigger": "Release-candidate acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-2026-10-13",
+      "transaction ID": "TRD-DEMO-1042",
+      "business date": "2026-10-13"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -21,42 +29,47 @@
       {
         "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.8 s"
       },
       {
         "title": "Validate compliance fields",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.4 s"
       },
       {
         "title": "Enrich the trade with reference data",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "2.1 s"
       },
       {
         "title": "Create balanced journal entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.9 s"
       },
       {
         "title": "Load the Reporting Warehouse",
         "status": "failed",
-        "actual": "Connection to the warehouse timed out; no route was observed in harvested policy.",
+        "actual": "The connection attempt reached its 30-second limit. The load wrote no rows.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "30.0 s"
       },
       {
         "title": "Confirm that the exposure report contains the trade",
         "status": "not-executed",
-        "actual": "Step did not run after the warehouse-load failure.",
+        "actual": "The test stopped before this step.",
         "componentId": "svc-regulatory-reporting",
         "evidenceReferenceId": "src-tests"
       }
@@ -75,6 +88,14 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-13T05:12:00Z",
+    "runId": "SMOKE-7712",
+    "duration": "25.1 s",
+    "trigger": "Daily production verification",
+    "testData": {
+      "dataset": "northstar-production-smoke",
+      "transaction ID": "TRD-SMOKE-7712",
+      "business date": "2026-10-13"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -89,44 +110,50 @@
       {
         "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.8 s"
       },
       {
         "title": "Validate compliance fields",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.4 s"
       },
       {
         "title": "Enrich the trade with reference data",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "2.1 s"
       },
       {
         "title": "Create balanced journal entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.9 s"
       },
       {
         "title": "Load the Reporting Warehouse",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "18.7 s"
       },
       {
         "title": "Confirm that the exposure report contains the trade",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-regulatory-reporting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.2 s"
       }
     ],
     "evidenceReferences": [
@@ -143,6 +170,14 @@
     "snapshotId": "previous-day",
     "status": "passed",
     "executedAt": "2026-10-12T06:38:00Z",
+    "runId": "AT-18391",
+    "duration": "24.7 s",
+    "trigger": "Release-candidate acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-2026-10-12",
+      "transaction ID": "TRD-DEMO-1018",
+      "business date": "2026-10-12"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -157,44 +192,50 @@
       {
         "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.8 s"
       },
       {
         "title": "Validate compliance fields",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.4 s"
       },
       {
         "title": "Enrich the trade with reference data",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "2.1 s"
       },
       {
         "title": "Create balanced journal entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.9 s"
       },
       {
         "title": "Load the Reporting Warehouse",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "18.7 s"
       },
       {
         "title": "Confirm that the exposure report contains the trade",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-regulatory-reporting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.2 s"
       }
     ],
     "evidenceReferences": [
@@ -210,6 +251,14 @@
     "snapshotId": "before-rc",
     "status": "passed",
     "executedAt": "2026-10-06T06:35:00Z",
+    "runId": "AT-18142",
+    "duration": "26.0 s",
+    "trigger": "Baseline acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-2026-10-06",
+      "transaction ID": "TRD-DEMO-0981",
+      "business date": "2026-10-06"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -224,44 +273,50 @@
       {
         "title": "Submit a valid foreign-exchange transaction",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.8 s"
       },
       {
         "title": "Validate compliance fields",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.4 s"
       },
       {
         "title": "Enrich the trade with reference data",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "2.1 s"
       },
       {
         "title": "Create balanced journal entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "0.9 s"
       },
       {
         "title": "Load the Reporting Warehouse",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "18.7 s"
       },
       {
         "title": "Confirm that the exposure report contains the trade",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-regulatory-reporting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "1.2 s"
       }
     ],
     "evidenceReferences": [
@@ -277,6 +332,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T05:20:00Z",
+    "runId": "AT-18000",
+    "duration": "8.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-valid-fx-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -291,9 +353,10 @@
       {
         "title": "Exercise a valid foreign-exchange transaction is accepted",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "4.2 s"
       }
     ],
     "evidenceReferences": [
@@ -309,6 +372,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T06:20:00Z",
+    "runId": "AT-18001",
+    "duration": "8.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-valid-fx-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -323,9 +393,10 @@
       {
         "title": "Exercise a valid foreign-exchange transaction is accepted",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "4.2 s"
       }
     ],
     "evidenceReferences": [
@@ -341,6 +412,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T05:20:00Z",
+    "runId": "AT-18010",
+    "duration": "9.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-invalid-lei-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -355,9 +433,10 @@
       {
         "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "5.2 s"
       }
     ],
     "evidenceReferences": [
@@ -373,6 +452,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T06:20:00Z",
+    "runId": "AT-18011",
+    "duration": "9.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-invalid-lei-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -387,9 +473,10 @@
       {
         "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "5.2 s"
       }
     ],
     "evidenceReferences": [
@@ -405,6 +492,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-12T05:20:00Z",
+    "runId": "AT-18020",
+    "duration": "10.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-idempotent-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -419,9 +513,10 @@
       {
         "title": "Exercise submitting the same transaction twice does not create a duplicate",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "6.2 s"
       }
     ],
     "evidenceReferences": [
@@ -437,6 +532,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-12T06:20:00Z",
+    "runId": "AT-18021",
+    "duration": "10.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-idempotent-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -451,9 +553,10 @@
       {
         "title": "Exercise submitting the same transaction twice does not create a duplicate",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "6.2 s"
       }
     ],
     "evidenceReferences": [
@@ -469,6 +572,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T05:20:00Z",
+    "runId": "AT-18030",
+    "duration": "11.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-enrichment-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -483,9 +593,10 @@
       {
         "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "7.2 s"
       }
     ],
     "evidenceReferences": [
@@ -501,6 +612,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T06:20:00Z",
+    "runId": "AT-18031",
+    "duration": "11.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-enrichment-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -515,9 +633,10 @@
       {
         "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-ledger-posting",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "7.2 s"
       }
     ],
     "evidenceReferences": [
@@ -533,6 +652,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T05:20:00Z",
+    "runId": "AT-18040",
+    "duration": "12.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-balanced-journal-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -547,9 +673,10 @@
       {
         "title": "Exercise accepted transactions create balanced accounting entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "8.2 s"
       }
     ],
     "evidenceReferences": [
@@ -565,6 +692,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T06:20:00Z",
+    "runId": "AT-18041",
+    "duration": "12.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-balanced-journal-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -579,9 +713,10 @@
       {
         "title": "Exercise accepted transactions create balanced accounting entries",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "job-reporting-etl",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "8.2 s"
       }
     ],
     "evidenceReferences": [
@@ -597,6 +732,13 @@
     "snapshotId": "current",
     "status": "stale",
     "executedAt": "2026-10-12T05:20:00Z",
+    "runId": "AT-18050",
+    "duration": "13.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-cutoff-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -611,9 +753,10 @@
       {
         "title": "Exercise the daily exposure report is available before its cutoff",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-notification",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "9.2 s"
       }
     ],
     "evidenceReferences": [
@@ -629,6 +772,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-12T06:20:00Z",
+    "runId": "AT-18051",
+    "duration": "13.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-cutoff-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -643,9 +793,10 @@
       {
         "title": "Exercise the daily exposure report is available before its cutoff",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-notification",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "9.2 s"
       }
     ],
     "evidenceReferences": [
@@ -661,6 +812,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T05:20:00Z",
+    "runId": "AT-18060",
+    "duration": "14.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-correction-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -675,9 +833,10 @@
       {
         "title": "Exercise corrected trades are reflected in the next report",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "10.2 s"
       }
     ],
     "evidenceReferences": [
@@ -693,6 +852,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-10T06:20:00Z",
+    "runId": "AT-18061",
+    "duration": "14.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-correction-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -707,9 +873,10 @@
       {
         "title": "Exercise corrected trades are reflected in the next report",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-intake",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "10.2 s"
       }
     ],
     "evidenceReferences": [
@@ -725,6 +892,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T05:20:00Z",
+    "runId": "AT-18070",
+    "duration": "15.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-network-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -739,9 +913,10 @@
       {
         "title": "Exercise only approved network paths can reach the reporting warehouse",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "11.2 s"
       }
     ],
     "evidenceReferences": [
@@ -757,6 +932,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-11T06:20:00Z",
+    "runId": "AT-18071",
+    "duration": "15.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-network-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -771,9 +953,10 @@
       {
         "title": "Exercise only approved network paths can reach the reporting warehouse",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-validator",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "11.2 s"
       }
     ],
     "evidenceReferences": [
@@ -789,6 +972,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-12T05:20:00Z",
+    "runId": "AT-18080",
+    "duration": "16.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-uat-current",
+      "case": "req-no-synthetic-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.3.0-rc1",
@@ -803,9 +993,10 @@
       {
         "title": "Exercise production configuration contains no synthetic data providers",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "12.2 s"
       }
     ],
     "evidenceReferences": [
@@ -821,6 +1012,13 @@
     "snapshotId": "current",
     "status": "passed",
     "executedAt": "2026-10-12T06:20:00Z",
+    "runId": "AT-18081",
+    "duration": "16.4 s",
+    "trigger": "Acceptance suite",
+    "testData": {
+      "dataset": "northstar-production-current",
+      "case": "req-no-synthetic-main"
+    },
     "serviceVersions": {
       "svc-trade-intake": "3.7.2",
       "svc-trade-validator": "4.2.0",
@@ -835,9 +1033,10 @@
       {
         "title": "Exercise production configuration contains no synthetic data providers",
         "status": "passed",
-        "actual": "Observed result matched the recorded expectation.",
+        "actual": "The observed result matched the expected result.",
         "componentId": "svc-trade-enricher",
-        "evidenceReferenceId": "src-tests"
+        "evidenceReferenceId": "src-tests",
+        "duration": "12.2 s"
       }
     ],
     "evidenceReferences": [

@@ -1,4 +1,4 @@
-import { allEntities, deployments, environments, executions, findings, networkRules, relationships, repositories, requirements, services, snapshots, sources, tables } from '../src/data/atlas.ts'
+import { allEntities, deployments, endpoints, environments, executions, findings, networkRules, relationships, repositories, requirements, services, snapshots, sources, tables } from '../src/data/atlas.ts'
 
 const errors: string[] = []
 const assert = (condition: unknown, message: string) => { if (!condition) errors.push(message) }
@@ -42,8 +42,32 @@ for (const repository of repositories) {
   assert(serviceIds.has(repository.serviceId), `Repository ${repository.id} has missing service`)
   assert(sourceIds.has(repository.sourceReferenceId), `Repository ${repository.id} has missing source`)
 }
+for (const endpoint of endpoints) {
+  assert(endpoint.requestFields.length > 0, `Endpoint ${endpoint.id} has no documented request fields`)
+  assert(endpoint.responseFields.length > 0, `Endpoint ${endpoint.id} has no documented response fields`)
+  unique(`request field in ${endpoint.id}`, endpoint.requestFields.map(x => `${x.location}:${x.name}`))
+  unique(`response field in ${endpoint.id}`, endpoint.responseFields.map(x => `${x.location}:${x.name}`))
+  for (const field of [...endpoint.requestFields, ...endpoint.responseFields]) {
+    assert(Boolean(field.name && field.dataType && field.description), `Endpoint ${endpoint.id} has an incomplete field record`)
+  }
+  assert(endpoint.errorResponses.length > 0, `Endpoint ${endpoint.id} has no documented error responses`)
+}
+for (const table of tables) {
+  assert(table.columns.length > 0, `Table ${table.id} has no documented columns`)
+  assert(Boolean(table.grain && table.updatePattern && table.retention), `Table ${table.id} has incomplete lifecycle documentation`)
+  unique(`column in ${table.id}`, table.columns.map(x => x.name))
+  table.columns.forEach(column => assert(Boolean(column.name && column.dataType && column.description), `Table ${table.id} has an incomplete column record`))
+  table.relationships.forEach(link => {
+    const target = tables.find(x => x.id === link.targetTableId)
+    assert(table.columns.some(x => x.name === link.column), `Table ${table.id} relationship uses missing column ${link.column}`)
+    assert(Boolean(target), `Table ${table.id} relationship uses missing table ${link.targetTableId}`)
+    assert(Boolean(target?.columns.some(x => x.name === link.targetColumn)), `Table ${table.id} relationship uses missing target column ${link.targetColumn}`)
+  })
+}
 for (const requirement of requirements) {
   assert(requirement.scenarios.length >= 2, `Requirement ${requirement.id} needs multiple scenarios`)
+  assert(requirement.acceptanceCriteria.length > 0, `Requirement ${requirement.id} has no acceptance criteria`)
+  assert(Boolean(requirement.businessRisk), `Requirement ${requirement.id} has no business risk`)
   unique(`scenario in ${requirement.id}`, requirement.scenarios.map(x => x.id))
   requirement.scenarios.flatMap(x => x.steps).forEach(step => {
     assert(serviceIds.has(step.componentId), `Requirement ${requirement.id} step references missing component ${step.componentId}`)
@@ -56,6 +80,7 @@ for (const execution of executions) {
   assert(Boolean(requirement?.scenarios.some(x => x.id === execution.scenarioId)), `Execution ${execution.id} has missing scenario`)
   assert(environmentIds.has(execution.environmentId), `Execution ${execution.id} has missing environment`)
   assert(snapshotIds.has(execution.snapshotId), `Execution ${execution.id} has missing snapshot`)
+  assert(Boolean(execution.runId && execution.duration && execution.trigger), `Execution ${execution.id} has incomplete run context`)
   execution.evidenceReferences.forEach(id => assert(sourceIds.has(id), `Execution ${execution.id} references missing source ${id}`))
 }
 for (const finding of findings) {
