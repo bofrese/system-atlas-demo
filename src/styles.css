@@ -194,7 +194,23 @@ main { grid-column: 2; min-width: 0; }
 .tool-list { margin:0; display:grid; gap:6px; }
 .tool-list div { display:grid; grid-template-columns:170px 1fr; gap:10px; font-size:13px; }
 .tool-list dd { margin:0; color:#475467; }
-.sidebar-credit { display:flex; align-items:center; gap:10px; padding:12px 16px; border-top:1px solid rgba(255,255,255,.07); color:#8491a7; font-size:12px; margin-top:auto; }
-.sidebar-credit img { width:32px; height:auto; flex:0 0 auto; }
-.sidebar-credit:hover { color:white; }
-.sidebar-credit + .sidebar-foot { margin-top:0; }
+/* One footer: demo notice and article link. The amber dot on the logo keeps the notice visible when the menu is collapsed. */
+.sidebar-credit { display:flex; align-items:center; gap:11px; padding:14px 16px 16px; border-top:1px solid rgba(255,255,255,.07); color:#8491a7; margin-top:auto; }
+.credit-logo { position:relative; flex:0 0 auto; display:flex; }
+.credit-logo img { width:32px; height:auto; }
+.credit-logo .demo-dot { position:absolute; top:-2px; right:-3px; box-shadow:0 0 0 2px var(--nav); }
+.credit-text { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.credit-text strong { color:#cbd5e1; font-size:12px; font-weight:600; }
+.credit-text small { font-size:11px; }
+.sidebar-credit:hover .credit-text small { color:white; text-decoration:underline; }
+@media (max-width:900px) { .credit-text { display:none; } }
+/* Stacked boxes on a page always keep the same gap; collapses with larger margins such as the page header's. */
+.page > :is(.section,.detail-grid) { margin-top:14px; }
+/* Finding lists: badge as a heading, then subject and values, so every row starts at the same left edge. */
+.mini-findings a { flex-direction:column; align-items:flex-start; gap:6px; padding:12px 0; }
+.mini-findings a:first-child { padding-top:0; }
+.mini-findings a:last-child { border-bottom:0; padding-bottom:0; }
+.mini-findings a>span:last-child { gap:2px; }
+.mini-findings strong { font-size:13px; line-height:1.4; }
+.mini-findings small { font-size:12px; line-height:1.45; }
+.mini-findings a:hover strong { text-decoration:underline; text-underline-offset:3px; }
