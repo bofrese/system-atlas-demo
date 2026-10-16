@@ -66,7 +66,7 @@ The role, environment and "data from" selectors change the view of the model. Th
 
 Each kind of thing has one icon and one colour everywhere it appears, grouped into five families: requirements (violet), software (teal), data (blue), runtime (magenta) and sources (grey). Red, amber and green mean status only. The pages contain no explanatory text: interface labels and collected content only. A **?** button next to each page title, or the `?` key, opens a short note on what the page shows, where the data comes from and what to use it for. The kinds are defined in `src/app/kinds.ts` and the help notes in `src/app/help.ts`.
 
-For a guided walkthrough, choose **Guided demo** in the top bar. The three main workshop routes are also captured in [`showcase/tester.png`](showcase/tester.png), [`showcase/developer.png`](showcase/developer.png) and [`showcase/operations.png`](showcase/operations.png).
+For a guided walkthrough, choose **Guided tour** in the top bar. It follows one investigation, why the daily report failed in UAT, over seven live pages. The three main workshop routes are also captured in [`showcase/tester.png`](showcase/tester.png), [`showcase/developer.png`](showcase/developer.png) and [`showcase/operations.png`](showcase/operations.png).
 
 ## What it does not demonstrate
 

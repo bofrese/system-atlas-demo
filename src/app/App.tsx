@@ -5,7 +5,7 @@ import { Bot, ChevronLeft, CircleGauge, Command, GitCompareArrows, Menu, Network
 import { kinds, kindOf, type Kind } from './kinds'
 import { allEntities, deployments, environmentName, environments, getService, getSource, requirements, snapshots, sources, teams } from '../data/atlas'
 import type { RoleLens } from '../data/model'
-import { KindChip, kindStyle, ApiDetailPage, ComparePage, DashboardPage, DataCataloguePage, DatabaseDetailPage, EnvironmentDetailPage, EnvironmentsPage, HygienePage, ImpactPage, MachineAccessPage, NetworkPage, NotFoundPage, PresenterPage, RequirementDetailPage, RequirementsPage, ServiceDetailPage, ServicesPage, SourcesPage, SystemMapPage, TableDetailPage } from '../pages/Pages'
+import { KindChip, kindStyle, ApiDetailPage, ComparePage, DashboardPage, DataCataloguePage, DatabaseDetailPage, EnvironmentDetailPage, EnvironmentsPage, HygienePage, ImpactPage, MachineAccessPage, NetworkPage, NotFoundPage, RequirementDetailPage, RequirementsPage, ServiceDetailPage, ServicesPage, SourcesPage, SystemMapPage, TableDetailPage } from '../pages/Pages'
 
 export type RunLog = { title: string; lines: string[] }
 type Evidence = { sourceId: string; log?: RunLog }
@@ -31,6 +31,31 @@ function AtlasProvider({ children }: { children: ReactNode }) {
   const [evidence,setEvidence] = useState<Evidence|null>(null)
   const value = useMemo(() => ({ role,setRole,environment,setEnvironment,snapshot,setSnapshot,evidence,openEvidence:(sourceId:string,log?:RunLog)=>setEvidence({sourceId,log}),closeEvidence:()=>setEvidence(null) }), [role,environment,snapshot,evidence,setRole,setEnvironment,setSnapshot])
   return <AtlasContext.Provider value={value}>{children}</AtlasContext.Provider>
+}
+
+// One investigation, told on the live pages: why the daily report failed in UAT.
+const tour = [
+  { url:'/', title:'Needs attention', text:'The daily report test failed in UAT this morning. Each finding links to the facts behind it.' },
+  { url:'/requirements/req-daily-report', title:'Where the test failed', text:'Steps 1 to 4 passed. Step 5, loading the Reporting Warehouse, timed out. Open the step to read the test log.' },
+  { url:'/compare?left=uat&right=production', title:'What is different in Production', text:'The same test passed in Production. There, Reporting Data Loader is 2.3.8. In UAT it is 2.4.1.' },
+  { url:'/network?env=uat', title:'A missing network rule', text:'In UAT, no rule lets Reporting Data Loader reach the Reporting Warehouse on TCP 5432. This is a lead, not proof.' },
+  { url:'/impact/job-reporting-loader', title:'Before you change the loader', text:'Everything connected to Reporting Data Loader: the tables, components and requirements that a fix can affect.' },
+  { url:'/sources', title:'How far to trust the facts', text:'Every fact comes from a source. The fees-currency repository is overdue, so facts from it can be out of date.' },
+  { url:'/machine-access', title:'The same facts for AI', text:'An AI assistant can ask the same questions through the MCP server and get answers with sources.' },
+]
+
+function TourBar({ step, go, end }: { step: number; go: (step: number) => void; end: () => void }) {
+  const location = useLocation()
+  const current = tour[step], last = step === tour.length - 1
+  const away = location.pathname + location.search !== current.url
+  return <aside className="tour-bar" aria-label="Guided tour">
+    <span className="tour-count">{step+1} / {tour.length}</span>
+    <div><strong>{current.title}</strong><p>{current.text}</p></div>
+    {away&&<button className="secondary-button" onClick={()=>go(step)}>Back to this step</button>}
+    <button className="secondary-button" disabled={step===0} onClick={()=>go(step-1)}>Back</button>
+    <button className="primary-button" onClick={()=>last?end():go(step+1)}>{last?'Finish':'Next'}</button>
+    <button className="icon-button" onClick={end} aria-label="End tour"><X size={18}/></button>
+  </aside>
 }
 
 // Questions are tasks; Things are one entry per kind, so their icon and colour match the pages they open.
@@ -85,8 +110,11 @@ function Shell() {
   // The drawer belongs to the page that opened it.
   useEffect(() => closeEvidence(), [location.pathname, location.search])
   const navigate = useNavigate()
+  const [tourStep,setTourStep] = useState<number|null>(() => { try { const v=sessionStorage.getItem('atlas-tour'); return v===null?null:Number(v) } catch { return null } })
+  useEffect(() => { try { tourStep===null ? sessionStorage.removeItem('atlas-tour') : sessionStorage.setItem('atlas-tour',String(tourStep)) } catch { /* tour still works without storage */ } }, [tourStep])
+  const goTour = (step:number) => { if (step===0) { setEnvironment('uat'); setSnapshot('current') }; setTourStep(step); navigate(tour[step].url) }
   useEffect(() => { const onKey=(e:KeyboardEvent)=>{ if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();setSearchOpen(true)}; if(e.key==='?'&&!(e.target instanceof HTMLInputElement||e.target instanceof HTMLSelectElement)){document.querySelector<HTMLButtonElement>('.help-button')?.click()} }; window.addEventListener('keydown',onKey); return()=>window.removeEventListener('keydown',onKey) },[])
-  return <div className={`app-shell ${navOpen?'':'nav-collapsed'} ${evidence?'drawer-open':''}`}>
+  return <div className={`app-shell ${navOpen?'':'nav-collapsed'} ${evidence?'drawer-open':''} ${tourStep===null?'':'tour-active'}`}>
     <aside className="sidebar" aria-label="Application navigation">
       <div className="brand"><div className="brand-mark" aria-hidden="true"><span/><span/><span/></div>{navOpen&&<div><strong>System Atlas</strong><small>Northstar</small></div>}<button className="nav-toggle" onClick={()=>setNavOpen(x=>!x)} aria-label={navOpen?'Collapse navigation':'Expand navigation'}>{navOpen?<ChevronLeft size={17}/>:<Menu size={18}/>}</button></div>
       <nav aria-label="Primary navigation">{navigation.map(group=><div className="nav-group" key={group.label}>{navOpen&&<span className="nav-group-label">{group.label}</span>}{group.items.map(([url,label,Icon,kind])=><NavLink key={url} to={url} end={url==='/' } style={kind?kindStyle(kind):undefined} className={({isActive})=>`${kind?'nav-kind ':''}${isActive||location.pathname===url.split('?')[0]?'active':''}`} title={label} aria-label={label}><Icon size={18}/>{navOpen&&<span>{label}</span>}</NavLink>)}</div>)}</nav>
@@ -98,7 +126,7 @@ function Shell() {
         <label><span>Show for</span><select aria-label="Show for role" value={role} onChange={e=>setRole(e.target.value as RoleLens)}><option value="all">Everyone</option><option value="developer">Developer</option><option value="tester">Tester</option><option value="operations">Operations</option></select></label>
         <label><span>Environment</span><select aria-label="Environment" value={environment} onChange={e=>setEnvironment(e.target.value)}>{environments.map(x=><option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
         <label><span>Data from</span><select aria-label="Data from" value={snapshot} onChange={e=>setSnapshot(e.target.value)}>{snapshots.map(x=><option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
-        <button className="demo-button" aria-label="Open guided demo" onClick={()=>navigate('/presenter')}><Sparkles size={16}/> Guided demo</button>
+        {tourStep===null&&<button className="demo-button" onClick={()=>goTour(0)}><Sparkles size={16}/> Guided tour</button>}
       </div>
     </header>
     <main id="main-content">
@@ -109,10 +137,10 @@ function Shell() {
         <Route path="/environments" element={<EnvironmentsPage/>}/><Route path="/environments/:environmentId" element={<EnvironmentDetailPage/>}/><Route path="/compare" element={<ComparePage/>}/>
         <Route path="/impact/:entityId" element={<ImpactPage/>}/><Route path="/hygiene" element={<HygienePage/>}/>
         <Route path="/data" element={<DataCataloguePage/>}/><Route path="/data/databases/:databaseId" element={<DatabaseDetailPage/>}/><Route path="/data/tables/:tableId" element={<TableDetailPage/>}/>
-        <Route path="/network" element={<NetworkPage/>}/><Route path="/sources" element={<SourcesPage/>}/><Route path="/machine-access" element={<MachineAccessPage/>}/><Route path="/presenter" element={<PresenterPage/>}/><Route path="*" element={<NotFoundPage/>}/>
+        <Route path="/network" element={<NetworkPage/>}/><Route path="/sources" element={<SourcesPage/>}/><Route path="/machine-access" element={<MachineAccessPage/>}/><Route path="*" element={<NotFoundPage/>}/>
       </Routes>
     </main>
-    <EvidenceDrawer/><SearchPalette open={searchOpen} onClose={()=>setSearchOpen(false)}/>
+    {tourStep!==null&&<TourBar step={tourStep} go={goTour} end={()=>setTourStep(null)}/>}<EvidenceDrawer/><SearchPalette open={searchOpen} onClose={()=>setSearchOpen(false)}/>
   </div>
 }
 
