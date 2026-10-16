@@ -1,7 +1,7 @@
 [
   {
-    "id": "dep-svc-trade-intake-development-current",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-development-current",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "3.7.3-dev",
@@ -10,28 +10,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-development-previous-day",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-development-previous-day",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "3.7.3-dev",
@@ -40,28 +40,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-development-before-rc",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-development-before-rc",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "3.7.3-dev",
@@ -70,28 +70,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-test-current",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-test-current",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "3.7.2",
@@ -100,28 +100,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-test-previous-day",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-test-previous-day",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "3.7.2",
@@ -130,28 +130,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-test-before-rc",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-test-before-rc",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "3.7.2",
@@ -160,28 +160,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-uat-current",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-uat-current",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "3.7.2",
@@ -190,28 +190,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-uat-previous-day",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-uat-previous-day",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "3.7.2",
@@ -220,28 +220,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-uat-before-rc",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-uat-before-rc",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "3.7.2",
@@ -250,28 +250,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-preproduction-current",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-preproduction-current",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "3.7.2",
@@ -280,28 +280,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-preproduction-previous-day",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-preproduction-previous-day",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "3.7.2",
@@ -310,28 +310,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-preproduction-before-rc",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-preproduction-before-rc",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "3.7.2",
@@ -340,28 +340,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-production-current",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-production-current",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "3.7.2",
@@ -370,28 +370,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-production-previous-day",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-production-previous-day",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "3.7.2",
@@ -400,28 +400,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-intake-production-before-rc",
-    "serviceId": "svc-trade-intake",
+    "id": "dep-svc-transfer-intake-production-before-rc",
+    "serviceId": "svc-transfer-intake",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "3.7.2",
@@ -430,28 +430,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-development-current",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-development-current",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "4.3.0-rc1",
@@ -460,28 +460,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-development-previous-day",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-development-previous-day",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "4.3.0-rc1",
@@ -490,28 +490,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-development-before-rc",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-development-before-rc",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "4.3.0-rc1",
@@ -520,28 +520,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-test-current",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-test-current",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "4.3.0-rc1",
@@ -550,28 +550,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-test-previous-day",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-test-previous-day",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "4.3.0-rc1",
@@ -580,28 +580,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-test-before-rc",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-test-before-rc",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "4.3.0-rc1",
@@ -610,28 +610,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-uat-current",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-uat-current",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "4.3.0-rc1",
@@ -640,28 +640,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-uat-previous-day",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-uat-previous-day",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "4.3.0-rc1",
@@ -670,28 +670,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-uat-before-rc",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-uat-before-rc",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "4.3.0-rc1",
@@ -700,28 +700,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-preproduction-current",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-preproduction-current",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "4.2.0",
@@ -730,28 +730,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-preproduction-previous-day",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-preproduction-previous-day",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "4.2.0",
@@ -760,28 +760,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-preproduction-before-rc",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-preproduction-before-rc",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "4.2.0",
@@ -790,28 +790,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-production-current",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-production-current",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "4.2.0",
@@ -820,28 +820,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-production-previous-day",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-production-previous-day",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "4.2.0",
@@ -850,28 +850,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-validator-production-before-rc",
-    "serviceId": "svc-trade-validator",
+    "id": "dep-svc-transfer-checks-production-before-rc",
+    "serviceId": "svc-transfer-checks",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "4.2.0",
@@ -880,28 +880,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-development-current",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-development-current",
+    "serviceId": "svc-account-directory",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "5.1.0",
@@ -910,28 +910,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-development-previous-day",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-development-previous-day",
+    "serviceId": "svc-account-directory",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "5.1.0",
@@ -940,28 +940,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-development-before-rc",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-development-before-rc",
+    "serviceId": "svc-account-directory",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "5.1.0",
@@ -970,28 +970,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-test-current",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-test-current",
+    "serviceId": "svc-account-directory",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "5.1.0",
@@ -1000,28 +1000,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-test-previous-day",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-test-previous-day",
+    "serviceId": "svc-account-directory",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "5.1.0",
@@ -1030,28 +1030,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-test-before-rc",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-test-before-rc",
+    "serviceId": "svc-account-directory",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "5.1.0",
@@ -1060,28 +1060,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-uat-current",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-uat-current",
+    "serviceId": "svc-account-directory",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "5.1.0",
@@ -1090,28 +1090,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-uat-previous-day",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-uat-previous-day",
+    "serviceId": "svc-account-directory",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "5.1.0",
@@ -1120,28 +1120,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-uat-before-rc",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-uat-before-rc",
+    "serviceId": "svc-account-directory",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "5.1.0",
@@ -1150,28 +1150,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-preproduction-current",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-preproduction-current",
+    "serviceId": "svc-account-directory",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "5.1.0",
@@ -1180,28 +1180,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-preproduction-previous-day",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-preproduction-previous-day",
+    "serviceId": "svc-account-directory",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "5.1.0",
@@ -1210,28 +1210,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-preproduction-before-rc",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-preproduction-before-rc",
+    "serviceId": "svc-account-directory",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "5.1.0",
@@ -1240,28 +1240,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-production-current",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-production-current",
+    "serviceId": "svc-account-directory",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "5.1.0",
@@ -1270,28 +1270,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-production-previous-day",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-production-previous-day",
+    "serviceId": "svc-account-directory",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "5.1.0",
@@ -1300,28 +1300,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-reference-data-production-before-rc",
-    "serviceId": "svc-reference-data",
+    "id": "dep-svc-account-directory-production-before-rc",
+    "serviceId": "svc-account-directory",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "5.1.0",
@@ -1330,28 +1330,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-development-current",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-development-current",
+    "serviceId": "svc-fees-currency",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "2.9.0",
@@ -1360,28 +1360,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-development-previous-day",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-development-previous-day",
+    "serviceId": "svc-fees-currency",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "2.9.0",
@@ -1390,28 +1390,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-development-before-rc",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-development-before-rc",
+    "serviceId": "svc-fees-currency",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "2.8.4",
@@ -1420,28 +1420,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-test-current",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-test-current",
+    "serviceId": "svc-fees-currency",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "2.9.0",
@@ -1450,28 +1450,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-test-previous-day",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-test-previous-day",
+    "serviceId": "svc-fees-currency",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "2.9.0",
@@ -1480,28 +1480,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-test-before-rc",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-test-before-rc",
+    "serviceId": "svc-fees-currency",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "2.8.4",
@@ -1510,28 +1510,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-uat-current",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-uat-current",
+    "serviceId": "svc-fees-currency",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "2.9.0",
@@ -1540,28 +1540,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-uat-previous-day",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-uat-previous-day",
+    "serviceId": "svc-fees-currency",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "2.9.0",
@@ -1570,28 +1570,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-uat-before-rc",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-uat-before-rc",
+    "serviceId": "svc-fees-currency",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "2.8.4",
@@ -1600,28 +1600,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-preproduction-current",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-preproduction-current",
+    "serviceId": "svc-fees-currency",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "2.9.0",
@@ -1630,28 +1630,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-preproduction-previous-day",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-preproduction-previous-day",
+    "serviceId": "svc-fees-currency",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "2.9.0",
@@ -1660,28 +1660,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-preproduction-before-rc",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-preproduction-before-rc",
+    "serviceId": "svc-fees-currency",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "2.8.4",
@@ -1690,28 +1690,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-production-current",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-production-current",
+    "serviceId": "svc-fees-currency",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "2.8.4",
@@ -1720,28 +1720,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-production-previous-day",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-production-previous-day",
+    "serviceId": "svc-fees-currency",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "2.8.4",
@@ -1750,28 +1750,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-trade-enricher-production-before-rc",
-    "serviceId": "svc-trade-enricher",
+    "id": "dep-svc-fees-currency-production-before-rc",
+    "serviceId": "svc-fees-currency",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "2.8.4",
@@ -1780,28 +1780,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-development-current",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-development-current",
+    "serviceId": "svc-account-booking",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "6.4.1",
@@ -1810,28 +1810,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-development-previous-day",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-development-previous-day",
+    "serviceId": "svc-account-booking",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "6.4.1",
@@ -1840,28 +1840,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-development-before-rc",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-development-before-rc",
+    "serviceId": "svc-account-booking",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "6.4.1",
@@ -1870,28 +1870,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-test-current",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-test-current",
+    "serviceId": "svc-account-booking",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "6.4.1",
@@ -1900,28 +1900,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-test-previous-day",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-test-previous-day",
+    "serviceId": "svc-account-booking",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "6.4.1",
@@ -1930,28 +1930,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-test-before-rc",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-test-before-rc",
+    "serviceId": "svc-account-booking",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "6.4.1",
@@ -1960,28 +1960,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-uat-current",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-uat-current",
+    "serviceId": "svc-account-booking",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "6.4.1",
@@ -1990,28 +1990,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-uat-previous-day",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-uat-previous-day",
+    "serviceId": "svc-account-booking",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "6.4.1",
@@ -2020,28 +2020,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-uat-before-rc",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-uat-before-rc",
+    "serviceId": "svc-account-booking",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "6.4.1",
@@ -2050,28 +2050,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-preproduction-current",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-preproduction-current",
+    "serviceId": "svc-account-booking",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "6.4.1",
@@ -2080,28 +2080,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-preproduction-previous-day",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-preproduction-previous-day",
+    "serviceId": "svc-account-booking",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "6.4.1",
@@ -2110,28 +2110,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-preproduction-before-rc",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-preproduction-before-rc",
+    "serviceId": "svc-account-booking",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "6.4.1",
@@ -2140,28 +2140,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-production-current",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-production-current",
+    "serviceId": "svc-account-booking",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "6.4.1",
@@ -2170,28 +2170,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-production-previous-day",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-production-previous-day",
+    "serviceId": "svc-account-booking",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "6.4.1",
@@ -2200,28 +2200,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-ledger-posting-production-before-rc",
-    "serviceId": "svc-ledger-posting",
+    "id": "dep-svc-account-booking-production-before-rc",
+    "serviceId": "svc-account-booking",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "6.4.1",
@@ -2230,28 +2230,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-development-current",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-development-current",
+    "serviceId": "job-reporting-loader",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "2.4.1",
@@ -2260,28 +2260,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-development-previous-day",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-development-previous-day",
+    "serviceId": "job-reporting-loader",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "2.4.1",
@@ -2290,28 +2290,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-development-before-rc",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-development-before-rc",
+    "serviceId": "job-reporting-loader",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "2.3.8",
@@ -2320,28 +2320,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-test-current",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-test-current",
+    "serviceId": "job-reporting-loader",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "2.4.1",
@@ -2350,28 +2350,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-test-previous-day",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-test-previous-day",
+    "serviceId": "job-reporting-loader",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "2.4.1",
@@ -2380,28 +2380,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-test-before-rc",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-test-before-rc",
+    "serviceId": "job-reporting-loader",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "2.3.8",
@@ -2410,28 +2410,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-uat-current",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-uat-current",
+    "serviceId": "job-reporting-loader",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "2.4.1",
@@ -2440,28 +2440,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-uat-previous-day",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-uat-previous-day",
+    "serviceId": "job-reporting-loader",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "2.3.8",
@@ -2470,28 +2470,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-uat-before-rc",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-uat-before-rc",
+    "serviceId": "job-reporting-loader",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "2.3.8",
@@ -2500,28 +2500,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-preproduction-current",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-preproduction-current",
+    "serviceId": "job-reporting-loader",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "2.4.1",
@@ -2530,28 +2530,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-preproduction-previous-day",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-preproduction-previous-day",
+    "serviceId": "job-reporting-loader",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "2.4.1",
@@ -2560,28 +2560,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-preproduction-before-rc",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-preproduction-before-rc",
+    "serviceId": "job-reporting-loader",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "2.3.8",
@@ -2590,28 +2590,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-production-current",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-production-current",
+    "serviceId": "job-reporting-loader",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "2.3.8",
@@ -2620,28 +2620,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-production-previous-day",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-production-previous-day",
+    "serviceId": "job-reporting-loader",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "2.3.8",
@@ -2650,28 +2650,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-job-reporting-etl-production-before-rc",
-    "serviceId": "job-reporting-etl",
+    "id": "dep-job-reporting-loader-production-before-rc",
+    "serviceId": "job-reporting-loader",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "2.3.8",
@@ -2680,28 +2680,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-development-current",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-development-current",
+    "serviceId": "svc-payments-report",
     "environmentId": "development",
     "snapshotId": "current",
     "version": "3.2.0-rc2",
@@ -2710,28 +2710,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-development-previous-day",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-development-previous-day",
+    "serviceId": "svc-payments-report",
     "environmentId": "development",
     "snapshotId": "previous-day",
     "version": "3.2.0-rc2",
@@ -2740,28 +2740,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-development-before-rc",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-development-before-rc",
+    "serviceId": "svc-payments-report",
     "environmentId": "development",
     "snapshotId": "before-rc",
     "version": "3.1.5",
@@ -2770,28 +2770,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-test-current",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-test-current",
+    "serviceId": "svc-payments-report",
     "environmentId": "test",
     "snapshotId": "current",
     "version": "3.2.0-rc2",
@@ -2800,28 +2800,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-test-previous-day",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-test-previous-day",
+    "serviceId": "svc-payments-report",
     "environmentId": "test",
     "snapshotId": "previous-day",
     "version": "3.2.0-rc2",
@@ -2830,28 +2830,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-test-before-rc",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-test-before-rc",
+    "serviceId": "svc-payments-report",
     "environmentId": "test",
     "snapshotId": "before-rc",
     "version": "3.1.5",
@@ -2860,28 +2860,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-uat-current",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-uat-current",
+    "serviceId": "svc-payments-report",
     "environmentId": "uat",
     "snapshotId": "current",
     "version": "3.2.0-rc2",
@@ -2890,28 +2890,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-uat-previous-day",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-uat-previous-day",
+    "serviceId": "svc-payments-report",
     "environmentId": "uat",
     "snapshotId": "previous-day",
     "version": "3.2.0-rc2",
@@ -2920,28 +2920,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-uat-before-rc",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-uat-before-rc",
+    "serviceId": "svc-payments-report",
     "environmentId": "uat",
     "snapshotId": "before-rc",
     "version": "3.1.5",
@@ -2950,28 +2950,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-preproduction-current",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-preproduction-current",
+    "serviceId": "svc-payments-report",
     "environmentId": "preproduction",
     "snapshotId": "current",
     "version": "3.2.0-rc2",
@@ -2980,28 +2980,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-preproduction-previous-day",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-preproduction-previous-day",
+    "serviceId": "svc-payments-report",
     "environmentId": "preproduction",
     "snapshotId": "previous-day",
     "version": "3.2.0-rc2",
@@ -3010,28 +3010,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-preproduction-before-rc",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-preproduction-before-rc",
+    "serviceId": "svc-payments-report",
     "environmentId": "preproduction",
     "snapshotId": "before-rc",
     "version": "3.1.5",
@@ -3040,28 +3040,28 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-production-current",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-production-current",
+    "serviceId": "svc-payments-report",
     "environmentId": "production",
     "snapshotId": "current",
     "version": "3.1.5",
@@ -3070,28 +3070,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-production-previous-day",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-production-previous-day",
+    "serviceId": "svc-payments-report",
     "environmentId": "production",
     "snapshotId": "previous-day",
     "version": "3.1.5",
@@ -3100,28 +3100,28 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
     ]
   },
   {
-    "id": "dep-svc-regulatory-reporting-production-before-rc",
-    "serviceId": "svc-regulatory-reporting",
+    "id": "dep-svc-payments-report-production-before-rc",
+    "serviceId": "svc-payments-report",
     "environmentId": "production",
     "snapshotId": "before-rc",
     "version": "3.1.5",
@@ -3130,20 +3130,20 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3160,20 +3160,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
@@ -3190,20 +3190,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
@@ -3220,20 +3220,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "false",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": true
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": false,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": true
     },
     "sourceReferences": [
       "src-deploy"
@@ -3250,20 +3250,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3280,20 +3280,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3310,20 +3310,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "false",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "false",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": false,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": false,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3340,20 +3340,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": true,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": true,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3370,20 +3370,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3400,20 +3400,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "2000",
-      "reference-data.provider": "synthetic",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "test-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "simulation"
+      "booking.mode": "simulation"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": true,
-      "synthetic-reference-data": true,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": true,
+      "test-exchange-rates": true,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3430,20 +3430,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3460,20 +3460,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3490,20 +3490,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3520,20 +3520,20 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3550,20 +3550,20 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3580,20 +3580,20 @@
     "configuration": {
       "reporting.cutoff-time": "05:30 UTC",
       "reporting.batch-size": "5000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "5",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "5",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": false,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": false,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"
@@ -3610,20 +3610,20 @@
     "configuration": {
       "reporting.cutoff-time": "06:00 UTC",
       "reporting.batch-size": "1000",
-      "reference-data.provider": "authoritative",
-      "trade-validation.strict-lei": "true",
-      "etl.retry-count": "3",
-      "etl.warehouse-schema": "regulatory",
+      "account-directory.rate-source": "live-rates",
+      "transfer-checks.strict-name-match": "true",
+      "loader.retry-count": "3",
+      "loader.warehouse-schema": "regulatory",
       "notifications.enabled": "true",
-      "journal-posting.mode": "committed"
+      "booking.mode": "live"
     },
     "featureToggles": {
-      "new-netting-model": false,
-      "legacy-netting-mode": false,
-      "synthetic-reference-data": false,
-      "strict-lei-validation": true,
-      "exposure-report-v2": true,
-      "fast-reconciliation": false
+      "new-fee-rules": false,
+      "legacy-fee-rules": false,
+      "test-exchange-rates": false,
+      "strict-name-match": true,
+      "daily-report-v2": true,
+      "instant-booking": false
     },
     "sourceReferences": [
       "src-deploy"

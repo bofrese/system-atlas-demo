@@ -35,22 +35,22 @@ The intended production model would harvest facts from engineering tools, preser
 
 ## The fictional example system
 
-The demo uses **Northstar Regulatory Reporting**, a made-up trade-processing platform. Its simplified flow is:
+The demo uses **Northstar Bank**, a made-up bank that moves money between accounts. A bank transfer is easy to follow without domain knowledge, and a mistake has clear consequences: money is lost, sent twice or missing from a report to the regulator. Its simplified flow is:
 
-1. A trade enters through Trade Intake.
-2. Trade Validator checks it.
-3. Trade Enricher adds reference data.
-4. Ledger Posting creates accounting entries.
-5. Reporting Data Loader (an extract-transform-load, or ETL, pipeline) loads the reporting database.
-6. Regulatory Reporting produces an exposure report.
+1. A customer sends a transfer. Transfer Intake receives it.
+2. Transfer Checks checks limits, account status and fraud rules.
+3. Fees & Currency adds the fee and converts the currency, with data from Account Directory.
+4. Account Booking takes the money out of one account and adds it to the other.
+5. Reporting Data Loader, a nightly pipeline, loads completed transfers into the Reporting Warehouse.
+6. Daily Payments Report produces the daily report for the regulator.
 
-The dataset also includes workers, API contracts, databases, tables, four environments, executable requirements, deployment snapshots, network paths and evidence sources. All organisations, people, repositories, commits, results and operational data are fictional.
+The dataset also includes a notification service, API contracts, four databases, 14 tables, five environments, requirements with test scenarios, deployment snapshots, network rules and sources. The central story: in User Acceptance Test, the daily report test fails while loading the warehouse. The loader is one release ahead of Production, and the expected network rule is missing. The data does not show which of the two is the cause. All organisations, people, repositories, commits, results and operational data are fictional.
 
 ## What the mockup demonstrates
 
 The interface provides several views over the same typed records:
 
-- an overview of evidence-backed findings;
+- an overview of findings, with problem markers on the component map;
 - a component dependency map;
 - business requirements traced through technical steps to execution evidence;
 - component, environment, and fully documented API and database-table pages;
@@ -58,13 +58,15 @@ The interface provides several views over the same typed records:
 - tester-focused requirement pages with expected and observed step results;
 - environment comparison across versions, commits, configuration and network paths;
 - an impact explorer that presents hypotheses rather than certainty;
-- a hygiene queue for possible obsolete configuration;
-- provenance drawers that show where facts came from;
-- static JSON and Markdown exports for external tools and AI agents.
+- a list of possibly unused items;
+- source drawers that show where each fact came from;
+- static JSON and Markdown exports for external tools and AI agents, plus a description of the REST API and MCP server a real installation would expose. The API and MCP server are not live in this demo; the host `atlas.northstar.example` uses a reserved domain that never resolves.
 
-The role, environment and snapshot selectors change the lens over the model. They do not create separate copies of the topology.
+The role, environment and "data from" selectors change the view of the model. They do not create separate copies of the topology.
 
-For a guided walkthrough, choose **Start guided demo** from the overview. The three main workshop routes are also captured in [`showcase/tester.png`](showcase/tester.png), [`showcase/developer.png`](showcase/developer.png) and [`showcase/operations.png`](showcase/operations.png).
+Each kind of thing has one icon and one colour everywhere it appears, grouped into five families: requirements (violet), software (teal), data (blue), runtime (magenta) and sources (grey). Red, amber and green mean status only. The pages contain no explanatory text: interface labels and collected content only. A **?** button next to each page title, or the `?` key, opens a short note on what the page shows, where the data comes from and what to use it for. The kinds are defined in `src/app/kinds.ts` and the help notes in `src/app/help.ts`.
+
+For a guided walkthrough, choose **Guided demo** in the top bar. The three main workshop routes are also captured in [`showcase/tester.png`](showcase/tester.png), [`showcase/developer.png`](showcase/developer.png) and [`showcase/operations.png`](showcase/operations.png).
 
 ## What it does not demonstrate
 

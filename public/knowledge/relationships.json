@@ -2,9 +2,9 @@
   {
     "id": "rel-call-0",
     "type": "CALLS",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "svc-trade-validator",
-    "description": "Trade Intake calls Trade Validator.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "svc-transfer-checks",
+    "description": "Transfer Intake calls Transfer Checks.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -14,9 +14,9 @@
   {
     "id": "rel-call-1",
     "type": "CALLS",
-    "fromEntityId": "svc-trade-intake",
+    "fromEntityId": "svc-transfer-intake",
     "toEntityId": "svc-notification",
-    "description": "Trade Intake calls Notification.",
+    "description": "Transfer Intake calls Notification.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -26,9 +26,9 @@
   {
     "id": "rel-call-2",
     "type": "CALLS",
-    "fromEntityId": "svc-trade-enricher",
-    "toEntityId": "svc-reference-data",
-    "description": "Trade Enricher calls Reference Data.",
+    "fromEntityId": "svc-fees-currency",
+    "toEntityId": "svc-account-directory",
+    "description": "Fees & Currency calls Account Directory.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -38,9 +38,9 @@
   {
     "id": "rel-call-3",
     "type": "CALLS",
-    "fromEntityId": "svc-trade-enricher",
-    "toEntityId": "svc-ledger-posting",
-    "description": "Trade Enricher calls Ledger Posting.",
+    "fromEntityId": "svc-fees-currency",
+    "toEntityId": "svc-account-booking",
+    "description": "Fees & Currency calls Account Booking.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -50,9 +50,9 @@
   {
     "id": "rel-call-4",
     "type": "CALLS",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "svc-ledger-posting",
-    "description": "Reporting Data Loader (ETL) calls Ledger Posting.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "svc-account-booking",
+    "description": "Reporting Data Loader calls Account Booking.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -62,9 +62,9 @@
   {
     "id": "rel-call-5",
     "type": "CALLS",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "job-reporting-etl",
-    "description": "Regulatory Reporting calls Reporting Data Loader (ETL).",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "job-reporting-loader",
+    "description": "Daily Payments Report calls Reporting Data Loader.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -74,9 +74,9 @@
   {
     "id": "rel-call-6",
     "type": "CALLS",
-    "fromEntityId": "svc-regulatory-reporting",
+    "fromEntityId": "svc-payments-report",
     "toEntityId": "svc-notification",
-    "description": "Regulatory Reporting calls Notification.",
+    "description": "Daily Payments Report calls Notification.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -86,9 +86,9 @@
   {
     "id": "rel-provides-0",
     "type": "PROVIDES",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "api-post-trades",
-    "description": "Trade Intake provides POST /trades.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "api-post-transfers",
+    "description": "Transfer Intake provides POST /transfers.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -98,9 +98,9 @@
   {
     "id": "rel-provides-1",
     "type": "PROVIDES",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "api-put-trade",
-    "description": "Trade Intake provides PUT /trades/{tradeId}.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "api-put-transfer",
+    "description": "Transfer Intake provides PUT /transfers/{transferId}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -110,9 +110,9 @@
   {
     "id": "rel-provides-2",
     "type": "PROVIDES",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "api-get-trade",
-    "description": "Trade Intake provides GET /trades/{tradeId}.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "api-get-transfer",
+    "description": "Transfer Intake provides GET /transfers/{transferId}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -122,9 +122,9 @@
   {
     "id": "rel-provides-3",
     "type": "PROVIDES",
-    "fromEntityId": "svc-trade-validator",
-    "toEntityId": "api-post-validate",
-    "description": "Trade Validator provides POST /validation/trades.",
+    "fromEntityId": "svc-transfer-checks",
+    "toEntityId": "api-post-check",
+    "description": "Transfer Checks provides POST /checks/transfers.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -134,9 +134,9 @@
   {
     "id": "rel-provides-4",
     "type": "PROVIDES",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "api-get-instrument",
-    "description": "Reference Data provides GET /reference/instruments/{id}.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "api-get-account",
+    "description": "Account Directory provides GET /accounts/{iban}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -146,9 +146,9 @@
   {
     "id": "rel-provides-5",
     "type": "PROVIDES",
-    "fromEntityId": "svc-reference-data",
+    "fromEntityId": "svc-account-directory",
     "toEntityId": "api-get-rate",
-    "description": "Reference Data provides GET /reference/rates/{pair}.",
+    "description": "Account Directory provides GET /rates/{pair}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -158,9 +158,9 @@
   {
     "id": "rel-provides-6",
     "type": "PROVIDES",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "api-get-counterparty",
-    "description": "Reference Data provides GET /reference/counterparties/{id}.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "api-get-fee",
+    "description": "Account Directory provides GET /fees/{transferType}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -170,9 +170,9 @@
   {
     "id": "rel-provides-7",
     "type": "PROVIDES",
-    "fromEntityId": "svc-ledger-posting",
-    "toEntityId": "api-post-journal",
-    "description": "Ledger Posting provides POST /journals.",
+    "fromEntityId": "svc-account-booking",
+    "toEntityId": "api-post-booking",
+    "description": "Account Booking provides POST /bookings.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -182,9 +182,9 @@
   {
     "id": "rel-provides-8",
     "type": "PROVIDES",
-    "fromEntityId": "svc-ledger-posting",
-    "toEntityId": "api-get-journal",
-    "description": "Ledger Posting provides GET /journals/{tradeId}.",
+    "fromEntityId": "svc-account-booking",
+    "toEntityId": "api-get-booking",
+    "description": "Account Booking provides GET /bookings/{transferId}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -194,9 +194,9 @@
   {
     "id": "rel-provides-9",
     "type": "PROVIDES",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "api-post-etl",
-    "description": "Reporting Data Loader (ETL) provides POST /jobs/reporting-etl/runs.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "api-post-load",
+    "description": "Reporting Data Loader provides POST /jobs/reporting-loader/runs.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -206,9 +206,9 @@
   {
     "id": "rel-provides-10",
     "type": "PROVIDES",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "api-get-etl",
-    "description": "Reporting Data Loader (ETL) provides GET /jobs/reporting-etl/runs/{id}.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "api-get-load",
+    "description": "Reporting Data Loader provides GET /jobs/reporting-loader/runs/{id}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -218,9 +218,9 @@
   {
     "id": "rel-provides-11",
     "type": "PROVIDES",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "api-get-exposure",
-    "description": "Regulatory Reporting provides GET /reports/exposure/{date}.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "api-get-report",
+    "description": "Daily Payments Report provides GET /reports/daily-payments/{date}.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -230,9 +230,9 @@
   {
     "id": "rel-provides-12",
     "type": "PROVIDES",
-    "fromEntityId": "svc-regulatory-reporting",
+    "fromEntityId": "svc-payments-report",
     "toEntityId": "api-post-report",
-    "description": "Regulatory Reporting provides POST /reports/exposure/runs.",
+    "description": "Daily Payments Report provides POST /reports/daily-payments/runs.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-openapi"
@@ -241,6 +241,18 @@
   },
   {
     "id": "rel-provides-13",
+    "type": "PROVIDES",
+    "fromEntityId": "svc-notification",
+    "toEntityId": "api-delete-subscription",
+    "description": "Notification provides DELETE /notifications/subscriptions/{id}.",
+    "evidenceKind": "harvested",
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:50:00Z"
+  },
+  {
+    "id": "rel-provides-14",
     "type": "PROVIDES",
     "fromEntityId": "svc-notification",
     "toEntityId": "api-post-notification",
@@ -254,9 +266,9 @@
   {
     "id": "rel-repo-0",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "repo-trade-intake",
-    "description": "Trade Intake is built from trade-intake.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "repo-transfer-intake",
+    "description": "Transfer Intake is built from transfer-intake.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -266,9 +278,9 @@
   {
     "id": "rel-repo-1",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-trade-validator",
-    "toEntityId": "repo-trade-validator",
-    "description": "Trade Validator is built from trade-validator.",
+    "fromEntityId": "svc-transfer-checks",
+    "toEntityId": "repo-transfer-checks",
+    "description": "Transfer Checks is built from transfer-checks.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -278,9 +290,9 @@
   {
     "id": "rel-repo-2",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "repo-reference-data",
-    "description": "Reference Data is built from reference-data.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "repo-account-directory",
+    "description": "Account Directory is built from account-directory.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -290,9 +302,9 @@
   {
     "id": "rel-repo-3",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-trade-enricher",
-    "toEntityId": "repo-trade-enricher",
-    "description": "Trade Enricher is built from trade-enricher.",
+    "fromEntityId": "svc-fees-currency",
+    "toEntityId": "repo-fees-currency",
+    "description": "Fees & Currency is built from fees-currency.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -302,9 +314,9 @@
   {
     "id": "rel-repo-4",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-ledger-posting",
-    "toEntityId": "repo-ledger-posting",
-    "description": "Ledger Posting is built from ledger-posting.",
+    "fromEntityId": "svc-account-booking",
+    "toEntityId": "repo-account-booking",
+    "description": "Account Booking is built from account-booking.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -314,9 +326,9 @@
   {
     "id": "rel-repo-5",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "repo-reporting-etl",
-    "description": "Reporting Data Loader (ETL) is built from reporting-etl.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "repo-reporting-loader",
+    "description": "Reporting Data Loader is built from reporting-loader.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -326,9 +338,9 @@
   {
     "id": "rel-repo-6",
     "type": "IMPLEMENTED_BY",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "repo-regulatory-reporting",
-    "description": "Regulatory Reporting is built from regulatory-reporting.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "repo-payments-report",
+    "description": "Daily Payments Report is built from payments-report.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -348,11 +360,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-trade-0",
+    "id": "rel-read-tbl-transfer-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-trade-enricher",
-    "toEntityId": "tbl-trade",
-    "description": "Trade Enricher reads trade.",
+    "fromEntityId": "svc-fees-currency",
+    "toEntityId": "tbl-transfer",
+    "description": "Fees & Currency reads transfer.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -360,11 +372,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-trade-0",
+    "id": "rel-write-tbl-transfer-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "tbl-trade",
-    "description": "Trade Intake writes trade.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "tbl-transfer",
+    "description": "Transfer Intake writes transfer.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -372,11 +384,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-trade-event-0",
+    "id": "rel-read-tbl-transfer-event-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-trade-validator",
-    "toEntityId": "tbl-trade-event",
-    "description": "Trade Validator reads trade_event.",
+    "fromEntityId": "svc-transfer-checks",
+    "toEntityId": "tbl-transfer-event",
+    "description": "Transfer Checks reads transfer_event.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -384,11 +396,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-trade-event-1",
+    "id": "rel-read-tbl-transfer-event-1",
     "type": "READS_FROM",
-    "fromEntityId": "svc-trade-enricher",
-    "toEntityId": "tbl-trade-event",
-    "description": "Trade Enricher reads trade_event.",
+    "fromEntityId": "svc-fees-currency",
+    "toEntityId": "tbl-transfer-event",
+    "description": "Fees & Currency reads transfer_event.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -396,11 +408,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-trade-event-0",
+    "id": "rel-write-tbl-transfer-event-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "tbl-trade-event",
-    "description": "Trade Intake writes trade_event.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "tbl-transfer-event",
+    "description": "Transfer Intake writes transfer_event.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -408,11 +420,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-validation-error-0",
+    "id": "rel-read-tbl-check-result-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-trade-intake",
-    "toEntityId": "tbl-validation-error",
-    "description": "Trade Intake reads validation_error.",
+    "fromEntityId": "svc-transfer-intake",
+    "toEntityId": "tbl-check-result",
+    "description": "Transfer Intake reads check_result.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -420,11 +432,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-validation-error-0",
+    "id": "rel-write-tbl-check-result-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-trade-validator",
-    "toEntityId": "tbl-validation-error",
-    "description": "Trade Validator writes validation_error.",
+    "fromEntityId": "svc-transfer-checks",
+    "toEntityId": "tbl-check-result",
+    "description": "Transfer Checks writes check_result.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -432,11 +444,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-instrument-0",
+    "id": "rel-read-tbl-account-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "tbl-instrument",
-    "description": "Reference Data reads instrument.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "tbl-account",
+    "description": "Account Directory reads account.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -444,11 +456,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-instrument-0",
+    "id": "rel-write-tbl-account-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "tbl-instrument",
-    "description": "Reference Data writes instrument.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "tbl-account",
+    "description": "Account Directory writes account.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -456,11 +468,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-counterparty-0",
+    "id": "rel-read-tbl-fee-rule-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "tbl-counterparty",
-    "description": "Reference Data reads counterparty.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "tbl-fee-rule",
+    "description": "Account Directory reads fee_rule.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -468,11 +480,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-counterparty-0",
+    "id": "rel-write-tbl-fee-rule-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-reference-data",
-    "toEntityId": "tbl-counterparty",
-    "description": "Reference Data writes counterparty.",
+    "fromEntityId": "svc-account-directory",
+    "toEntityId": "tbl-fee-rule",
+    "description": "Account Directory writes fee_rule.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -482,9 +494,9 @@
   {
     "id": "rel-read-tbl-exchange-rate-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-reference-data",
+    "fromEntityId": "svc-account-directory",
     "toEntityId": "tbl-exchange-rate",
-    "description": "Reference Data reads exchange_rate.",
+    "description": "Account Directory reads exchange_rate.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -494,9 +506,9 @@
   {
     "id": "rel-write-tbl-exchange-rate-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-reference-data",
+    "fromEntityId": "svc-account-directory",
     "toEntityId": "tbl-exchange-rate",
-    "description": "Reference Data writes exchange_rate.",
+    "description": "Account Directory writes exchange_rate.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -504,11 +516,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-journal-entry-0",
+    "id": "rel-read-tbl-booking-0",
     "type": "READS_FROM",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-journal-entry",
-    "description": "Reporting Data Loader (ETL) reads journal_entry.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-booking",
+    "description": "Reporting Data Loader reads booking.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -516,11 +528,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-journal-entry-0",
+    "id": "rel-write-tbl-booking-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-ledger-posting",
-    "toEntityId": "tbl-journal-entry",
-    "description": "Ledger Posting writes journal_entry.",
+    "fromEntityId": "svc-account-booking",
+    "toEntityId": "tbl-booking",
+    "description": "Account Booking writes booking.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -528,11 +540,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-journal-line-0",
+    "id": "rel-read-tbl-booking-line-0",
     "type": "READS_FROM",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-journal-line",
-    "description": "Reporting Data Loader (ETL) reads journal_line.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-booking-line",
+    "description": "Reporting Data Loader reads booking_line.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -540,11 +552,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-journal-line-0",
+    "id": "rel-write-tbl-booking-line-0",
     "type": "WRITES_TO",
-    "fromEntityId": "svc-ledger-posting",
-    "toEntityId": "tbl-journal-line",
-    "description": "Ledger Posting writes journal_line.",
+    "fromEntityId": "svc-account-booking",
+    "toEntityId": "tbl-booking-line",
+    "description": "Account Booking writes booking_line.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -552,11 +564,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-fact-trade-0",
+    "id": "rel-read-tbl-fact-transfer-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "tbl-fact-trade",
-    "description": "Regulatory Reporting reads fact_trade.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "tbl-fact-transfer",
+    "description": "Daily Payments Report reads fact_transfer.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -564,11 +576,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-fact-trade-0",
+    "id": "rel-write-tbl-fact-transfer-0",
     "type": "WRITES_TO",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-fact-trade",
-    "description": "Reporting Data Loader (ETL) writes fact_trade.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-fact-transfer",
+    "description": "Reporting Data Loader writes fact_transfer.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -576,11 +588,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-fact-exposure-0",
+    "id": "rel-read-tbl-fact-daily-total-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "tbl-fact-exposure",
-    "description": "Regulatory Reporting reads fact_exposure.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "tbl-fact-daily-total",
+    "description": "Daily Payments Report reads fact_daily_total.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -588,11 +600,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-fact-exposure-0",
+    "id": "rel-write-tbl-fact-daily-total-0",
     "type": "WRITES_TO",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-fact-exposure",
-    "description": "Reporting Data Loader (ETL) writes fact_exposure.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-fact-daily-total",
+    "description": "Reporting Data Loader writes fact_daily_total.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -600,11 +612,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-dim-counterparty-0",
+    "id": "rel-read-tbl-dim-account-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "tbl-dim-counterparty",
-    "description": "Regulatory Reporting reads dim_counterparty.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "tbl-dim-account",
+    "description": "Daily Payments Report reads dim_account.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -612,11 +624,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-dim-counterparty-0",
+    "id": "rel-write-tbl-dim-account-0",
     "type": "WRITES_TO",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-dim-counterparty",
-    "description": "Reporting Data Loader (ETL) writes dim_counterparty.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-dim-account",
+    "description": "Reporting Data Loader writes dim_account.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -624,11 +636,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-read-tbl-dim-instrument-0",
+    "id": "rel-read-tbl-dim-currency-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-regulatory-reporting",
-    "toEntityId": "tbl-dim-instrument",
-    "description": "Regulatory Reporting reads dim_instrument.",
+    "fromEntityId": "svc-payments-report",
+    "toEntityId": "tbl-dim-currency",
+    "description": "Daily Payments Report reads dim_currency.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -636,11 +648,11 @@
     "harvestedAt": "2026-10-13T07:50:00Z"
   },
   {
-    "id": "rel-write-tbl-dim-instrument-0",
+    "id": "rel-write-tbl-dim-currency-0",
     "type": "WRITES_TO",
-    "fromEntityId": "job-reporting-etl",
-    "toEntityId": "tbl-dim-instrument",
-    "description": "Reporting Data Loader (ETL) writes dim_instrument.",
+    "fromEntityId": "job-reporting-loader",
+    "toEntityId": "tbl-dim-currency",
+    "description": "Reporting Data Loader writes dim_currency.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -650,9 +662,9 @@
   {
     "id": "rel-read-tbl-load-audit-0",
     "type": "READS_FROM",
-    "fromEntityId": "svc-regulatory-reporting",
+    "fromEntityId": "svc-payments-report",
     "toEntityId": "tbl-load-audit",
-    "description": "Regulatory Reporting reads load_audit.",
+    "description": "Daily Payments Report reads load_audit.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"
@@ -662,9 +674,9 @@
   {
     "id": "rel-write-tbl-load-audit-0",
     "type": "WRITES_TO",
-    "fromEntityId": "job-reporting-etl",
+    "fromEntityId": "job-reporting-loader",
     "toEntityId": "tbl-load-audit",
-    "description": "Reporting Data Loader (ETL) writes load_audit.",
+    "description": "Reporting Data Loader writes load_audit.",
     "evidenceKind": "harvested",
     "sourceReferences": [
       "src-deploy"

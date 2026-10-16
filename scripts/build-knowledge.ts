@@ -8,7 +8,7 @@ const records = { entities: allEntities, relationships, deployments, requirement
 const resources = Object.entries(records).map(([name, data]) => ({ name, path: `${name}.json`, mediaType: 'application/json', records: data.length }))
 const manifest = {
   title: 'System Atlas knowledge export',
-  generatedFrom: 'Fictional Northstar Regulatory Reporting demonstration data',
+  generatedFrom: 'Fictional Northstar bank transfer demonstration data',
   snapshot: '2026-10-13T08:00:00Z',
   warning: 'Passing executable requirements are evidence under recorded conditions, not proof of correctness.',
   deepLinkFormat: '#/{entity.pageUrl}',

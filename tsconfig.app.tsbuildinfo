@@ -1,1 +1,1 @@
-{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/app/app.tsx","./src/components/graph.tsx","./src/data/atlas.ts","./src/data/model.ts","./src/pages/pages.tsx"],"version":"5.7.3"}
+{"root":["./src/main.tsx","./src/react-popover.d.ts","./src/vite-env.d.ts","./src/app/app.tsx","./src/app/help.ts","./src/app/kinds.ts","./src/components/graph.tsx","./src/data/atlas.ts","./src/data/model.ts","./src/pages/pages.tsx"],"version":"5.7.3"}

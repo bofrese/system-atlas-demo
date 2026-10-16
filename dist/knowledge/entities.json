@@ -1,18 +1,18 @@
 [
   {
-    "id": "svc-trade-intake",
+    "id": "svc-transfer-intake",
     "type": "service",
-    "name": "Trade Intake",
-    "slug": "svc-trade-intake",
+    "name": "Transfer Intake",
+    "slug": "svc-transfer-intake",
     "serviceType": "HTTP API service",
-    "ownerTeamId": "team-trade",
-    "responsibility": "Receives new and amended financial transactions",
-    "description": "Receives new and amended financial transactions",
-    "repositoryId": "repo-trade-intake",
-    "capability": "Trade capture",
+    "ownerTeamId": "team-payments",
+    "responsibility": "Receives new transfers from the mobile app and online banking",
+    "description": "Receives new transfers from the mobile app and online banking",
+    "repositoryId": "repo-transfer-intake",
+    "capability": "Transfer intake",
     "tags": [
       "http api service",
-      "trade-capture"
+      "transfer-intake"
     ],
     "sourceReferences": [
       "src-git-intake",
@@ -20,145 +20,145 @@
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-intake"
+    "pageUrl": "/services/svc-transfer-intake"
   },
   {
-    "id": "svc-trade-validator",
+    "id": "svc-transfer-checks",
     "type": "service",
-    "name": "Trade Validator",
-    "slug": "svc-trade-validator",
+    "name": "Transfer Checks",
+    "slug": "svc-transfer-checks",
     "serviceType": "Service",
-    "ownerTeamId": "team-trade",
-    "responsibility": "Applies business and compliance validation",
-    "description": "Applies business and compliance validation",
-    "repositoryId": "repo-trade-validator",
-    "capability": "Trade validation",
+    "ownerTeamId": "team-payments",
+    "responsibility": "Checks limits, account status and fraud rules",
+    "description": "Checks limits, account status and fraud rules",
+    "repositoryId": "repo-transfer-checks",
+    "capability": "Transfer checks",
     "tags": [
       "service",
-      "trade-validation"
+      "transfer-checks"
     ],
     "sourceReferences": [
-      "src-git-validator",
+      "src-git-checks",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-validator"
+    "pageUrl": "/services/svc-transfer-checks"
   },
   {
-    "id": "svc-reference-data",
+    "id": "svc-account-directory",
     "type": "service",
-    "name": "Reference Data",
-    "slug": "svc-reference-data",
+    "name": "Account Directory",
+    "slug": "svc-account-directory",
     "serviceType": "HTTP API service",
-    "ownerTeamId": "team-finance",
-    "responsibility": "Supplies financial products, currencies and trading parties",
-    "description": "Supplies financial products, currencies and trading parties",
-    "repositoryId": "repo-reference-data",
-    "capability": "Reference data",
+    "ownerTeamId": "team-accounts",
+    "responsibility": "Provides accounts, fee rules and exchange rates",
+    "description": "Provides accounts, fee rules and exchange rates",
+    "repositoryId": "repo-account-directory",
+    "capability": "Account data",
     "tags": [
       "http api service",
-      "reference-data"
+      "account-data"
     ],
     "sourceReferences": [
-      "src-git-reference",
+      "src-git-accounts",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-reference-data"
+    "pageUrl": "/services/svc-account-directory"
   },
   {
-    "id": "svc-trade-enricher",
+    "id": "svc-fees-currency",
     "type": "service",
-    "name": "Trade Enricher",
-    "slug": "svc-trade-enricher",
+    "name": "Fees & Currency",
+    "slug": "svc-fees-currency",
     "serviceType": "Worker",
-    "ownerTeamId": "team-trade",
-    "responsibility": "Enriches accepted trades with reference data",
-    "description": "Enriches accepted trades with reference data",
-    "repositoryId": "repo-trade-enricher",
-    "capability": "Trade enrichment",
+    "ownerTeamId": "team-payments",
+    "responsibility": "Adds the fee and converts the currency of accepted transfers",
+    "description": "Adds the fee and converts the currency of accepted transfers",
+    "repositoryId": "repo-fees-currency",
+    "capability": "Fees and currency",
     "tags": [
       "worker",
-      "trade-enrichment"
+      "fees-and-currency"
     ],
     "sourceReferences": [
-      "src-git-enricher",
+      "src-git-fees",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T02:11:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-enricher"
+    "pageUrl": "/services/svc-fees-currency"
   },
   {
-    "id": "svc-ledger-posting",
+    "id": "svc-account-booking",
     "type": "service",
-    "name": "Ledger Posting",
-    "slug": "svc-ledger-posting",
+    "name": "Account Booking",
+    "slug": "svc-account-booking",
     "serviceType": "Service",
-    "ownerTeamId": "team-finance",
-    "responsibility": "Creates balanced journal entries",
-    "description": "Creates balanced journal entries",
-    "repositoryId": "repo-ledger-posting",
-    "capability": "Accounting",
+    "ownerTeamId": "team-accounts",
+    "responsibility": "Takes money out of the sender account and adds it to the receiver account",
+    "description": "Takes money out of the sender account and adds it to the receiver account",
+    "repositoryId": "repo-account-booking",
+    "capability": "Booking",
     "tags": [
       "service",
-      "accounting"
+      "booking"
     ],
     "sourceReferences": [
-      "src-git-ledger",
+      "src-git-booking",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-ledger-posting"
+    "pageUrl": "/services/svc-account-booking"
   },
   {
-    "id": "job-reporting-etl",
+    "id": "job-reporting-loader",
     "type": "service",
-    "name": "Reporting Data Loader (ETL)",
-    "slug": "job-reporting-etl",
+    "name": "Reporting Data Loader",
+    "slug": "job-reporting-loader",
     "serviceType": "Scheduled data pipeline",
     "ownerTeamId": "team-reporting",
-    "responsibility": "Loads reporting records into the reporting database",
-    "description": "Loads reporting records into the reporting database",
-    "repositoryId": "repo-reporting-etl",
+    "responsibility": "Loads completed transfers into the Reporting Warehouse every night",
+    "description": "Loads completed transfers into the Reporting Warehouse every night",
+    "repositoryId": "repo-reporting-loader",
     "capability": "Regulatory reporting",
     "tags": [
       "scheduled data pipeline",
       "regulatory-reporting"
     ],
     "sourceReferences": [
-      "src-git-etl",
+      "src-git-loader",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/job-reporting-etl"
+    "pageUrl": "/services/job-reporting-loader"
   },
   {
-    "id": "svc-regulatory-reporting",
+    "id": "svc-payments-report",
     "type": "service",
-    "name": "Regulatory Reporting",
-    "slug": "svc-regulatory-reporting",
+    "name": "Daily Payments Report",
+    "slug": "svc-payments-report",
     "serviceType": "HTTP API and batch service",
     "ownerTeamId": "team-reporting",
-    "responsibility": "Produces daily reports of money at risk",
-    "description": "Produces daily reports of money at risk",
-    "repositoryId": "repo-regulatory-reporting",
+    "responsibility": "Produces the daily payments report for the regulator",
+    "description": "Produces the daily payments report for the regulator",
+    "repositoryId": "repo-payments-report",
     "capability": "Regulatory reporting",
     "tags": [
       "http api and batch service",
       "regulatory-reporting"
     ],
     "sourceReferences": [
-      "src-git-reporting",
+      "src-git-report",
       "src-deploy"
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-regulatory-reporting"
+    "pageUrl": "/services/svc-payments-report"
   },
   {
     "id": "svc-notification",
@@ -167,13 +167,13 @@
     "slug": "svc-notification",
     "serviceType": "Service",
     "ownerTeamId": "team-platform",
-    "responsibility": "Sends processing and report notifications",
-    "description": "Sends processing and report notifications",
+    "responsibility": "Sends payment confirmations to customers",
+    "description": "Sends payment confirmations to customers",
     "repositoryId": "repo-notification",
-    "capability": "Platform communication",
+    "capability": "Customer messages",
     "tags": [
       "service",
-      "platform-communication"
+      "customer-messages"
     ],
     "sourceReferences": [
       "src-git-notification",
@@ -184,18 +184,19 @@
     "pageUrl": "/services/svc-notification"
   },
   {
-    "id": "api-post-trades",
+    "id": "api-post-transfers",
     "type": "endpoint",
-    "name": "Submit trade",
-    "slug": "api-post-trades",
+    "name": "Send transfer",
+    "slug": "api-post-transfers",
     "method": "POST",
-    "path": "/trades",
-    "providerId": "svc-trade-intake",
+    "path": "/transfers",
+    "providerId": "svc-transfer-intake",
     "consumers": [
-      "portal-trade-entry"
+      "mobile-app",
+      "online-banking"
     ],
-    "description": "Accept one new financial transaction for processing.",
-    "ownerTeamId": "team-trade",
+    "description": "Accept one new transfer for processing.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "api",
       "post"
@@ -205,10 +206,10 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-post-trades",
+    "pageUrl": "/apis/api-post-transfers",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
-    "idempotency": "Idempotent by tradeId. A repeated identifier must not create a second transaction.",
+    "idempotency": "Idempotent by transferId. A repeated transferId must not send the money again.",
     "errorResponses": [
       {
         "status": 400,
@@ -228,67 +229,66 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Unique transaction identifier.",
-        "example": "TRD-DEMO-1042",
+        "description": "Unique transfer identifier, created by the app.",
+        "example": "TRF-DEMO-1042",
         "constraints": "1–40 characters."
       },
       {
-        "name": "productType",
+        "name": "fromAccount",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Product category.",
-        "example": "FX_FORWARD",
-        "constraints": "FX_FORWARD exchanges currencies on a future date. FX_SPOT settles promptly."
+        "description": "Account to take the money from (IBAN).",
+        "example": "NO93 8601 1117 947"
       },
       {
-        "name": "currencyPair",
+        "name": "toAccount",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Two ISO currency codes.",
-        "example": "EUR/USD",
-        "constraints": "Format: AAA/BBB."
+        "description": "Account to send the money to (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
-        "name": "notional",
+        "name": "amount",
         "location": "body",
         "dataType": "decimal",
         "required": true,
-        "description": "Transaction amount in the base currency.",
-        "example": "1250000.00",
+        "description": "Amount to send.",
+        "example": "250.00",
         "constraints": "Must be greater than 0."
       },
       {
-        "name": "tradeDate",
-        "location": "body",
-        "dataType": "date",
-        "required": true,
-        "description": "Business date of the transaction.",
-        "example": "2026-10-13",
-        "constraints": "ISO 8601 date."
-      },
-      {
-        "name": "counterpartyId",
+        "name": "currency",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Identifier of the other trading party.",
-        "example": "CP-0042"
+        "description": "ISO 4217 currency code.",
+        "example": "EUR",
+        "constraints": "3 letters."
+      },
+      {
+        "name": "message",
+        "location": "body",
+        "dataType": "string",
+        "required": false,
+        "description": "Text shown to the receiver.",
+        "example": "Rent October",
+        "constraints": "Up to 140 characters."
       }
     ],
     "responseFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Accepted transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Accepted transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "status",
@@ -300,30 +300,31 @@
         "constraints": "Value: accepted."
       },
       {
-        "name": "evidenceId",
+        "name": "eventId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Identifier for the recorded acceptance event.",
+        "description": "Identifier of the recorded acceptance event.",
         "example": "evt-demo-1042"
       }
     ],
-    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"productType\": \"FX_FORWARD\",\n  \"currencyPair\": \"EUR/USD\",\n  \"notional\": 1250000.00,\n  \"tradeDate\": \"2026-10-13\",\n  \"counterpartyId\": \"CP-0042\"\n}",
-    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"status\": \"accepted\",\n  \"evidenceId\": \"evt-demo-1042\"\n}"
+    "requestExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"fromAccount\": \"NO93 8601 1117 947\",\n  \"toAccount\": \"NO02 1234 5678 903\",\n  \"amount\": 250.00,\n  \"currency\": \"EUR\",\n  \"message\": \"Rent October\"\n}",
+    "responseExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"status\": \"accepted\",\n  \"eventId\": \"evt-demo-1042\"\n}"
   },
   {
-    "id": "api-put-trade",
+    "id": "api-put-transfer",
     "type": "endpoint",
-    "name": "Amend trade",
-    "slug": "api-put-trade",
+    "name": "Change scheduled transfer",
+    "slug": "api-put-transfer",
     "method": "PUT",
-    "path": "/trades/{tradeId}",
-    "providerId": "svc-trade-intake",
+    "path": "/transfers/{transferId}",
+    "providerId": "svc-transfer-intake",
     "consumers": [
-      "portal-trade-entry"
+      "mobile-app",
+      "online-banking"
     ],
-    "description": "Replace the current version of one transaction.",
-    "ownerTeamId": "team-trade",
+    "description": "Replace a transfer that is scheduled for a later date.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "api",
       "put"
@@ -333,10 +334,10 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-put-trade",
+    "pageUrl": "/apis/api-put-transfer",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
-    "idempotency": "Idempotent for the same tradeId and version.",
+    "idempotency": "Idempotent for the same transferId and version.",
     "errorResponses": [
       {
         "status": 400,
@@ -356,47 +357,47 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Transaction to amend.",
-        "example": "TRD-DEMO-1042"
+        "description": "Transfer to change.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "version",
         "location": "body",
         "dataType": "integer",
         "required": true,
-        "description": "Current version used for concurrency control.",
+        "description": "Current version, used to detect parallel changes.",
         "example": "3",
         "constraints": "Must equal the stored version."
       },
       {
-        "name": "notional",
+        "name": "amount",
         "location": "body",
         "dataType": "decimal",
         "required": false,
-        "description": "Replacement transaction amount.",
-        "example": "1275000.00"
+        "description": "New amount.",
+        "example": "275.00"
       },
       {
-        "name": "tradeDate",
+        "name": "executionDate",
         "location": "body",
         "dataType": "date",
         "required": false,
-        "description": "Replacement business date.",
-        "example": "2026-10-13"
+        "description": "New date to send the money.",
+        "example": "2026-10-14"
       }
     ],
     "responseFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Amended transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Changed transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "version",
@@ -411,26 +412,26 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Processing state after the amendment.",
-        "example": "accepted"
+        "description": "Processing state after the change.",
+        "example": "scheduled"
       }
     ],
-    "requestExample": "{\n  \"version\": 3,\n  \"notional\": 1275000.00,\n  \"tradeDate\": \"2026-10-13\"\n}",
-    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"accepted\"\n}"
+    "requestExample": "{\n  \"version\": 3,\n  \"amount\": 275.00,\n  \"executionDate\": \"2026-10-14\"\n}",
+    "responseExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"scheduled\"\n}"
   },
   {
-    "id": "api-get-trade",
+    "id": "api-get-transfer",
     "type": "endpoint",
-    "name": "Get trade status",
-    "slug": "api-get-trade",
+    "name": "Get transfer status",
+    "slug": "api-get-transfer",
     "method": "GET",
-    "path": "/trades/{tradeId}",
-    "providerId": "svc-trade-intake",
+    "path": "/transfers/{transferId}",
+    "providerId": "svc-transfer-intake",
     "consumers": [
       "svc-notification"
     ],
-    "description": "Return the current processing state of one transaction.",
-    "ownerTeamId": "team-trade",
+    "description": "Return the current processing state of one transfer.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "api",
       "get"
@@ -440,7 +441,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-trade",
+    "pageUrl": "/apis/api-get-transfer",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -463,22 +464,22 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Transaction to retrieve.",
-        "example": "TRD-DEMO-1042"
+        "description": "Transfer to read.",
+        "example": "TRF-DEMO-1042"
       }
     ],
     "responseFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "version",
@@ -494,8 +495,8 @@
         "dataType": "string",
         "required": true,
         "description": "Current processing state.",
-        "example": "enriched",
-        "constraints": "Allowed values: accepted, rejected, enriched, posted."
+        "example": "booked",
+        "constraints": "Allowed values: accepted, rejected, priced, booked."
       },
       {
         "name": "updatedAt",
@@ -506,22 +507,22 @@
         "example": "2026-10-13T06:18:42Z"
       }
     ],
-    "requestExample": "Path: tradeId=TRD-DEMO-1042",
-    "responseExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"enriched\",\n  \"updatedAt\": \"2026-10-13T06:18:42Z\"\n}"
+    "requestExample": "Path: transferId=TRF-DEMO-1042",
+    "responseExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"version\": 4,\n  \"status\": \"booked\",\n  \"updatedAt\": \"2026-10-13T06:18:42Z\"\n}"
   },
   {
-    "id": "api-post-validate",
+    "id": "api-post-check",
     "type": "endpoint",
-    "name": "Validate trade",
-    "slug": "api-post-validate",
+    "name": "Check transfer",
+    "slug": "api-post-check",
     "method": "POST",
-    "path": "/validation/trades",
-    "providerId": "svc-trade-validator",
+    "path": "/checks/transfers",
+    "providerId": "svc-transfer-checks",
     "consumers": [
-      "svc-trade-intake"
+      "svc-transfer-intake"
     ],
-    "description": "Check one transaction against business and compliance rules.",
-    "ownerTeamId": "team-trade",
+    "description": "Check one transfer against limits, account status and fraud rules.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "api",
       "post"
@@ -531,7 +532,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-post-validate",
+    "pageUrl": "/apis/api-post-check",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Not guaranteed. Use the documented business identifier to prevent duplicates.",
@@ -554,55 +555,53 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
-        "name": "legalEntityId",
+        "name": "fromAccount",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Legal Entity Identifier of the trading party.",
-        "example": "5493001KJTIIGC8Y1R12",
-        "constraints": "20 characters."
+        "description": "Sender account (IBAN).",
+        "example": "NO93 8601 1117 947"
       },
       {
-        "name": "productType",
+        "name": "toAccount",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Product category.",
-        "example": "FX_FORWARD",
-        "constraints": "FX_FORWARD exchanges currencies on a future date. FX_SPOT settles promptly."
+        "description": "Receiver account (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
-        "name": "notional",
+        "name": "amount",
         "location": "body",
         "dataType": "decimal",
         "required": true,
-        "description": "Transaction amount.",
-        "example": "1250000.00"
+        "description": "Amount to send.",
+        "example": "250.00"
       }
     ],
     "responseFields": [
       {
-        "name": "valid",
+        "name": "approved",
         "location": "body",
         "dataType": "boolean",
         "required": true,
-        "description": "States whether all checks passed.",
+        "description": "True when all checks passed.",
         "example": "true"
       },
       {
-        "name": "errors",
+        "name": "reasons",
         "location": "body",
         "dataType": "array",
         "required": true,
-        "description": "Validation errors. The array is empty when valid is true.",
+        "description": "Failed checks. Empty when approved is true.",
         "example": "[]"
       },
       {
@@ -610,26 +609,26 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Version of the applied validation rules.",
+        "description": "Version of the applied check rules.",
         "example": "2026.10"
       }
     ],
-    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"legalEntityId\": \"5493001KJTIIGC8Y1R12\",\n  \"productType\": \"FX_FORWARD\",\n  \"notional\": 1250000.00\n}",
-    "responseExample": "{\n  \"valid\": true,\n  \"errors\": [],\n  \"ruleSetVersion\": \"2026.10\"\n}"
+    "requestExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"fromAccount\": \"NO93 8601 1117 947\",\n  \"toAccount\": \"NO02 1234 5678 903\",\n  \"amount\": 250.00\n}",
+    "responseExample": "{\n  \"approved\": true,\n  \"reasons\": [],\n  \"ruleSetVersion\": \"2026.10\"\n}"
   },
   {
-    "id": "api-get-instrument",
+    "id": "api-get-account",
     "type": "endpoint",
-    "name": "Get instrument",
-    "slug": "api-get-instrument",
+    "name": "Get account",
+    "slug": "api-get-account",
     "method": "GET",
-    "path": "/reference/instruments/{id}",
-    "providerId": "svc-reference-data",
+    "path": "/accounts/{iban}",
+    "providerId": "svc-account-directory",
     "consumers": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
-    "description": "Return the controlled data for one financial product.",
-    "ownerTeamId": "team-finance",
+    "description": "Return the status and currency of one account.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "api",
       "get"
@@ -639,7 +638,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-instrument",
+    "pageUrl": "/apis/api-get-account",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -662,50 +661,43 @@
     ],
     "requestFields": [
       {
-        "name": "id",
+        "name": "iban",
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Instrument identifier.",
-        "example": "INS-9182"
+        "description": "Account number (IBAN).",
+        "example": "NO02 1234 5678 903"
       }
     ],
     "responseFields": [
       {
-        "name": "instrumentId",
+        "name": "iban",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Instrument identifier.",
-        "example": "INS-9182"
-      },
-      {
-        "name": "assetClass",
-        "location": "body",
-        "dataType": "string",
-        "required": true,
-        "description": "High-level product class.",
-        "example": "Foreign exchange"
+        "description": "Account number (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
         "name": "currency",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "ISO settlement currency.",
-        "example": "EUR"
+        "description": "Account currency.",
+        "example": "NOK"
       },
       {
         "name": "status",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Reference-data state.",
-        "example": "active"
+        "description": "Account state.",
+        "example": "open",
+        "constraints": "Allowed values: open, blocked, closed."
       }
     ],
-    "requestExample": "Path: id=INS-9182",
-    "responseExample": "{\n  \"instrumentId\": \"INS-9182\",\n  \"assetClass\": \"Foreign exchange\",\n  \"currency\": \"EUR\",\n  \"status\": \"active\"\n}"
+    "requestExample": "Path: iban=NO02 1234 5678 903",
+    "responseExample": "{\n  \"iban\": \"NO02 1234 5678 903\",\n  \"currency\": \"NOK\",\n  \"status\": \"open\"\n}"
   },
   {
     "id": "api-get-rate",
@@ -713,13 +705,13 @@
     "name": "Get exchange rate",
     "slug": "api-get-rate",
     "method": "GET",
-    "path": "/reference/rates/{pair}",
-    "providerId": "svc-reference-data",
+    "path": "/rates/{pair}",
+    "providerId": "svc-account-directory",
     "consumers": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
     "description": "Return the exchange rate for one currency pair and date.",
-    "ownerTeamId": "team-finance",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "api",
       "get"
@@ -757,7 +749,7 @@
         "dataType": "string",
         "required": true,
         "description": "Currency pair.",
-        "example": "EUR-USD",
+        "example": "EUR-NOK",
         "constraints": "Format: AAA-BBB."
       },
       {
@@ -777,15 +769,15 @@
         "dataType": "string",
         "required": true,
         "description": "Currency pair.",
-        "example": "EUR/USD"
+        "example": "EUR/NOK"
       },
       {
         "name": "rate",
         "location": "body",
         "dataType": "decimal",
         "required": true,
-        "description": "Units of quote currency for one base-currency unit.",
-        "example": "1.0842"
+        "description": "Units of the second currency for one unit of the first.",
+        "example": "11.6420"
       },
       {
         "name": "effectiveDate",
@@ -801,25 +793,25 @@
         "dataType": "string",
         "required": true,
         "description": "Provider of the rate.",
-        "example": "synthetic-demo"
+        "example": "test-rates"
       }
     ],
-    "requestExample": "Path: pair=EUR-USD\nQuery: date=2026-10-13",
-    "responseExample": "{\n  \"currencyPair\": \"EUR/USD\",\n  \"rate\": 1.0842,\n  \"effectiveDate\": \"2026-10-13\",\n  \"source\": \"synthetic-demo\"\n}"
+    "requestExample": "Path: pair=EUR-NOK\nQuery: date=2026-10-13",
+    "responseExample": "{\n  \"currencyPair\": \"EUR/NOK\",\n  \"rate\": 11.6420,\n  \"effectiveDate\": \"2026-10-13\",\n  \"source\": \"test-rates\"\n}"
   },
   {
-    "id": "api-get-counterparty",
+    "id": "api-get-fee",
     "type": "endpoint",
-    "name": "Get counterparty",
-    "slug": "api-get-counterparty",
+    "name": "Get fee rule",
+    "slug": "api-get-fee",
     "method": "GET",
-    "path": "/reference/counterparties/{id}",
-    "providerId": "svc-reference-data",
+    "path": "/fees/{transferType}",
+    "providerId": "svc-account-directory",
     "consumers": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
-    "description": "Return the controlled data for one trading party.",
-    "ownerTeamId": "team-finance",
+    "description": "Return the fee for one type of transfer.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "api",
       "get"
@@ -829,7 +821,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-counterparty",
+    "pageUrl": "/apis/api-get-fee",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -852,64 +844,65 @@
     ],
     "requestFields": [
       {
-        "name": "id",
+        "name": "transferType",
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Trading-party identifier.",
-        "example": "CP-0042"
+        "description": "Type of transfer.",
+        "example": "INTERNATIONAL",
+        "constraints": "Allowed values: DOMESTIC, INTERNATIONAL, INSTANT."
       }
     ],
     "responseFields": [
       {
-        "name": "counterpartyId",
+        "name": "transferType",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Trading-party identifier.",
-        "example": "CP-0042"
+        "description": "Type of transfer.",
+        "example": "INTERNATIONAL"
       },
       {
-        "name": "legalEntityId",
+        "name": "fee",
         "location": "body",
-        "dataType": "string",
+        "dataType": "decimal",
         "required": true,
-        "description": "Registered Legal Entity Identifier.",
-        "example": "5493001KJTIIGC8Y1R12"
+        "description": "Fee charged to the sender.",
+        "example": "2.50"
       },
       {
-        "name": "name",
+        "name": "currency",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Registered name.",
-        "example": "Example Bank A/S"
+        "description": "Fee currency.",
+        "example": "EUR"
       },
       {
-        "name": "status",
+        "name": "validFrom",
         "location": "body",
-        "dataType": "string",
+        "dataType": "date",
         "required": true,
-        "description": "Approval state.",
-        "example": "approved"
+        "description": "First date the fee applies.",
+        "example": "2026-01-01"
       }
     ],
-    "requestExample": "Path: id=CP-0042",
-    "responseExample": "{\n  \"counterpartyId\": \"CP-0042\",\n  \"legalEntityId\": \"5493001KJTIIGC8Y1R12\",\n  \"name\": \"Example Bank A/S\",\n  \"status\": \"approved\"\n}"
+    "requestExample": "Path: transferType=INTERNATIONAL",
+    "responseExample": "{\n  \"transferType\": \"INTERNATIONAL\",\n  \"fee\": 2.50,\n  \"currency\": \"EUR\",\n  \"validFrom\": \"2026-01-01\"\n}"
   },
   {
-    "id": "api-post-journal",
+    "id": "api-post-booking",
     "type": "endpoint",
-    "name": "Post journal",
-    "slug": "api-post-journal",
+    "name": "Book transfer",
+    "slug": "api-post-booking",
     "method": "POST",
-    "path": "/journals",
-    "providerId": "svc-ledger-posting",
+    "path": "/bookings",
+    "providerId": "svc-account-booking",
     "consumers": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
-    "description": "Create balanced accounting entries for one transaction.",
-    "ownerTeamId": "team-finance",
+    "description": "Take money out of one account and add it to another.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "api",
       "post"
@@ -919,10 +912,10 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-post-journal",
+    "pageUrl": "/apis/api-post-booking",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
-    "idempotency": "Idempotent by tradeId. One transaction can create one active journal.",
+    "idempotency": "Idempotent by transferId. One transfer can create one active booking.",
     "errorResponses": [
       {
         "status": 400,
@@ -942,19 +935,19 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Source transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Source transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
-        "name": "postingDate",
+        "name": "bookingDate",
         "location": "body",
         "dataType": "date",
         "required": true,
-        "description": "Accounting date.",
+        "description": "Date of the booking.",
         "example": "2026-10-13"
       },
       {
@@ -962,61 +955,61 @@
         "location": "body",
         "dataType": "array",
         "required": true,
-        "description": "Debit and credit lines.",
-        "example": "[{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]",
-        "constraints": "At least two lines. Total debit must equal total credit."
+        "description": "Money out and money in, one line each.",
+        "example": "[{\"iban\":\"NO93 8601 1117 947\",\"out\":252.50,\"in\":0}]",
+        "constraints": "At least two lines. Total out must equal total in plus fees."
       }
     ],
     "responseFields": [
       {
-        "name": "journalId",
+        "name": "bookingId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Created journal identifier.",
-        "example": "JRN-88014"
+        "description": "Created booking identifier.",
+        "example": "BKG-88014"
       },
       {
         "name": "status",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Posting result.",
-        "example": "posted"
+        "description": "Booking result.",
+        "example": "booked"
       },
       {
-        "name": "debitTotal",
+        "name": "totalOut",
         "location": "body",
         "dataType": "decimal",
         "required": true,
-        "description": "Sum of debit values.",
-        "example": "1250000.00"
+        "description": "Sum of money out.",
+        "example": "252.50"
       },
       {
-        "name": "creditTotal",
+        "name": "totalIn",
         "location": "body",
         "dataType": "decimal",
         "required": true,
-        "description": "Sum of credit values.",
-        "example": "1250000.00"
+        "description": "Sum of money in, including the fee account.",
+        "example": "252.50"
       }
     ],
-    "requestExample": "{\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"postingDate\": \"2026-10-13\",\n  \"lines\": [{\"account\":\"1100\",\"debit\":1250000,\"credit\":0},{\"account\":\"2100\",\"debit\":0,\"credit\":1250000}]\n}",
-    "responseExample": "{\n  \"journalId\": \"JRN-88014\",\n  \"status\": \"posted\",\n  \"debitTotal\": 1250000.00,\n  \"creditTotal\": 1250000.00\n}"
+    "requestExample": "{\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"bookingDate\": \"2026-10-13\",\n  \"lines\": [\n    {\"iban\":\"NO93 8601 1117 947\",\"out\":252.50,\"in\":0},\n    {\"iban\":\"NO02 1234 5678 903\",\"out\":0,\"in\":250.00},\n    {\"iban\":\"FEE-ACCOUNT\",\"out\":0,\"in\":2.50}\n  ]\n}",
+    "responseExample": "{\n  \"bookingId\": \"BKG-88014\",\n  \"status\": \"booked\",\n  \"totalOut\": 252.50,\n  \"totalIn\": 252.50\n}"
   },
   {
-    "id": "api-get-journal",
+    "id": "api-get-booking",
     "type": "endpoint",
-    "name": "Get journal",
-    "slug": "api-get-journal",
+    "name": "Get booking",
+    "slug": "api-get-booking",
     "method": "GET",
-    "path": "/journals/{tradeId}",
-    "providerId": "svc-ledger-posting",
+    "path": "/bookings/{transferId}",
+    "providerId": "svc-account-booking",
     "consumers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
-    "description": "Return accounting entries for one transaction.",
-    "ownerTeamId": "team-finance",
+    "description": "Return the booking lines of one transfer.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "api",
       "get"
@@ -1026,7 +1019,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-journal",
+    "pageUrl": "/apis/api-get-booking",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -1049,37 +1042,37 @@
     ],
     "requestFields": [
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Source transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Source transfer identifier.",
+        "example": "TRF-DEMO-1042"
       }
     ],
     "responseFields": [
       {
-        "name": "journalId",
+        "name": "bookingId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Journal identifier.",
-        "example": "JRN-88014"
+        "description": "Booking identifier.",
+        "example": "BKG-88014"
       },
       {
-        "name": "tradeId",
+        "name": "transferId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Source transaction identifier.",
-        "example": "TRD-DEMO-1042"
+        "description": "Source transfer identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
-        "name": "postingDate",
+        "name": "bookingDate",
         "location": "body",
         "dataType": "date",
         "required": true,
-        "description": "Accounting date.",
+        "description": "Date of the booking.",
         "example": "2026-10-13"
       },
       {
@@ -1087,25 +1080,25 @@
         "location": "body",
         "dataType": "array",
         "required": true,
-        "description": "Debit and credit lines.",
-        "example": "[{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]"
+        "description": "Money out and money in.",
+        "example": "[{\"iban\":\"NO93 8601 1117 947\",\"out\":252.50,\"in\":0}]"
       }
     ],
-    "requestExample": "Path: tradeId=TRD-DEMO-1042",
-    "responseExample": "{\n  \"journalId\": \"JRN-88014\",\n  \"tradeId\": \"TRD-DEMO-1042\",\n  \"postingDate\": \"2026-10-13\",\n  \"lines\": [{\"account\":\"1100\",\"debit\":1250000,\"credit\":0}]\n}"
+    "requestExample": "Path: transferId=TRF-DEMO-1042",
+    "responseExample": "{\n  \"bookingId\": \"BKG-88014\",\n  \"transferId\": \"TRF-DEMO-1042\",\n  \"bookingDate\": \"2026-10-13\",\n  \"lines\": [{\"iban\":\"NO93 8601 1117 947\",\"out\":252.50,\"in\":0}]\n}"
   },
   {
-    "id": "api-post-etl",
+    "id": "api-post-load",
     "type": "endpoint",
-    "name": "Run warehouse load",
-    "slug": "api-post-etl",
+    "name": "Start warehouse load",
+    "slug": "api-post-load",
     "method": "POST",
-    "path": "/jobs/reporting-etl/runs",
-    "providerId": "job-reporting-etl",
+    "path": "/jobs/reporting-loader/runs",
+    "providerId": "job-reporting-loader",
     "consumers": [
       "scheduler"
     ],
-    "description": "Start one reporting-database load.",
+    "description": "Start one load into the Reporting Warehouse.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -1116,10 +1109,10 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-post-etl",
+    "pageUrl": "/apis/api-post-load",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
-    "idempotency": "One active run is allowed for each businessDate and mode.",
+    "idempotency": "One active run for each businessDate and mode.",
     "errorResponses": [
       {
         "status": 400,
@@ -1170,7 +1163,7 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Load-run identifier.",
+        "description": "Load run identifier.",
         "example": "LOAD-20261013-01"
       },
       {
@@ -1186,7 +1179,7 @@
         "location": "body",
         "dataType": "date-time",
         "required": true,
-        "description": "Time at which the run entered the queue.",
+        "description": "Time the run entered the queue.",
         "example": "2026-10-13T06:00:02Z"
       }
     ],
@@ -1194,17 +1187,17 @@
     "responseExample": "{\n  \"runId\": \"LOAD-20261013-01\",\n  \"status\": \"queued\",\n  \"queuedAt\": \"2026-10-13T06:00:02Z\"\n}"
   },
   {
-    "id": "api-get-etl",
+    "id": "api-get-load",
     "type": "endpoint",
     "name": "Get load status",
-    "slug": "api-get-etl",
+    "slug": "api-get-load",
     "method": "GET",
-    "path": "/jobs/reporting-etl/runs/{id}",
-    "providerId": "job-reporting-etl",
+    "path": "/jobs/reporting-loader/runs/{id}",
+    "providerId": "job-reporting-loader",
     "consumers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
-    "description": "Return the state of one reporting-database load.",
+    "description": "Return the state of one warehouse load.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -1215,7 +1208,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-etl",
+    "pageUrl": "/apis/api-get-load",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -1242,7 +1235,7 @@
         "location": "path",
         "dataType": "string",
         "required": true,
-        "description": "Load-run identifier.",
+        "description": "Load run identifier.",
         "example": "LOAD-20261013-01"
       }
     ],
@@ -1252,7 +1245,7 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Load-run identifier.",
+        "description": "Load run identifier.",
         "example": "LOAD-20261013-01"
       },
       {
@@ -1269,7 +1262,7 @@
         "location": "body",
         "dataType": "integer",
         "required": true,
-        "description": "Number of rows committed.",
+        "description": "Number of rows written.",
         "example": "0"
       },
       {
@@ -1277,7 +1270,7 @@
         "location": "body",
         "dataType": "date-time",
         "required": false,
-        "description": "Time at which processing started.",
+        "description": "Time processing started.",
         "example": "2026-10-13T06:00:04Z"
       },
       {
@@ -1285,7 +1278,7 @@
         "location": "body",
         "dataType": "date-time",
         "required": false,
-        "description": "Time at which processing ended.",
+        "description": "Time processing ended.",
         "example": "2026-10-13T06:44:00Z"
       },
       {
@@ -1301,17 +1294,17 @@
     "responseExample": "{\n  \"runId\": \"LOAD-20261013-01\",\n  \"status\": \"failed\",\n  \"rowsLoaded\": 0,\n  \"startedAt\": \"2026-10-13T06:00:04Z\",\n  \"completedAt\": \"2026-10-13T06:44:00Z\",\n  \"errorCode\": \"WAREHOUSE_CONNECTION_TIMEOUT\"\n}"
   },
   {
-    "id": "api-get-exposure",
+    "id": "api-get-report",
     "type": "endpoint",
-    "name": "Get exposure report",
-    "slug": "api-get-exposure",
+    "name": "Get daily payments report",
+    "slug": "api-get-report",
     "method": "GET",
-    "path": "/reports/exposure/{date}",
-    "providerId": "svc-regulatory-reporting",
+    "path": "/reports/daily-payments/{date}",
+    "providerId": "svc-payments-report",
     "consumers": [
-      "portal-regulatory"
+      "regulator-portal"
     ],
-    "description": "Return the report of money at risk for one date.",
+    "description": "Return the payments report for one date.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -1322,7 +1315,7 @@
     ],
     "harvestedAt": "2026-10-13T07:30:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/apis/api-get-exposure",
+    "pageUrl": "/apis/api-get-report",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
     "idempotency": "Safe and idempotent.",
@@ -1353,12 +1346,12 @@
         "example": "2026-10-13"
       },
       {
-        "name": "counterpartyId",
+        "name": "currency",
         "location": "query",
         "dataType": "string",
         "required": false,
-        "description": "Limit the report to one trading party.",
-        "example": "CP-0042"
+        "description": "Limit the report to one currency.",
+        "example": "EUR"
       }
     ],
     "responseFields": [
@@ -1371,32 +1364,24 @@
         "example": "2026-10-13"
       },
       {
-        "name": "currency",
+        "name": "transferCount",
         "location": "body",
-        "dataType": "string",
+        "dataType": "integer",
         "required": true,
-        "description": "Currency used for totals.",
-        "example": "EUR"
+        "description": "Number of completed transfers.",
+        "example": "18452"
       },
       {
-        "name": "totalExposure",
-        "location": "body",
-        "dataType": "decimal",
-        "required": true,
-        "description": "Total money at risk.",
-        "example": "4372500.00"
-      },
-      {
-        "name": "positions",
+        "name": "totals",
         "location": "body",
         "dataType": "array",
         "required": true,
-        "description": "Exposure rows by trading party and product.",
-        "example": "[{\"counterpartyId\":\"CP-0042\",\"netExposure\":1250000}]"
+        "description": "Total amount for each currency.",
+        "example": "[{\"currency\":\"EUR\",\"count\":4210,\"total\":1287340.50}]"
       }
     ],
-    "requestExample": "Path: date=2026-10-13\nQuery: counterpartyId=CP-0042",
-    "responseExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"currency\": \"EUR\",\n  \"totalExposure\": 4372500.00,\n  \"positions\": [{\"counterpartyId\":\"CP-0042\",\"netExposure\":1250000.00}]\n}"
+    "requestExample": "Path: date=2026-10-13\nQuery: currency=EUR",
+    "responseExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"transferCount\": 18452,\n  \"totals\": [{\"currency\":\"EUR\",\"count\":4210,\"total\":1287340.50}]\n}"
   },
   {
     "id": "api-post-report",
@@ -1404,12 +1389,12 @@
     "name": "Generate report",
     "slug": "api-post-report",
     "method": "POST",
-    "path": "/reports/exposure/runs",
-    "providerId": "svc-regulatory-reporting",
+    "path": "/reports/daily-payments/runs",
+    "providerId": "svc-payments-report",
     "consumers": [
       "scheduler"
     ],
-    "description": "Start one exposure-report run.",
+    "description": "Start one daily payments report run.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "api",
@@ -1423,7 +1408,7 @@
     "pageUrl": "/apis/api-post-report",
     "auth": "Mutual TLS. Each calling service must prove its identity.",
     "contentType": "application/json",
-    "idempotency": "One report run is allowed for each reportDate and format.",
+    "idempotency": "One report run for each reportDate and format.",
     "errorResponses": [
       {
         "status": 400,
@@ -1456,8 +1441,8 @@
         "dataType": "string",
         "required": true,
         "description": "Output format.",
-        "example": "XBRL",
-        "constraints": "Allowed values: XBRL, CSV."
+        "example": "XML",
+        "constraints": "Allowed values: XML, CSV."
       },
       {
         "name": "requestedBy",
@@ -1474,7 +1459,7 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Report-run identifier.",
+        "description": "Report run identifier.",
         "example": "RPT-20261013-01"
       },
       {
@@ -1490,12 +1475,67 @@
         "location": "body",
         "dataType": "string",
         "required": false,
-        "description": "Location of the output after completion.",
-        "example": "mock://reports/2026-10-13/exposure.xbrl"
+        "description": "Location of the file after completion.",
+        "example": "mock://reports/2026-10-13/daily-payments.xml"
       }
     ],
-    "requestExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"format\": \"XBRL\",\n  \"requestedBy\": \"daily-scheduler\"\n}",
+    "requestExample": "{\n  \"reportDate\": \"2026-10-13\",\n  \"format\": \"XML\",\n  \"requestedBy\": \"daily-scheduler\"\n}",
     "responseExample": "{\n  \"reportRunId\": \"RPT-20261013-01\",\n  \"status\": \"queued\"\n}"
+  },
+  {
+    "id": "api-delete-subscription",
+    "type": "endpoint",
+    "name": "Delete notification subscription",
+    "slug": "api-delete-subscription",
+    "method": "DELETE",
+    "path": "/notifications/subscriptions/{id}",
+    "providerId": "svc-notification",
+    "consumers": [],
+    "description": "Remove one notification subscription.",
+    "ownerTeamId": "team-platform",
+    "tags": [
+      "api",
+      "delete"
+    ],
+    "sourceReferences": [
+      "src-openapi"
+    ],
+    "harvestedAt": "2026-10-13T07:30:00Z",
+    "expectedRefreshInterval": "1 hour",
+    "pageUrl": "/apis/api-delete-subscription",
+    "auth": "Mutual TLS. Each calling service must prove its identity.",
+    "contentType": "application/json",
+    "idempotency": "Idempotent. Deleting a removed subscription returns 204.",
+    "errorResponses": [
+      {
+        "status": 400,
+        "meaning": "Invalid request",
+        "when": "A field is missing or has an invalid value."
+      },
+      {
+        "status": 401,
+        "meaning": "Caller not authenticated",
+        "when": "The service identity is missing or invalid."
+      },
+      {
+        "status": 500,
+        "meaning": "Internal error",
+        "when": "The component cannot complete the request."
+      }
+    ],
+    "requestFields": [
+      {
+        "name": "id",
+        "location": "path",
+        "dataType": "string",
+        "required": true,
+        "description": "Subscription identifier.",
+        "example": "SUB-2291"
+      }
+    ],
+    "responseFields": [],
+    "requestExample": "Path: id=SUB-2291",
+    "responseExample": "204 No Content"
   },
   {
     "id": "api-post-notification",
@@ -1506,10 +1546,10 @@
     "path": "/notifications",
     "providerId": "svc-notification",
     "consumers": [
-      "svc-regulatory-reporting",
-      "svc-trade-intake"
+      "svc-payments-report",
+      "svc-transfer-intake"
     ],
-    "description": "Send one processing or report notification.",
+    "description": "Send one message to a customer or an operator.",
     "ownerTeamId": "team-platform",
     "tags": [
       "api",
@@ -1547,8 +1587,8 @@
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Target address or system identifier.",
-        "example": "ops@example.invalid"
+        "description": "Phone number, email address or system identifier.",
+        "example": "+47 400 00 000"
       },
       {
         "name": "template",
@@ -1556,23 +1596,23 @@
         "dataType": "string",
         "required": true,
         "description": "Message template identifier.",
-        "example": "report-ready"
+        "example": "payment-sent"
       },
       {
         "name": "subjectId",
         "location": "body",
         "dataType": "string",
         "required": true,
-        "description": "Transaction or report identifier.",
-        "example": "RPT-20261013-01"
+        "description": "Transfer or report identifier.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "variables",
         "location": "body",
         "dataType": "object",
         "required": false,
-        "description": "Values used by the message template.",
-        "example": "{\"reportDate\":\"2026-10-13\"}"
+        "description": "Values for the message template.",
+        "example": "{\"amount\":\"250.00 EUR\"}"
       }
     ],
     "responseFields": [
@@ -1593,16 +1633,16 @@
         "example": "queued"
       }
     ],
-    "requestExample": "{\n  \"recipient\": \"ops@example.invalid\",\n  \"template\": \"report-ready\",\n  \"subjectId\": \"RPT-20261013-01\",\n  \"variables\": {\"reportDate\":\"2026-10-13\"}\n}",
+    "requestExample": "{\n  \"recipient\": \"+47 400 00 000\",\n  \"template\": \"payment-sent\",\n  \"subjectId\": \"TRF-DEMO-1042\",\n  \"variables\": {\"amount\":\"250.00 EUR\"}\n}",
     "responseExample": "{\n  \"notificationId\": \"NTF-44102\",\n  \"status\": \"queued\"\n}"
   },
   {
-    "id": "db-trade",
+    "id": "db-payments",
     "type": "database",
-    "name": "Trade Operations DB",
-    "slug": "db-trade",
-    "description": "Operational trade capture and validation state",
-    "ownerTeamId": "team-trade",
+    "name": "Payments DB",
+    "slug": "db-payments",
+    "description": "Transfers, transfer history and check results",
+    "ownerTeamId": "team-payments",
     "tags": [
       "database"
     ],
@@ -1611,15 +1651,15 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/databases/db-trade"
+    "pageUrl": "/data/databases/db-payments"
   },
   {
-    "id": "db-reference",
+    "id": "db-accounts",
     "type": "database",
-    "name": "Reference Data DB",
-    "slug": "db-reference",
-    "description": "Controlled instruments, counterparties and rates",
-    "ownerTeamId": "team-finance",
+    "name": "Accounts DB",
+    "slug": "db-accounts",
+    "description": "Accounts, fee rules and exchange rates",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "database"
     ],
@@ -1628,15 +1668,15 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/databases/db-reference"
+    "pageUrl": "/data/databases/db-accounts"
   },
   {
-    "id": "db-ledger",
+    "id": "db-bookings",
     "type": "database",
-    "name": "Ledger DB",
-    "slug": "db-ledger",
-    "description": "Balanced accounting journals",
-    "ownerTeamId": "team-finance",
+    "name": "Bookings DB",
+    "slug": "db-bookings",
+    "description": "Money taken out of and added to accounts",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "database"
     ],
@@ -1645,14 +1685,14 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/databases/db-ledger"
+    "pageUrl": "/data/databases/db-bookings"
   },
   {
     "id": "db-warehouse",
     "type": "database",
     "name": "Reporting Warehouse",
     "slug": "db-warehouse",
-    "description": "Reporting data organised by transaction, trading party, and financial product",
+    "description": "Completed transfers organised for daily reporting",
     "ownerTeamId": "team-reporting",
     "tags": [
       "database"
@@ -1665,81 +1705,81 @@
     "pageUrl": "/data/databases/db-warehouse"
   },
   {
-    "id": "tbl-trade",
+    "id": "tbl-transfer",
     "type": "table",
-    "name": "trade",
-    "slug": "tbl-trade",
-    "databaseId": "db-trade",
-    "description": "Stores the current state of each accepted transaction",
-    "ownerTeamId": "team-trade",
+    "name": "transfer",
+    "slug": "tbl-transfer",
+    "databaseId": "db-payments",
+    "description": "Current state of each accepted transfer",
+    "ownerTeamId": "team-payments",
     "readers": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
     "writers": [
-      "svc-trade-intake"
+      "svc-transfer-intake"
     ],
     "columns": [
       {
-        "name": "trade_id",
+        "name": "transfer_id",
         "dataType": "varchar(40)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial transaction.",
-        "example": "TRD-DEMO-1042"
+        "description": "Identifies one transfer.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "version",
         "dataType": "integer",
         "nullable": false,
-        "description": "Increases when the transaction changes.",
+        "description": "Increases when the transfer changes.",
         "example": "4"
       },
       {
-        "name": "product_type",
-        "dataType": "varchar(30)",
+        "name": "amount",
+        "dataType": "numeric(20,2)",
         "nullable": false,
-        "description": "Identifies the product category.",
-        "example": "FX_FORWARD"
+        "description": "Amount sent, in the transfer currency.",
+        "example": "250.00"
       },
       {
         "name": "status",
         "dataType": "varchar(20)",
         "nullable": false,
-        "description": "Stores the current processing state.",
-        "example": "accepted"
+        "description": "Current state.",
+        "example": "booked"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for the current version of each transaction.",
-    "updatePattern": "Insert on acceptance. Update on amendment or state change.",
-    "retention": "7 years after the transaction closes.",
+    "classification": "Confidential customer data",
+    "grain": "One row for the current version of each transfer.",
+    "updatePattern": "Insert on acceptance. Update on change or state change.",
+    "retention": "10 years.",
     "relationships": [],
-    "lineage": "Derived from Trade Intake",
+    "lineage": "Written by Transfer Intake",
     "tags": [
       "table",
-      "db-trade"
+      "db-payments"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-trade"
+    "pageUrl": "/data/tables/tbl-transfer"
   },
   {
-    "id": "tbl-trade-event",
+    "id": "tbl-transfer-event",
     "type": "table",
-    "name": "trade_event",
-    "slug": "tbl-trade-event",
-    "databaseId": "db-trade",
-    "description": "Stores a permanent record of each transaction state change",
-    "ownerTeamId": "team-trade",
+    "name": "transfer_event",
+    "slug": "tbl-transfer-event",
+    "databaseId": "db-payments",
+    "description": "Permanent record of each transfer state change",
+    "ownerTeamId": "team-payments",
     "readers": [
-      "svc-trade-validator",
-      "svc-trade-enricher"
+      "svc-transfer-checks",
+      "svc-fees-currency"
     ],
     "writers": [
-      "svc-trade-intake"
+      "svc-transfer-intake"
     ],
     "columns": [
       {
@@ -1751,306 +1791,305 @@
         "example": "7a938d8e-9d35-4cf1-93d7-77aa4c7151a1"
       },
       {
-        "name": "trade_id",
+        "name": "transfer_id",
         "dataType": "varchar(40)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial transaction.",
-        "example": "TRD-DEMO-1042"
+        "description": "Identifies one transfer.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "event_type",
         "dataType": "varchar(40)",
         "nullable": false,
-        "description": "Identifies the recorded state change.",
-        "example": "TRADE_ACCEPTED"
+        "description": "Recorded state change.",
+        "example": "TRANSFER_ACCEPTED"
       },
       {
         "name": "occurred_at",
         "dataType": "timestamp with time zone",
         "nullable": false,
-        "description": "Stores the time of the event.",
+        "description": "Time of the event.",
         "example": "2026-10-13T06:18:42Z"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each transaction state change.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each transfer state change.",
     "updatePattern": "Append only.",
-    "retention": "7 years.",
+    "retention": "10 years.",
     "relationships": [
       {
-        "column": "trade_id",
-        "targetTableId": "tbl-trade",
-        "targetColumn": "trade_id",
-        "cardinality": "Many events to one transaction",
-        "description": "Each event belongs to one transaction."
+        "column": "transfer_id",
+        "targetTableId": "tbl-transfer",
+        "targetColumn": "transfer_id",
+        "cardinality": "Many events to one transfer",
+        "description": "Each event belongs to one transfer."
       }
     ],
-    "lineage": "Derived from Trade Intake",
+    "lineage": "Written by Transfer Intake",
     "tags": [
       "table",
-      "db-trade"
+      "db-payments"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-trade-event"
+    "pageUrl": "/data/tables/tbl-transfer-event"
   },
   {
-    "id": "tbl-validation-error",
+    "id": "tbl-check-result",
     "type": "table",
-    "name": "validation_error",
-    "slug": "tbl-validation-error",
-    "databaseId": "db-trade",
-    "description": "Stores the current validation errors for each transaction",
-    "ownerTeamId": "team-trade",
+    "name": "check_result",
+    "slug": "tbl-check-result",
+    "databaseId": "db-payments",
+    "description": "Failed checks for each transfer",
+    "ownerTeamId": "team-payments",
     "readers": [
-      "svc-trade-intake"
+      "svc-transfer-intake"
     ],
     "writers": [
-      "svc-trade-validator"
+      "svc-transfer-checks"
     ],
     "columns": [
       {
-        "name": "trade_id",
+        "name": "transfer_id",
         "dataType": "varchar(40)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial transaction.",
-        "example": "TRD-DEMO-1042"
+        "description": "Identifies one transfer.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "code",
         "dataType": "varchar(40)",
         "nullable": false,
-        "description": "Stable validation error code.",
-        "example": "INVALID_LEI"
+        "description": "Stable check code.",
+        "example": "UNKNOWN_ACCOUNT"
       },
       {
         "name": "field",
         "dataType": "varchar(80)",
         "nullable": true,
-        "description": "Identifies the input field that failed.",
-        "example": "legalEntityId"
+        "description": "Input field that failed the check.",
+        "example": "toAccount"
       },
       {
         "name": "message",
         "dataType": "varchar(500)",
         "nullable": false,
-        "description": "Explains the validation error.",
-        "example": "Legal Entity Identifier must contain 20 characters."
+        "description": "Check result text.",
+        "example": "The receiver account does not exist."
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each active validation error.",
-    "updatePattern": "Replace errors when validation runs again.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each failed check.",
+    "updatePattern": "Replaced when the checks run again.",
     "retention": "90 days after resolution.",
     "relationships": [
       {
-        "column": "trade_id",
-        "targetTableId": "tbl-trade",
-        "targetColumn": "trade_id",
-        "cardinality": "Many errors to one transaction",
-        "description": "Each error belongs to one transaction."
+        "column": "transfer_id",
+        "targetTableId": "tbl-transfer",
+        "targetColumn": "transfer_id",
+        "cardinality": "Many check results to one transfer",
+        "description": "Each check result belongs to one transfer."
       }
     ],
-    "lineage": "Derived from Trade Validator",
+    "lineage": "Written by Transfer Checks",
     "tags": [
       "table",
-      "db-trade"
+      "db-payments"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-validation-error"
+    "pageUrl": "/data/tables/tbl-check-result"
   },
   {
-    "id": "tbl-validation-error-legacy",
+    "id": "tbl-check-result-legacy",
     "type": "table",
-    "name": "validation_error_legacy",
-    "slug": "tbl-validation-error-legacy",
-    "databaseId": "db-trade",
-    "description": "Stores validation errors from the retired validator",
-    "ownerTeamId": "team-trade",
+    "name": "check_result_legacy",
+    "slug": "tbl-check-result-legacy",
+    "databaseId": "db-payments",
+    "description": "Check results from the retired check service",
+    "ownerTeamId": "team-payments",
     "readers": [],
     "writers": [],
     "columns": [
       {
-        "name": "trade_id",
+        "name": "transfer_id",
         "dataType": "varchar(40)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial transaction.",
-        "example": "TRD-DEMO-1042"
+        "description": "Identifies one transfer.",
+        "example": "TRF-DEMO-1042"
       },
       {
         "name": "legacy_code",
         "dataType": "varchar(20)",
         "nullable": false,
-        "description": "Stores the code used by the retired validator.",
+        "description": "Code used by the retired check service.",
         "example": "E142"
       },
       {
         "name": "created_at",
         "dataType": "timestamp with time zone",
         "nullable": false,
-        "description": "Stores the time when the row was created.",
+        "description": "Time the row was created.",
         "example": "2025-04-18T09:24:12Z"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each archived legacy error.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each archived check result.",
     "updatePattern": "Read-only archive.",
     "retention": "Until the archive owner approves removal.",
     "relationships": [
       {
-        "column": "trade_id",
-        "targetTableId": "tbl-trade",
-        "targetColumn": "trade_id",
-        "cardinality": "Many archived errors to one transaction",
-        "description": "The catalogue records the logical link. It does not record a database constraint."
+        "column": "transfer_id",
+        "targetTableId": "tbl-transfer",
+        "targetColumn": "transfer_id",
+        "cardinality": "Many archived results to one transfer",
+        "description": "Logical link only. No database constraint."
       }
     ],
-    "lineage": "No producing deployment mapped",
+    "lineage": "No writing deployment found",
     "tags": [
       "table",
-      "db-trade"
+      "db-payments"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-validation-error-legacy"
+    "pageUrl": "/data/tables/tbl-check-result-legacy"
   },
   {
-    "id": "tbl-instrument",
+    "id": "tbl-account",
     "type": "table",
-    "name": "instrument",
-    "slug": "tbl-instrument",
-    "databaseId": "db-reference",
-    "description": "Stores the controlled definition of each financial product",
-    "ownerTeamId": "team-finance",
+    "name": "account",
+    "slug": "tbl-account",
+    "databaseId": "db-accounts",
+    "description": "Status and currency of each account",
+    "ownerTeamId": "team-accounts",
     "readers": [
-      "svc-reference-data"
+      "svc-account-directory"
     ],
     "writers": [
-      "svc-reference-data"
+      "svc-account-directory"
     ],
     "columns": [
       {
-        "name": "instrument_id",
-        "dataType": "varchar(30)",
+        "name": "iban",
+        "dataType": "varchar(34)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial product.",
-        "example": "INS-9182"
-      },
-      {
-        "name": "asset_class",
-        "dataType": "varchar(30)",
-        "nullable": false,
-        "description": "Groups the financial product.",
-        "example": "Foreign exchange"
+        "description": "Account number (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
         "name": "currency",
         "dataType": "char(3)",
         "nullable": false,
-        "description": "Stores an ISO 4217 currency code.",
+        "description": "ISO 4217 currency code.",
         "example": "EUR"
-      }
-    ],
-    "classification": "Confidential business data",
-    "grain": "One row for each financial product.",
-    "updatePattern": "Update when controlled reference data changes.",
-    "retention": "Current row plus 7 years of audit history.",
-    "relationships": [],
-    "lineage": "Derived from Reference Data",
-    "tags": [
-      "table",
-      "db-reference"
-    ],
-    "sourceReferences": [
-      "src-db"
-    ],
-    "harvestedAt": "2026-10-13T06:00:00Z",
-    "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-instrument"
-  },
-  {
-    "id": "tbl-counterparty",
-    "type": "table",
-    "name": "counterparty",
-    "slug": "tbl-counterparty",
-    "databaseId": "db-reference",
-    "description": "Stores the approved identity of each trading party",
-    "ownerTeamId": "team-finance",
-    "readers": [
-      "svc-reference-data"
-    ],
-    "writers": [
-      "svc-reference-data"
-    ],
-    "columns": [
-      {
-        "name": "counterparty_id",
-        "dataType": "varchar(30)",
-        "nullable": false,
-        "key": "Primary key",
-        "description": "Identifies one trading party.",
-        "example": "CP-0042"
-      },
-      {
-        "name": "lei",
-        "dataType": "char(20)",
-        "nullable": false,
-        "key": "Unique key",
-        "description": "Stores the registered Legal Entity Identifier.",
-        "example": "5493001KJTIIGC8Y1R12"
       },
       {
         "name": "status",
         "dataType": "varchar(20)",
         "nullable": false,
-        "description": "Stores the current processing state.",
-        "example": "accepted"
+        "description": "Current state.",
+        "example": "booked"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each approved trading party.",
-    "updatePattern": "Update when controlled reference data changes.",
-    "retention": "Current row plus 7 years of audit history.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each account.",
+    "updatePattern": "Update when the account changes.",
+    "retention": "Current row plus 10 years of history.",
     "relationships": [],
-    "lineage": "Derived from Reference Data",
+    "lineage": "Written by Account Directory",
     "tags": [
       "table",
-      "db-reference"
+      "db-accounts"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-counterparty"
+    "pageUrl": "/data/tables/tbl-account"
+  },
+  {
+    "id": "tbl-fee-rule",
+    "type": "table",
+    "name": "fee_rule",
+    "slug": "tbl-fee-rule",
+    "databaseId": "db-accounts",
+    "description": "Fee for each type of transfer",
+    "ownerTeamId": "team-accounts",
+    "readers": [
+      "svc-account-directory"
+    ],
+    "writers": [
+      "svc-account-directory"
+    ],
+    "columns": [
+      {
+        "name": "transfer_type",
+        "dataType": "varchar(20)",
+        "nullable": false,
+        "key": "Primary key",
+        "description": "Type of transfer.",
+        "example": "INTERNATIONAL"
+      },
+      {
+        "name": "fee",
+        "dataType": "numeric(10,2)",
+        "nullable": false,
+        "description": "Fee charged to the sender.",
+        "example": "2.50"
+      },
+      {
+        "name": "valid_from",
+        "dataType": "date",
+        "nullable": false,
+        "description": "First date the row applies.",
+        "example": "2026-01-01"
+      }
+    ],
+    "classification": "Confidential customer data",
+    "grain": "One row for each transfer type and start date.",
+    "updatePattern": "Insert when a fee changes.",
+    "retention": "10 years.",
+    "relationships": [],
+    "lineage": "Written by Account Directory",
+    "tags": [
+      "table",
+      "db-accounts"
+    ],
+    "sourceReferences": [
+      "src-db"
+    ],
+    "harvestedAt": "2026-10-13T06:00:00Z",
+    "expectedRefreshInterval": "6 hours",
+    "pageUrl": "/data/tables/tbl-fee-rule"
   },
   {
     "id": "tbl-exchange-rate",
     "type": "table",
     "name": "exchange_rate",
     "slug": "tbl-exchange-rate",
-    "databaseId": "db-reference",
-    "description": "Stores one daily conversion rate for each currency pair",
-    "ownerTeamId": "team-finance",
+    "databaseId": "db-accounts",
+    "description": "Daily exchange rate for each currency pair",
+    "ownerTeamId": "team-accounts",
     "readers": [
-      "svc-reference-data"
+      "svc-account-directory"
     ],
     "writers": [
-      "svc-reference-data"
+      "svc-account-directory"
     ],
     "columns": [
       {
@@ -2058,34 +2097,34 @@
         "dataType": "char(7)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies the base and quote currencies.",
-        "example": "EUR/USD"
+        "description": "First and second currency.",
+        "example": "EUR/NOK"
       },
       {
         "name": "rate",
         "dataType": "numeric(18,8)",
         "nullable": false,
-        "description": "Stores units of quote currency for one base-currency unit.",
-        "example": "1.08420000"
+        "description": "Units of the second currency for one unit of the first.",
+        "example": "11.64200000"
       },
       {
         "name": "effective_date",
         "dataType": "date",
         "nullable": false,
         "key": "Primary key",
-        "description": "Stores the date on which the rate applies.",
+        "description": "Date the rate applies.",
         "example": "2026-10-13"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each currency pair and effective date.",
+    "classification": "Internal business data",
+    "grain": "One row for each currency pair and date.",
     "updatePattern": "Insert once each business day.",
     "retention": "10 years.",
     "relationships": [],
-    "lineage": "Derived from Reference Data",
+    "lineage": "Written by Account Directory",
     "tags": [
       "table",
-      "db-reference"
+      "db-accounts"
     ],
     "sourceReferences": [
       "src-db"
@@ -2095,184 +2134,185 @@
     "pageUrl": "/data/tables/tbl-exchange-rate"
   },
   {
-    "id": "tbl-journal-entry",
+    "id": "tbl-booking",
     "type": "table",
-    "name": "journal_entry",
-    "slug": "tbl-journal-entry",
-    "databaseId": "db-ledger",
-    "description": "Stores one accounting journal for each processed transaction",
-    "ownerTeamId": "team-finance",
+    "name": "booking",
+    "slug": "tbl-booking",
+    "databaseId": "db-bookings",
+    "description": "One booking for each completed transfer",
+    "ownerTeamId": "team-accounts",
     "readers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "writers": [
-      "svc-ledger-posting"
+      "svc-account-booking"
     ],
     "columns": [
       {
-        "name": "journal_id",
+        "name": "booking_id",
         "dataType": "varchar(30)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one accounting journal.",
-        "example": "JRN-88014"
+        "description": "Identifies one booking.",
+        "example": "BKG-88014"
       },
       {
-        "name": "trade_id",
+        "name": "transfer_id",
         "dataType": "varchar(40)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one financial transaction.",
-        "example": "TRD-DEMO-1042"
+        "description": "Identifies one transfer.",
+        "example": "TRF-DEMO-1042"
       },
       {
-        "name": "posting_date",
+        "name": "booking_date",
         "dataType": "date",
         "nullable": false,
-        "description": "Stores the accounting date.",
+        "description": "Date of the booking.",
         "example": "2026-10-13"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each accounting journal.",
-    "updatePattern": "Insert when Ledger Posting accepts a journal.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each booking.",
+    "updatePattern": "Insert when Account Booking accepts a booking.",
     "retention": "10 years.",
     "relationships": [],
-    "lineage": "Derived from Ledger Posting",
+    "lineage": "Written by Account Booking",
     "tags": [
       "table",
-      "db-ledger"
+      "db-bookings"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-journal-entry"
+    "pageUrl": "/data/tables/tbl-booking"
   },
   {
-    "id": "tbl-journal-line",
+    "id": "tbl-booking-line",
     "type": "table",
-    "name": "journal_line",
-    "slug": "tbl-journal-line",
-    "databaseId": "db-ledger",
-    "description": "Stores the debit and credit lines of each journal",
-    "ownerTeamId": "team-finance",
+    "name": "booking_line",
+    "slug": "tbl-booking-line",
+    "databaseId": "db-bookings",
+    "description": "Money out and money in for each booking",
+    "ownerTeamId": "team-accounts",
     "readers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "writers": [
-      "svc-ledger-posting"
+      "svc-account-booking"
     ],
     "columns": [
       {
-        "name": "journal_id",
+        "name": "booking_id",
         "dataType": "varchar(30)",
         "nullable": false,
         "key": "Primary key",
-        "description": "Identifies one accounting journal.",
-        "example": "JRN-88014"
+        "description": "Identifies one booking.",
+        "example": "BKG-88014"
       },
       {
-        "name": "account",
-        "dataType": "varchar(20)",
+        "name": "iban",
+        "dataType": "varchar(34)",
         "nullable": false,
-        "description": "Identifies one ledger account.",
-        "example": "1100"
+        "key": "Primary key",
+        "description": "Account number (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
-        "name": "debit",
+        "name": "amount_out",
         "dataType": "numeric(20,2)",
         "nullable": false,
-        "description": "Stores the debit amount. Zero means that the line is not a debit.",
-        "example": "1250000.00"
+        "description": "Money taken out of the account. Zero for money in.",
+        "example": "252.50"
       },
       {
-        "name": "credit",
+        "name": "amount_in",
         "dataType": "numeric(20,2)",
         "nullable": false,
-        "description": "Stores the credit amount. Zero means that the line is not a credit.",
+        "description": "Money added to the account. Zero for money out.",
         "example": "0.00"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each debit or credit line.",
-    "updatePattern": "Insert with its journal. Do not update after posting.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each money-out or money-in line.",
+    "updatePattern": "Insert with its booking. Never updated.",
     "retention": "10 years.",
     "relationships": [
       {
-        "column": "journal_id",
-        "targetTableId": "tbl-journal-entry",
-        "targetColumn": "journal_id",
-        "cardinality": "Many lines to one journal",
-        "description": "Each line belongs to one journal."
+        "column": "booking_id",
+        "targetTableId": "tbl-booking",
+        "targetColumn": "booking_id",
+        "cardinality": "Many lines to one booking",
+        "description": "Each line belongs to one booking."
       }
     ],
-    "lineage": "Derived from Ledger Posting",
+    "lineage": "Written by Account Booking",
     "tags": [
       "table",
-      "db-ledger"
+      "db-bookings"
     ],
     "sourceReferences": [
       "src-db"
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-journal-line"
+    "pageUrl": "/data/tables/tbl-booking-line"
   },
   {
-    "id": "tbl-fact-trade",
+    "id": "tbl-fact-transfer",
     "type": "table",
-    "name": "fact_trade",
-    "slug": "tbl-fact-trade",
+    "name": "fact_transfer",
+    "slug": "tbl-fact-transfer",
     "databaseId": "db-warehouse",
-    "description": "Stores accepted transactions in the reporting format",
+    "description": "Completed transfers in reporting format",
     "ownerTeamId": "team-reporting",
     "readers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
     "writers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "columns": [
       {
-        "name": "trade_key",
+        "name": "transfer_key",
         "dataType": "bigint",
         "nullable": false,
         "key": "Primary key",
-        "description": "Warehouse key for one accepted transaction.",
+        "description": "Warehouse key for one completed transfer.",
         "example": "8800142"
       },
       {
-        "name": "counterparty_key",
+        "name": "account_key",
         "dataType": "bigint",
         "nullable": false,
         "key": "Foreign key",
-        "description": "Links the row to dim_counterparty.",
+        "description": "Links the row to dim_account.",
         "example": "42018"
       },
       {
-        "name": "amount_base",
+        "name": "amount_eur",
         "dataType": "numeric(20,2)",
         "nullable": false,
-        "description": "Stores the transaction amount in the reporting currency.",
-        "example": "1250000.00"
+        "description": "Transfer amount in EUR.",
+        "example": "250.00"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each accepted transaction and report date.",
-    "updatePattern": "Load during the daily warehouse run.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each completed transfer.",
+    "updatePattern": "Load during the nightly warehouse run.",
     "retention": "10 years.",
     "relationships": [
       {
-        "column": "counterparty_key",
-        "targetTableId": "tbl-dim-counterparty",
-        "targetColumn": "counterparty_key",
-        "cardinality": "Many facts to one trading party",
-        "description": "The key identifies the reporting version of the trading party."
+        "column": "account_key",
+        "targetTableId": "tbl-dim-account",
+        "targetColumn": "account_key",
+        "cardinality": "Many transfers to one account",
+        "description": "The key identifies the reporting version of the sender account."
       }
     ],
-    "lineage": "Derived from Reporting Data Loader (ETL)",
+    "lineage": "Written by Reporting Data Loader",
     "tags": [
       "table",
       "db-warehouse"
@@ -2282,21 +2322,21 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-fact-trade"
+    "pageUrl": "/data/tables/tbl-fact-transfer"
   },
   {
-    "id": "tbl-fact-exposure",
+    "id": "tbl-fact-daily-total",
     "type": "table",
-    "name": "fact_exposure",
-    "slug": "tbl-fact-exposure",
+    "name": "fact_daily_total",
+    "slug": "tbl-fact-daily-total",
     "databaseId": "db-warehouse",
-    "description": "Stores the amount of money at risk for each trading party and report date",
+    "description": "Total of completed transfers for each date and currency",
     "ownerTeamId": "team-reporting",
     "readers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
     "writers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "columns": [
       {
@@ -2304,39 +2344,39 @@
         "dataType": "date",
         "nullable": false,
         "key": "Primary key",
-        "description": "Stores the date of the exposure report.",
+        "description": "Date of the daily report.",
         "example": "2026-10-13"
       },
       {
-        "name": "counterparty_key",
-        "dataType": "bigint",
+        "name": "currency_code",
+        "dataType": "char(3)",
         "nullable": false,
         "key": "Foreign key",
-        "description": "Links the row to dim_counterparty.",
-        "example": "42018"
+        "description": "Links the row to dim_currency.",
+        "example": "EUR"
       },
       {
-        "name": "net_exposure",
+        "name": "total_amount",
         "dataType": "numeric(20,2)",
         "nullable": false,
-        "description": "Stores the money at risk after offsetting eligible amounts.",
-        "example": "4372500.00"
+        "description": "Sum of completed transfers for the date and currency.",
+        "example": "1287340.50"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each report date and trading party.",
-    "updatePattern": "Rebuild during the daily warehouse run.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each report date and currency.",
+    "updatePattern": "Rebuilt during the nightly warehouse run.",
     "retention": "10 years.",
     "relationships": [
       {
-        "column": "counterparty_key",
-        "targetTableId": "tbl-dim-counterparty",
-        "targetColumn": "counterparty_key",
-        "cardinality": "Many exposure rows to one trading party",
-        "description": "The key identifies the reporting version of the trading party."
+        "column": "currency_code",
+        "targetTableId": "tbl-dim-currency",
+        "targetColumn": "currency",
+        "cardinality": "Many daily totals to one currency",
+        "description": "Each total belongs to one currency."
       }
     ],
-    "lineage": "Derived from Reporting Data Loader (ETL)",
+    "lineage": "Written by Reporting Data Loader",
     "tags": [
       "table",
       "db-warehouse"
@@ -2346,53 +2386,53 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-fact-exposure"
+    "pageUrl": "/data/tables/tbl-fact-daily-total"
   },
   {
-    "id": "tbl-dim-counterparty",
+    "id": "tbl-dim-account",
     "type": "table",
-    "name": "dim_counterparty",
-    "slug": "tbl-dim-counterparty",
+    "name": "dim_account",
+    "slug": "tbl-dim-account",
     "databaseId": "db-warehouse",
-    "description": "Stores reporting versions of each trading party",
+    "description": "Reporting versions of each account",
     "ownerTeamId": "team-reporting",
     "readers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
     "writers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "columns": [
       {
-        "name": "counterparty_key",
+        "name": "account_key",
         "dataType": "bigint",
         "nullable": false,
         "key": "Foreign key",
-        "description": "Links the row to dim_counterparty.",
+        "description": "Links the row to dim_account.",
         "example": "42018"
       },
       {
-        "name": "lei",
-        "dataType": "char(20)",
+        "name": "iban",
+        "dataType": "varchar(34)",
         "nullable": false,
-        "key": "Unique key",
-        "description": "Stores the registered Legal Entity Identifier.",
-        "example": "5493001KJTIIGC8Y1R12"
+        "key": "Primary key",
+        "description": "Account number (IBAN).",
+        "example": "NO02 1234 5678 903"
       },
       {
-        "name": "valid_from",
+        "name": "valid_from_ts",
         "dataType": "timestamp with time zone",
         "nullable": false,
-        "description": "Stores the time from which the dimension row is valid.",
+        "description": "Time from which the row is valid.",
         "example": "2026-01-01T00:00:00Z"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each reporting version of a trading party.",
-    "updatePattern": "Insert a new row when controlled data changes.",
+    "classification": "Confidential customer data",
+    "grain": "One row for each reporting version of an account.",
+    "updatePattern": "Insert a new row when the account changes.",
     "retention": "10 years after the last valid date.",
     "relationships": [],
-    "lineage": "Derived from Reporting Data Loader (ETL)",
+    "lineage": "Written by Reporting Data Loader",
     "tags": [
       "table",
       "db-warehouse"
@@ -2402,52 +2442,51 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-dim-counterparty"
+    "pageUrl": "/data/tables/tbl-dim-account"
   },
   {
-    "id": "tbl-dim-instrument",
+    "id": "tbl-dim-currency",
     "type": "table",
-    "name": "dim_instrument",
-    "slug": "tbl-dim-instrument",
+    "name": "dim_currency",
+    "slug": "tbl-dim-currency",
     "databaseId": "db-warehouse",
-    "description": "Stores reporting versions of each financial product",
+    "description": "Currencies used in reports",
     "ownerTeamId": "team-reporting",
     "readers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
     "writers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "columns": [
-      {
-        "name": "instrument_key",
-        "dataType": "bigint",
-        "nullable": false,
-        "key": "Primary key",
-        "description": "Warehouse key for one financial product.",
-        "example": "9182"
-      },
-      {
-        "name": "asset_class",
-        "dataType": "varchar(30)",
-        "nullable": false,
-        "description": "Groups the financial product.",
-        "example": "Foreign exchange"
-      },
       {
         "name": "currency",
         "dataType": "char(3)",
         "nullable": false,
-        "description": "Stores an ISO 4217 currency code.",
+        "description": "ISO 4217 currency code.",
         "example": "EUR"
+      },
+      {
+        "name": "currency_name",
+        "dataType": "varchar(40)",
+        "nullable": false,
+        "description": "Currency name.",
+        "example": "Euro"
+      },
+      {
+        "name": "minor_units",
+        "dataType": "smallint",
+        "nullable": false,
+        "description": "Number of decimals.",
+        "example": "2"
       }
     ],
-    "classification": "Confidential business data",
-    "grain": "One row for each reporting version of a financial product.",
-    "updatePattern": "Insert a new row when controlled data changes.",
-    "retention": "10 years after the last valid date.",
+    "classification": "Internal business data",
+    "grain": "One row for each currency.",
+    "updatePattern": "Update when a currency is added.",
+    "retention": "Kept while referenced.",
     "relationships": [],
-    "lineage": "Derived from Reporting Data Loader (ETL)",
+    "lineage": "Written by Reporting Data Loader",
     "tags": [
       "table",
       "db-warehouse"
@@ -2457,7 +2496,7 @@
     ],
     "harvestedAt": "2026-10-13T06:00:00Z",
     "expectedRefreshInterval": "6 hours",
-    "pageUrl": "/data/tables/tbl-dim-instrument"
+    "pageUrl": "/data/tables/tbl-dim-currency"
   },
   {
     "id": "tbl-load-audit",
@@ -2465,13 +2504,13 @@
     "name": "load_audit",
     "slug": "tbl-load-audit",
     "databaseId": "db-warehouse",
-    "description": "Stores the result and row count of each warehouse load",
+    "description": "Result and row count of each warehouse load",
     "ownerTeamId": "team-reporting",
     "readers": [
-      "svc-regulatory-reporting"
+      "svc-payments-report"
     ],
     "writers": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "columns": [
       {
@@ -2486,21 +2525,21 @@
         "name": "row_count",
         "dataType": "bigint",
         "nullable": false,
-        "description": "Stores the number of committed rows.",
+        "description": "Number of rows written.",
         "example": "14862"
       },
       {
         "name": "status",
         "dataType": "varchar(20)",
         "nullable": false,
-        "description": "Stores the current processing state.",
-        "example": "accepted"
+        "description": "Current state.",
+        "example": "booked"
       },
       {
         "name": "completed_at",
         "dataType": "timestamp with time zone",
         "nullable": true,
-        "description": "Stores the completion time. The value is null while the load runs.",
+        "description": "Completion time. Null while the load runs.",
         "example": "2026-10-13T06:31:18Z"
       }
     ],
@@ -2509,7 +2548,7 @@
     "updatePattern": "Insert at start. Update at completion or failure.",
     "retention": "2 years.",
     "relationships": [],
-    "lineage": "Derived from Reporting Data Loader (ETL)",
+    "lineage": "Written by Reporting Data Loader",
     "tags": [
       "table",
       "db-warehouse"
@@ -2526,7 +2565,7 @@
     "type": "configuration",
     "name": "reporting.cutoff-time",
     "slug": "cfg-cutoff",
-    "description": "Daily report completion target",
+    "description": "Latest time for the daily report",
     "ownerTeamId": "team-reporting",
     "tags": [
       "configuration"
@@ -2543,7 +2582,7 @@
     "type": "configuration",
     "name": "reporting.batch-size",
     "slug": "cfg-batch",
-    "description": "Warehouse load batch size",
+    "description": "Rows per warehouse write",
     "ownerTeamId": "team-reporting",
     "tags": [
       "configuration"
@@ -2556,11 +2595,11 @@
     "pageUrl": "/impact/cfg-batch"
   },
   {
-    "id": "cfg-provider",
+    "id": "cfg-rate-source",
     "type": "configuration",
-    "name": "reference-data.provider",
-    "slug": "cfg-provider",
-    "description": "Reference-data provider selection",
+    "name": "account-directory.rate-source",
+    "slug": "cfg-rate-source",
+    "description": "Exchange rate provider",
     "ownerTeamId": "team-platform",
     "tags": [
       "configuration"
@@ -2570,14 +2609,14 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/cfg-provider"
+    "pageUrl": "/impact/cfg-rate-source"
   },
   {
-    "id": "cfg-lei",
+    "id": "cfg-name-match",
     "type": "configuration",
-    "name": "trade-validation.strict-lei",
-    "slug": "cfg-lei",
-    "description": "Strict LEI validation",
+    "name": "transfer-checks.strict-name-match",
+    "slug": "cfg-name-match",
+    "description": "Receiver name must match the account",
     "ownerTeamId": "team-platform",
     "tags": [
       "configuration"
@@ -2587,14 +2626,14 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/cfg-lei"
+    "pageUrl": "/impact/cfg-name-match"
   },
   {
     "id": "cfg-retry",
     "type": "configuration",
-    "name": "etl.retry-count",
+    "name": "loader.retry-count",
     "slug": "cfg-retry",
-    "description": "Warehouse load retry limit",
+    "description": "Warehouse load retries",
     "ownerTeamId": "team-reporting",
     "tags": [
       "configuration"
@@ -2609,7 +2648,7 @@
   {
     "id": "cfg-schema",
     "type": "configuration",
-    "name": "etl.warehouse-schema",
+    "name": "loader.warehouse-schema",
     "slug": "cfg-schema",
     "description": "Target warehouse schema",
     "ownerTeamId": "team-reporting",
@@ -2628,7 +2667,7 @@
     "type": "configuration",
     "name": "notifications.enabled",
     "slug": "cfg-notify",
-    "description": "Notification delivery switch",
+    "description": "Send customer messages",
     "ownerTeamId": "team-platform",
     "tags": [
       "configuration"
@@ -2641,11 +2680,11 @@
     "pageUrl": "/impact/cfg-notify"
   },
   {
-    "id": "cfg-journal",
+    "id": "cfg-booking",
     "type": "configuration",
-    "name": "journal-posting.mode",
-    "slug": "cfg-journal",
-    "description": "Journal posting mode",
+    "name": "booking.mode",
+    "slug": "cfg-booking",
+    "description": "Booking mode",
     "ownerTeamId": "team-platform",
     "tags": [
       "configuration"
@@ -2655,14 +2694,14 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/cfg-journal"
+    "pageUrl": "/impact/cfg-booking"
   },
   {
     "id": "cfg-retention",
     "type": "configuration",
-    "name": "trade-event.retention-days",
+    "name": "transfer-event.retention-days",
     "slug": "cfg-retention",
-    "description": "Trade event retention",
+    "description": "Transfer event retention",
     "ownerTeamId": "team-platform",
     "tags": [
       "configuration"
@@ -2679,7 +2718,7 @@
     "type": "configuration",
     "name": "reporting.output-format",
     "slug": "cfg-report-format",
-    "description": "Regulatory report output format",
+    "description": "Daily report file format",
     "ownerTeamId": "team-reporting",
     "tags": [
       "configuration"
@@ -2692,12 +2731,12 @@
     "pageUrl": "/impact/cfg-report-format"
   },
   {
-    "id": "toggle-new-netting",
+    "id": "toggle-new-fee-rules",
     "type": "toggle",
-    "name": "new-netting-model",
-    "slug": "toggle-new-netting",
-    "description": "Feature toggle controlling new netting model.",
-    "ownerTeamId": "team-trade",
+    "name": "new-fee-rules",
+    "slug": "toggle-new-fee-rules",
+    "description": "Fee rules for 2027",
+    "ownerTeamId": "team-payments",
     "tags": [
       "feature-toggle"
     ],
@@ -2706,15 +2745,15 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-new-netting"
+    "pageUrl": "/impact/toggle-new-fee-rules"
   },
   {
-    "id": "toggle-legacy-netting",
+    "id": "toggle-legacy-fee-rules",
     "type": "toggle",
-    "name": "legacy-netting-mode",
-    "slug": "toggle-legacy-netting",
-    "description": "Feature toggle controlling legacy netting mode.",
-    "ownerTeamId": "team-trade",
+    "name": "legacy-fee-rules",
+    "slug": "toggle-legacy-fee-rules",
+    "description": "Fee rules before 2025",
+    "ownerTeamId": "team-payments",
     "tags": [
       "feature-toggle"
     ],
@@ -2723,15 +2762,15 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-legacy-netting"
+    "pageUrl": "/impact/toggle-legacy-fee-rules"
   },
   {
-    "id": "toggle-synthetic-reference",
+    "id": "toggle-test-rates",
     "type": "toggle",
-    "name": "synthetic-reference-data",
-    "slug": "toggle-synthetic-reference",
-    "description": "Feature toggle controlling synthetic reference data.",
-    "ownerTeamId": "team-trade",
+    "name": "test-exchange-rates",
+    "slug": "toggle-test-rates",
+    "description": "Fixed exchange rates for tests",
+    "ownerTeamId": "team-payments",
     "tags": [
       "feature-toggle"
     ],
@@ -2740,15 +2779,15 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-synthetic-reference"
+    "pageUrl": "/impact/toggle-test-rates"
   },
   {
-    "id": "toggle-strict-lei",
+    "id": "toggle-strict-name-match",
     "type": "toggle",
-    "name": "strict-lei-validation",
-    "slug": "toggle-strict-lei",
-    "description": "Feature toggle controlling strict lei validation.",
-    "ownerTeamId": "team-trade",
+    "name": "strict-name-match",
+    "slug": "toggle-strict-name-match",
+    "description": "Reject transfers when the receiver name does not match",
+    "ownerTeamId": "team-payments",
     "tags": [
       "feature-toggle"
     ],
@@ -2757,14 +2796,14 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-strict-lei"
+    "pageUrl": "/impact/toggle-strict-name-match"
   },
   {
-    "id": "toggle-exposure-v2",
+    "id": "toggle-report-v2",
     "type": "toggle",
-    "name": "exposure-report-v2",
-    "slug": "toggle-exposure-v2",
-    "description": "Feature toggle controlling exposure report v2.",
+    "name": "daily-report-v2",
+    "slug": "toggle-report-v2",
+    "description": "New daily report layout",
     "ownerTeamId": "team-reporting",
     "tags": [
       "feature-toggle"
@@ -2774,15 +2813,15 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-exposure-v2"
+    "pageUrl": "/impact/toggle-report-v2"
   },
   {
-    "id": "toggle-fast-reconcile",
+    "id": "toggle-instant-booking",
     "type": "toggle",
-    "name": "fast-reconciliation",
-    "slug": "toggle-fast-reconcile",
-    "description": "Feature toggle controlling fast reconciliation.",
-    "ownerTeamId": "team-trade",
+    "name": "instant-booking",
+    "slug": "toggle-instant-booking",
+    "description": "Book transfers in real time",
+    "ownerTeamId": "team-payments",
     "tags": [
       "feature-toggle"
     ],
@@ -2791,15 +2830,15 @@
     ],
     "harvestedAt": "2026-10-13T07:55:00Z",
     "expectedRefreshInterval": "15 minutes",
-    "pageUrl": "/impact/toggle-fast-reconcile"
+    "pageUrl": "/impact/toggle-instant-booking"
   },
   {
-    "id": "repo-trade-intake",
+    "id": "repo-transfer-intake",
     "type": "repository",
-    "name": "trade-intake",
-    "slug": "repo-trade-intake",
-    "description": "Source repository for Trade Intake.",
-    "ownerTeamId": "team-trade",
+    "name": "transfer-intake",
+    "slug": "repo-transfer-intake",
+    "description": "Source repository for Transfer Intake.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "repository"
     ],
@@ -2808,109 +2847,109 @@
     ],
     "harvestedAt": "2026-10-13T07:48:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-intake"
+    "pageUrl": "/services/svc-transfer-intake"
   },
   {
-    "id": "repo-trade-validator",
+    "id": "repo-transfer-checks",
     "type": "repository",
-    "name": "trade-validator",
-    "slug": "repo-trade-validator",
-    "description": "Source repository for Trade Validator.",
-    "ownerTeamId": "team-trade",
+    "name": "transfer-checks",
+    "slug": "repo-transfer-checks",
+    "description": "Source repository for Transfer Checks.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-validator"
+      "src-git-checks"
     ],
     "harvestedAt": "2026-10-13T07:46:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-validator"
+    "pageUrl": "/services/svc-transfer-checks"
   },
   {
-    "id": "repo-reference-data",
+    "id": "repo-account-directory",
     "type": "repository",
-    "name": "reference-data",
-    "slug": "repo-reference-data",
-    "description": "Source repository for Reference Data.",
-    "ownerTeamId": "team-finance",
+    "name": "account-directory",
+    "slug": "repo-account-directory",
+    "description": "Source repository for Account Directory.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-reference"
+      "src-git-accounts"
     ],
     "harvestedAt": "2026-10-13T07:42:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-reference-data"
+    "pageUrl": "/services/svc-account-directory"
   },
   {
-    "id": "repo-trade-enricher",
+    "id": "repo-fees-currency",
     "type": "repository",
-    "name": "trade-enricher",
-    "slug": "repo-trade-enricher",
-    "description": "Source repository for Trade Enricher.",
-    "ownerTeamId": "team-trade",
+    "name": "fees-currency",
+    "slug": "repo-fees-currency",
+    "description": "Source repository for Fees & Currency.",
+    "ownerTeamId": "team-payments",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-enricher"
+      "src-git-fees"
     ],
     "harvestedAt": "2026-10-13T02:11:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-trade-enricher"
+    "pageUrl": "/services/svc-fees-currency"
   },
   {
-    "id": "repo-ledger-posting",
+    "id": "repo-account-booking",
     "type": "repository",
-    "name": "ledger-posting",
-    "slug": "repo-ledger-posting",
-    "description": "Source repository for Ledger Posting.",
-    "ownerTeamId": "team-finance",
+    "name": "account-booking",
+    "slug": "repo-account-booking",
+    "description": "Source repository for Account Booking.",
+    "ownerTeamId": "team-accounts",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-ledger"
+      "src-git-booking"
     ],
     "harvestedAt": "2026-10-13T07:52:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-ledger-posting"
+    "pageUrl": "/services/svc-account-booking"
   },
   {
-    "id": "repo-reporting-etl",
+    "id": "repo-reporting-loader",
     "type": "repository",
-    "name": "reporting-etl",
-    "slug": "repo-reporting-etl",
-    "description": "Source repository for Reporting Data Loader (ETL).",
+    "name": "reporting-loader",
+    "slug": "repo-reporting-loader",
+    "description": "Source repository for Reporting Data Loader.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-etl"
+      "src-git-loader"
     ],
     "harvestedAt": "2026-10-13T07:45:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/job-reporting-etl"
+    "pageUrl": "/services/job-reporting-loader"
   },
   {
-    "id": "repo-regulatory-reporting",
+    "id": "repo-payments-report",
     "type": "repository",
-    "name": "regulatory-reporting",
-    "slug": "repo-regulatory-reporting",
-    "description": "Source repository for Regulatory Reporting.",
+    "name": "payments-report",
+    "slug": "repo-payments-report",
+    "description": "Source repository for Daily Payments Report.",
     "ownerTeamId": "team-reporting",
     "tags": [
       "repository"
     ],
     "sourceReferences": [
-      "src-git-reporting"
+      "src-git-report"
     ],
     "harvestedAt": "2026-10-13T07:41:00Z",
     "expectedRefreshInterval": "1 hour",
-    "pageUrl": "/services/svc-regulatory-reporting"
+    "pageUrl": "/services/svc-payments-report"
   },
   {
     "id": "repo-notification",

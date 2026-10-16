@@ -1,12 +1,12 @@
 [
   {
-    "id": "finding-etl-drift",
+    "id": "finding-loader-drift",
     "type": "deployment-drift",
     "severity": "attention",
-    "title": "The user-acceptance data loader is one release ahead",
-    "summary": "User Acceptance Test runs Reporting Data Loader 2.4.1 while Production runs 2.3.8.",
+    "title": "Reporting Data Loader",
+    "summary": "UAT 2.4.1 · Production 2.3.8",
     "affectedEntityIds": [
-      "job-reporting-etl"
+      "job-reporting-loader"
     ],
     "applicableRoles": [
       "developer",
@@ -14,21 +14,21 @@
       "operations"
     ],
     "environmentId": "uat",
-    "detectionRule": "Compare deployed versions across selected environments.",
+    "detectionRule": "Deployed versions differ between environments.",
     "supportingFacts": [
-      "The User Acceptance Test deployment manifest reports 2.4.1.",
-      "The Production deployment manifest reports 2.3.8."
+      "UAT deployment manifest: 2.4.1.",
+      "Production deployment manifest: 2.3.8."
     ],
     "correlatedChanges": [
-      "The user-acceptance exposure scenario last passed on 2.3.8."
+      "The UAT daily report test last passed on 2.3.8."
     ],
     "counterEvidence": [
-      "2.4.1 is running in Pre-production."
+      "2.4.1 runs in Pre-production."
     ],
     "unknowns": [
-      "Whether the version difference contributed to the failure."
+      "Whether the version change caused the failure."
     ],
-    "recommendedInspection": "Compare the data-loader release manifest and failed execution step.",
+    "recommendedInspection": "Compare the loader release notes with the failed test step.",
     "sourceReferences": [
       "src-deploy",
       "src-tests"
@@ -40,50 +40,50 @@
     "id": "finding-uat-failure",
     "type": "execution-failure",
     "severity": "failure",
-    "title": "The latest exposure-report scenario failed in User Acceptance Test",
-    "summary": "The run stopped while loading the reporting database at 06:44 UTC. Exposure means the amount of money at risk.",
+    "title": "Every completed transfer appears in the daily report to the regulator",
+    "summary": "UAT · Run AT-18427 · Failed at step 5 of 6: Load the Reporting Warehouse · 06:44 UTC",
     "affectedEntityIds": [
-      "job-reporting-etl",
-      "svc-regulatory-reporting"
+      "job-reporting-loader",
+      "svc-payments-report"
     ],
     "applicableRoles": [
       "tester",
       "developer"
     ],
     "environmentId": "uat",
-    "detectionRule": "Latest main-scenario execution is failed.",
+    "detectionRule": "Latest main-path test result is failed.",
     "supportingFacts": [
       "Steps 1–4 passed.",
-      "The reporting-database load timed out.",
-      "The final report check did not run."
+      "Step 5: WAREHOUSE_CONNECTION_TIMEOUT.",
+      "Step 6 did not run."
     ],
     "correlatedChanges": [
       "Reporting Data Loader changed from 2.3.8 to 2.4.1.",
-      "The expected user-acceptance database route is absent."
+      "No UAT network rule from Reporting Data Loader to Reporting Warehouse."
     ],
     "counterEvidence": [
-      "The same scenario passed in Production under older versions."
+      "The same test passed in Production with older versions."
     ],
     "unknowns": [
       "The direct cause of the timeout."
     ],
-    "recommendedInspection": "Inspect route policy, data-loader deployment and execution evidence together.",
+    "recommendedInspection": "Check the network rule, the loader deployment and the test log together.",
     "sourceReferences": [
       "src-tests",
       "src-deploy",
       "src-network"
     ],
     "freshness": "current",
-    "actionUrl": "/requirements/req-exposure"
+    "actionUrl": "/requirements/req-daily-report"
   },
   {
     "id": "finding-route",
     "type": "network-gap",
     "severity": "failure",
-    "title": "The expected user-acceptance database route is absent",
-    "summary": "No harvested allow rule connects the Reporting Data Loader to the database network port (TCP 5432).",
+    "title": "Reporting Data Loader → Reporting Warehouse",
+    "summary": "UAT · TCP 5432 · No allow rule collected",
     "affectedEntityIds": [
-      "job-reporting-etl",
+      "job-reporting-loader",
       "db-warehouse"
     ],
     "applicableRoles": [
@@ -92,21 +92,21 @@
       "developer"
     ],
     "environmentId": "uat",
-    "detectionRule": "Expected deployment dependency has no matching allow rule.",
+    "detectionRule": "A declared dependency has no matching allow rule.",
     "supportingFacts": [
-      "The data-loader deployment definition declares a reporting-database dependency.",
-      "No matching User Acceptance Test allow rule was harvested."
+      "The loader deployment declares a dependency on Reporting Warehouse.",
+      "No matching UAT allow rule was collected."
     ],
     "correlatedChanges": [
-      "The latest user-acceptance scenario failed during the database load."
+      "The latest UAT daily report test failed at the warehouse load."
     ],
     "counterEvidence": [
       "Matching rules exist in Pre-production and Production."
     ],
     "unknowns": [
-      "Whether an unharvested or dynamic route exists."
+      "Whether a rule exists outside the collected sources."
     ],
-    "recommendedInspection": "Review the User Acceptance Test infrastructure plan and collector scope.",
+    "recommendedInspection": "Check the UAT infrastructure plan and the collector scope.",
     "sourceReferences": [
       "src-network",
       "src-deploy"
@@ -115,70 +115,70 @@
     "actionUrl": "/network"
   },
   {
-    "id": "finding-stale-enricher",
+    "id": "finding-stale-source",
     "type": "stale-source",
     "severity": "attention",
-    "title": "Trade Enricher evidence is stale",
-    "summary": "Repository evidence is more than five hours old against an hourly expectation.",
+    "title": "fees-currency repository",
+    "summary": "Last collected 02:11 UTC · Expected every hour",
     "affectedEntityIds": [
-      "svc-trade-enricher"
+      "svc-fees-currency"
     ],
     "applicableRoles": [
       "developer",
       "operations"
     ],
-    "detectionRule": "Last successful harvest exceeds twice the expected interval.",
+    "detectionRule": "Last collection is older than twice the expected interval.",
     "supportingFacts": [
-      "Last harvest: 02:11 UTC.",
+      "Last collection: 02:11 UTC.",
       "Expected interval: 1 hour."
     ],
     "correlatedChanges": [
-      "Trade Enricher is ahead of Production in User Acceptance Test."
+      "Fees & Currency is newer in UAT than in Production."
     ],
     "counterEvidence": [
-      "Deployment evidence is current."
+      "Deployment data is up to date."
     ],
     "unknowns": [
-      "Whether repository changes after 02:11 are missing."
+      "Whether commits after 02:11 are missing."
     ],
-    "recommendedInspection": "Check the repository collector before trusting commit-level comparisons.",
+    "recommendedInspection": "Check the repository collector before comparing commits.",
     "sourceReferences": [
-      "src-git-enricher"
+      "src-git-fees"
     ],
     "freshness": "stale",
-    "actionUrl": "/services/svc-trade-enricher"
+    "actionUrl": "/services/svc-fees-currency"
   },
   {
     "id": "finding-legacy-toggle",
     "type": "unused-configuration",
     "severity": "attention",
-    "title": "legacy-netting-mode has no current deployment references",
-    "summary": "This feature switch remains configured in three environments, but no current component definition refers to it. Netting means offsetting amounts.",
+    "title": "legacy-fee-rules",
+    "summary": "Set in 3 environments · Referenced by 0 current deployments",
     "affectedEntityIds": [
-      "toggle-legacy-netting"
+      "toggle-legacy-fee-rules"
     ],
     "applicableRoles": [
       "operations",
       "developer"
     ],
-    "detectionRule": "Configuration exists while reference count across current manifests is zero.",
+    "detectionRule": "Setting exists, but no current manifest refers to it.",
     "supportingFacts": [
-      "Present in Development, Test and User Acceptance Test.",
-      "No current deployment-manifest reference was harvested."
+      "Set in Development, Test and UAT.",
+      "No reference in current deployment manifests."
     ],
     "correlatedChanges": [
-      "new-netting-model is enabled only in User Acceptance Test."
+      "new-fee-rules is enabled only in UAT."
     ],
     "counterEvidence": [
-      "Historical releases referenced the legacy toggle."
+      "Earlier releases referred to legacy-fee-rules."
     ],
     "unknowns": [
-      "Whether an unharvested operational script reads it."
+      "Whether a script outside the collected sources reads it."
     ],
-    "recommendedInspection": "Run the relationship autopsy before removal.",
+    "recommendedInspection": "Check impact before removal.",
     "sourceReferences": [
       "src-deploy",
-      "src-git-enricher"
+      "src-git-fees"
     ],
     "freshness": "current",
     "actionUrl": "/hygiene"
@@ -187,8 +187,8 @@
     "id": "finding-retired-notify",
     "type": "retired-deployment",
     "severity": "attention",
-    "title": "Pre-production retains Notification 1.8.2",
-    "summary": "A retired deployment remains beside current version 1.9.0.",
+    "title": "Notification 1.8.2",
+    "summary": "Pre-production · Current version 1.9.0",
     "affectedEntityIds": [
       "svc-notification"
     ],
@@ -196,21 +196,21 @@
       "operations"
     ],
     "environmentId": "preproduction",
-    "detectionRule": "Deployment version is marked retired but remains present.",
+    "detectionRule": "A retired version is still deployed.",
     "supportingFacts": [
-      "1.8.2 was retired on 18 July.",
+      "1.8.2 retired on 18 July.",
       "1.9.0 is the current deployment."
     ],
     "correlatedChanges": [
-      "An old mail-relay rule still names the retired destination."
+      "A network rule still points to the retired SMS gateway."
     ],
     "counterEvidence": [
-      "No current request traffic is represented in this prototype."
+      "No traffic data is collected."
     ],
     "unknowns": [
-      "Whether rollback procedures still require the deployment."
+      "Whether rollback procedures still need 1.8.2."
     ],
-    "recommendedInspection": "Confirm rollback policy and the linked network rule before cleanup.",
+    "recommendedInspection": "Check the rollback policy and the linked network rule before removal.",
     "sourceReferences": [
       "src-deploy",
       "src-network"

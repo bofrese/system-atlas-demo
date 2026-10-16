@@ -44,7 +44,7 @@ for (const repository of repositories) {
 }
 for (const endpoint of endpoints) {
   assert(endpoint.requestFields.length > 0, `Endpoint ${endpoint.id} has no documented request fields`)
-  assert(endpoint.responseFields.length > 0, `Endpoint ${endpoint.id} has no documented response fields`)
+  assert(endpoint.responseFields.length > 0 || endpoint.method === 'DELETE', `Endpoint ${endpoint.id} has no documented response fields`)
   unique(`request field in ${endpoint.id}`, endpoint.requestFields.map(x => `${x.location}:${x.name}`))
   unique(`response field in ${endpoint.id}`, endpoint.responseFields.map(x => `${x.location}:${x.name}`))
   for (const field of [...endpoint.requestFields, ...endpoint.responseFields]) {
@@ -105,7 +105,7 @@ assert(requirements.reduce((n,r) => n + r.scenarios.length, 0) >= 25, 'Expected 
 assert(relationships.length >= 40, `Expected at least 40 relationships, found ${relationships.length}`)
 assert(networkRules.length >= 10, 'Expected at least 10 network rules')
 assert(findings.length === 6, `Expected 6 headline findings, found ${findings.length}`)
-assert(executions.filter(x => x.requirementId === 'req-exposure').length >= 3, 'Central scenario needs at least three executions')
+assert(executions.filter(x => x.requirementId === 'req-daily-report').length >= 3, 'Central scenario needs at least three executions')
 
 if (errors.length) {
   console.error(`Data validation failed with ${errors.length} error(s):\n${errors.map(x => `- ${x}`).join('\n')}`)

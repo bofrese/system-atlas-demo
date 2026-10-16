@@ -1,68 +1,68 @@
 [
   {
-    "id": "req-valid-fx",
-    "title": "A valid foreign-exchange transaction is accepted",
-    "capability": "Trade capture",
-    "narrative": "Northstar must show that a valid foreign-exchange transaction is accepted.",
+    "id": "req-valid-transfer",
+    "title": "A valid transfer is accepted",
+    "capability": "Transfer intake",
+    "narrative": "A valid transfer is accepted.",
     "acceptanceCriteria": [
-      "The system records the transaction once.",
-      "The system returns an acceptance event identifier."
+      "The transfer is stored once.",
+      "The response contains an event identifier."
     ],
-    "businessRisk": "A lost transaction can produce an incomplete report.",
+    "businessRisk": "A lost transfer means the customer's money does not arrive.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
-    "ownerTeamId": "team-trade",
+    "ownerTeamId": "team-payments",
     "sourceReferences": [
       "src-tests",
       "src-curated"
     ],
     "scenarios": [
       {
-        "id": "req-valid-fx-main",
-        "title": "Primary business path",
+        "id": "req-valid-transfer-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise a valid foreign-exchange transaction is accepted",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-intake",
-            "operation": "Executable scenario step",
+            "title": "A valid transfer is accepted",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-intake",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-trade"
+              "tbl-transfer"
             ]
           }
         ]
       },
       {
-        "id": "req-valid-fx-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-valid-transfer-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-validator",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-checks",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-trade-event"
+              "tbl-transfer-event"
             ]
           }
         ]
       },
       {
-        "id": "req-valid-fx-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-valid-transfer-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error"
+              "tbl-check-result"
             ]
           }
         ]
@@ -70,69 +70,69 @@
     ]
   },
   {
-    "id": "req-invalid-lei",
-    "title": "A transaction with an invalid Legal Entity Identifier is rejected",
-    "capability": "Trade validation",
-    "narrative": "Northstar must show that a transaction with an invalid Legal Entity Identifier is rejected.",
+    "id": "req-unknown-account",
+    "title": "A transfer to an account that does not exist is rejected",
+    "capability": "Transfer checks",
+    "narrative": "A transfer to an account that does not exist is rejected.",
     "acceptanceCriteria": [
-      "The system rejects an invalid Legal Entity Identifier.",
-      "The result identifies the field and validation rule."
+      "A transfer to an unknown account is rejected.",
+      "The result names the field and the failed check."
     ],
-    "businessRisk": "An invalid trading party can enter regulated processing.",
+    "businessRisk": "Money sent to a wrong account can be lost.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
-    "ownerTeamId": "team-trade",
+    "ownerTeamId": "team-payments",
     "sourceReferences": [
       "src-tests",
       "src-curated"
     ],
     "scenarios": [
       {
-        "id": "req-invalid-lei-main",
-        "title": "Primary business path",
+        "id": "req-unknown-account-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise a transaction with an invalid legal entity identifier is rejected",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-validator",
-            "operation": "Executable scenario step",
+            "title": "A transfer to an account that does not exist is rejected",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-checks",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-trade-event"
+              "tbl-transfer-event"
             ]
           }
         ]
       },
       {
-        "id": "req-invalid-lei-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-unknown-account-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error"
+              "tbl-check-result"
             ]
           }
         ]
       },
       {
-        "id": "req-invalid-lei-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-unknown-account-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-ledger-posting",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-account-booking",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error-legacy"
+              "tbl-check-result-legacy"
             ]
           }
         ]
@@ -140,69 +140,69 @@
     ]
   },
   {
-    "id": "req-idempotent",
-    "title": "Submitting the same transaction twice does not create a duplicate",
-    "capability": "Trade capture",
-    "narrative": "Northstar must show that submitting the same transaction twice does not create a duplicate.",
+    "id": "req-no-double-send",
+    "title": "Pressing Send twice does not send the money twice",
+    "capability": "Transfer intake",
+    "narrative": "Pressing Send twice does not send the money twice.",
     "acceptanceCriteria": [
-      "A repeated transaction identifier does not create a second transaction.",
-      "The response returns the stored transaction identifier."
+      "A repeated transferId does not create a second transfer.",
+      "The response returns the stored transfer."
     ],
-    "businessRisk": "A duplicate can overstate accounting and exposure.",
+    "businessRisk": "The customer pays twice.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
-    "ownerTeamId": "team-trade",
+    "ownerTeamId": "team-payments",
     "sourceReferences": [
       "src-tests",
       "src-curated"
     ],
     "scenarios": [
       {
-        "id": "req-idempotent-main",
-        "title": "Primary business path",
+        "id": "req-no-double-send-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise submitting the same transaction twice does not create a duplicate",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Pressing Send twice does not send the money twice",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error"
+              "tbl-check-result"
             ]
           }
         ]
       },
       {
-        "id": "req-idempotent-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-no-double-send-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-ledger-posting",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-account-booking",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error-legacy"
+              "tbl-check-result-legacy"
             ]
           }
         ]
       },
       {
-        "id": "req-idempotent-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-no-double-send-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "job-reporting-etl",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "job-reporting-loader",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-instrument"
+              "tbl-account"
             ]
           }
         ]
@@ -210,69 +210,69 @@
     ]
   },
   {
-    "id": "req-enrichment",
-    "title": "An accepted foreign-exchange transaction receives the applicable exchange rate",
-    "capability": "Trade enrichment",
-    "narrative": "Northstar must show that an accepted foreign-exchange transaction receives the applicable exchange rate.",
+    "id": "req-exchange-rate",
+    "title": "A transfer in another currency uses the exchange rate of that day",
+    "capability": "Fees and currency",
+    "narrative": "A transfer in another currency uses the exchange rate of that day.",
     "acceptanceCriteria": [
-      "The system applies the rate for the transaction date.",
-      "The evidence identifies the rate source."
+      "The rate for the transfer date is used.",
+      "The booking records the rate source."
     ],
-    "businessRisk": "An incorrect rate can change accounting and exposure values.",
+    "businessRisk": "A wrong rate sends the wrong amount.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
-    "ownerTeamId": "team-trade",
+    "ownerTeamId": "team-payments",
     "sourceReferences": [
       "src-tests",
       "src-curated"
     ],
     "scenarios": [
       {
-        "id": "req-enrichment-main",
-        "title": "Primary business path",
+        "id": "req-exchange-rate-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise an accepted foreign-exchange transaction receives the applicable exchange rate",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-ledger-posting",
-            "operation": "Executable scenario step",
+            "title": "A transfer in another currency uses the exchange rate of that day",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-account-booking",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-validation-error-legacy"
+              "tbl-check-result-legacy"
             ]
           }
         ]
       },
       {
-        "id": "req-enrichment-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-exchange-rate-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "job-reporting-etl",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "job-reporting-loader",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-instrument"
+              "tbl-account"
             ]
           }
         ]
       },
       {
-        "id": "req-enrichment-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-exchange-rate-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-regulatory-reporting",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-payments-report",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-counterparty"
+              "tbl-fee-rule"
             ]
           }
         ]
@@ -280,67 +280,67 @@
     ]
   },
   {
-    "id": "req-balanced-journal",
-    "title": "Accepted transactions create balanced accounting entries",
-    "capability": "Accounting",
-    "narrative": "Northstar must show that accepted transactions create balanced accounting entries.",
+    "id": "req-balanced-booking",
+    "title": "Money taken from the sender equals money added to the receiver",
+    "capability": "Booking",
+    "narrative": "Money taken from the sender equals money added to the receiver.",
     "acceptanceCriteria": [
-      "Total debit equals total credit.",
-      "The journal links to the source transaction."
+      "Total money out equals total money in.",
+      "The booking links to the transfer."
     ],
-    "businessRisk": "An unbalanced journal can corrupt financial records.",
+    "businessRisk": "Money is created or lost in the bank's accounts.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
-    "ownerTeamId": "team-reporting",
+    "ownerTeamId": "team-accounts",
     "sourceReferences": [
       "src-tests",
       "src-curated"
     ],
     "scenarios": [
       {
-        "id": "req-balanced-journal-main",
-        "title": "Primary business path",
+        "id": "req-balanced-booking-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise accepted transactions create balanced accounting entries",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "job-reporting-etl",
-            "operation": "Executable scenario step",
+            "title": "Money taken from the sender equals money added to the receiver",
+            "expected": "The expected result is recorded",
+            "componentId": "job-reporting-loader",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-instrument"
+              "tbl-account"
             ]
           }
         ]
       },
       {
-        "id": "req-balanced-journal-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-balanced-booking-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-regulatory-reporting",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-payments-report",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-counterparty"
+              "tbl-fee-rule"
             ]
           }
         ]
       },
       {
-        "id": "req-balanced-journal-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-balanced-booking-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
             "componentId": "svc-notification",
-            "operation": "Executable scenario step",
+            "operation": "Test step",
             "dataIds": [
               "tbl-exchange-rate"
             ]
@@ -350,19 +350,19 @@
     ]
   },
   {
-    "id": "req-exposure",
-    "title": "Accepted foreign-exchange transactions appear in the daily exposure report",
+    "id": "req-daily-report",
+    "title": "Every completed transfer appears in the daily report to the regulator",
     "capability": "Regulatory reporting",
-    "narrative": "Northstar must show that accepted foreign-exchange transactions appear in the daily exposure report.",
+    "narrative": "Every completed transfer appears in the daily report to the regulator.",
     "acceptanceCriteria": [
-      "An accepted transaction appears in the report for its business date.",
-      "The reported amount uses the applicable exchange rate.",
-      "The evidence links the report row to the source transaction."
+      "A completed transfer appears in the report for its date.",
+      "The amount is counted in the total for its currency.",
+      "The report row links to the source transfer."
     ],
-    "businessRisk": "A missing transaction can understate the amount of money at risk.",
+    "businessRisk": "An incomplete report to the regulator is a compliance breach.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -371,81 +371,81 @@
     ],
     "scenarios": [
       {
-        "id": "req-exposure-main",
-        "title": "Primary business path",
+        "id": "req-daily-report-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Submit a valid foreign-exchange transaction",
-            "expected": "The transaction is accepted",
-            "componentId": "svc-trade-intake",
-            "operation": "POST /trades",
+            "title": "Send 250.00 EUR to a Norwegian account",
+            "expected": "The transfer is accepted",
+            "componentId": "svc-transfer-intake",
+            "operation": "POST /transfers",
             "dataIds": [
-              "tbl-trade",
-              "tbl-trade-event"
+              "tbl-transfer",
+              "tbl-transfer-event"
             ]
           },
           {
-            "title": "Validate compliance fields",
-            "expected": "Compliance fields pass validation",
-            "componentId": "svc-trade-validator",
-            "operation": "POST /validation/trades",
+            "title": "Check limits and fraud rules",
+            "expected": "The transfer is approved",
+            "componentId": "svc-transfer-checks",
+            "operation": "POST /checks/transfers",
             "dataIds": [
-              "tbl-validation-error"
+              "tbl-check-result"
             ]
           },
           {
-            "title": "Enrich the trade with reference data",
-            "expected": "Instrument, counterparty and rate are resolved",
-            "componentId": "svc-trade-enricher",
-            "operation": "Consume reference APIs",
+            "title": "Add the fee and convert the currency",
+            "expected": "Fee 2.50 EUR and the rate of the day are applied",
+            "componentId": "svc-fees-currency",
+            "operation": "GET /accounts, /fees, /rates",
             "dataIds": [
-              "tbl-instrument",
-              "tbl-counterparty",
+              "tbl-account",
+              "tbl-fee-rule",
               "tbl-exchange-rate"
             ]
           },
           {
-            "title": "Create balanced journal entries",
-            "expected": "Debits equal credits",
-            "componentId": "svc-ledger-posting",
-            "operation": "POST /journals",
+            "title": "Book money out and money in",
+            "expected": "Money out equals money in plus the fee",
+            "componentId": "svc-account-booking",
+            "operation": "POST /bookings",
             "dataIds": [
-              "tbl-journal-entry",
-              "tbl-journal-line"
+              "tbl-booking",
+              "tbl-booking-line"
             ]
           },
           {
             "title": "Load the Reporting Warehouse",
-            "expected": "The reporting rows are stored in the warehouse",
-            "componentId": "job-reporting-etl",
+            "expected": "The transfer is stored in the warehouse",
+            "componentId": "job-reporting-loader",
             "operation": "Warehouse load",
             "dataIds": [
-              "tbl-fact-trade",
-              "tbl-fact-exposure"
+              "tbl-fact-transfer",
+              "tbl-fact-daily-total"
             ]
           },
           {
-            "title": "Confirm that the exposure report contains the trade",
-            "expected": "The trade contributes to the daily exposure",
-            "componentId": "svc-regulatory-reporting",
-            "operation": "GET /reports/exposure/{date}",
+            "title": "Check that the daily payments report contains the transfer",
+            "expected": "The transfer is counted in the EUR total",
+            "componentId": "svc-payments-report",
+            "operation": "GET /reports/daily-payments/{date}",
             "dataIds": [
-              "tbl-fact-exposure"
+              "tbl-fact-daily-total"
             ]
           }
         ]
       },
       {
-        "id": "req-exposure-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-daily-report-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
             "componentId": "svc-notification",
-            "operation": "Executable scenario step",
+            "operation": "Test step",
             "dataIds": [
               "tbl-exchange-rate"
             ]
@@ -453,17 +453,17 @@
         ]
       },
       {
-        "id": "req-exposure-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-daily-report-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-trade-intake",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-transfer-intake",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-entry"
+              "tbl-booking"
             ]
           }
         ]
@@ -472,17 +472,17 @@
   },
   {
     "id": "req-cutoff",
-    "title": "The daily exposure report is available before its cutoff",
+    "title": "The daily report is available before 06:00 UTC",
     "capability": "Regulatory reporting",
-    "narrative": "Northstar must show that the daily exposure report is available before its cutoff.",
+    "narrative": "The daily report is available before 06:00 UTC.",
     "acceptanceCriteria": [
       "The report is available before 06:00 UTC.",
       "The completion time is recorded."
     ],
-    "businessRisk": "A late report can miss a regulatory submission window.",
+    "businessRisk": "A late report misses the regulator's deadline.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -492,14 +492,14 @@
     "scenarios": [
       {
         "id": "req-cutoff-main",
-        "title": "Primary business path",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise the daily exposure report is available before its cutoff",
-            "expected": "The expected business outcome is recorded",
+            "title": "The daily report is available before 06:00 UTC",
+            "expected": "The expected result is recorded",
             "componentId": "svc-notification",
-            "operation": "Executable scenario step",
+            "operation": "Test step",
             "dataIds": [
               "tbl-exchange-rate"
             ]
@@ -508,32 +508,32 @@
       },
       {
         "id": "req-cutoff-alternate",
-        "title": "Alternate input or timing",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-intake",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-intake",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-entry"
+              "tbl-booking"
             ]
           }
         ]
       },
       {
         "id": "req-cutoff-failure",
-        "title": "Failure or unavailable dependency",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-trade-validator",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-transfer-checks",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-line"
+              "tbl-booking-line"
             ]
           }
         ]
@@ -541,18 +541,18 @@
     ]
   },
   {
-    "id": "req-correction",
-    "title": "Corrected trades are reflected in the next report",
+    "id": "req-cancellation",
+    "title": "A cancelled transfer is removed from the next report",
     "capability": "Regulatory reporting",
-    "narrative": "Northstar must show that corrected trades are reflected in the next report.",
+    "narrative": "A cancelled transfer is removed from the next report.",
     "acceptanceCriteria": [
-      "The next report uses the latest accepted transaction version.",
-      "The prior value does not remain in the total."
+      "The next report does not count a cancelled transfer.",
+      "The cancellation links to the original transfer."
     ],
-    "businessRisk": "A stale value can make the report incorrect.",
+    "businessRisk": "The report shows money that was never sent.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
     "ownerTeamId": "team-reporting",
     "sourceReferences": [
@@ -561,49 +561,49 @@
     ],
     "scenarios": [
       {
-        "id": "req-correction-main",
-        "title": "Primary business path",
+        "id": "req-cancellation-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise corrected trades are reflected in the next report",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-intake",
-            "operation": "Executable scenario step",
+            "title": "A cancelled transfer is removed from the next report",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-intake",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-entry"
+              "tbl-booking"
             ]
           }
         ]
       },
       {
-        "id": "req-correction-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-cancellation-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-validator",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-checks",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-line"
+              "tbl-booking-line"
             ]
           }
         ]
       },
       {
-        "id": "req-correction-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-cancellation-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-fact-trade"
+              "tbl-fact-transfer"
             ]
           }
         ]
@@ -614,15 +614,15 @@
     "id": "req-network",
     "title": "Only approved network paths can reach the Reporting Warehouse",
     "capability": "Platform controls",
-    "narrative": "Northstar must show that only approved network paths can reach the Reporting Warehouse.",
+    "narrative": "Only approved network paths can reach the Reporting Warehouse.",
     "acceptanceCriteria": [
-      "Only recorded source and destination pairs can connect.",
-      "The rule identifies the environment, protocol and port."
+      "Only listed source and destination pairs can connect.",
+      "Each rule names the environment, protocol and port."
     ],
-    "businessRisk": "An unapproved path can expose regulated data.",
+    "businessRisk": "An open path can expose customer data.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
     "ownerTeamId": "team-platform",
     "sourceReferences": [
@@ -632,48 +632,48 @@
     "scenarios": [
       {
         "id": "req-network-main",
-        "title": "Primary business path",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise only approved network paths can reach the reporting warehouse",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-validator",
-            "operation": "Executable scenario step",
+            "title": "Only approved network paths can reach the Reporting Warehouse",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-transfer-checks",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-journal-line"
+              "tbl-booking-line"
             ]
           }
         ]
       },
       {
         "id": "req-network-alternate",
-        "title": "Alternate input or timing",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-fact-trade"
+              "tbl-fact-transfer"
             ]
           }
         ]
       },
       {
         "id": "req-network-failure",
-        "title": "Failure or unavailable dependency",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "svc-ledger-posting",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "svc-account-booking",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-fact-exposure"
+              "tbl-fact-daily-total"
             ]
           }
         ]
@@ -681,18 +681,18 @@
     ]
   },
   {
-    "id": "req-no-synthetic",
-    "title": "Production configuration contains no synthetic data providers",
+    "id": "req-live-rates",
+    "title": "Production uses live exchange rates, not test rates",
     "capability": "Platform controls",
-    "narrative": "Northstar must show that production configuration contains no synthetic data providers.",
+    "narrative": "Production uses live exchange rates, not test rates.",
     "acceptanceCriteria": [
-      "Production uses the authoritative reference-data provider.",
-      "No enabled setting names a synthetic provider."
+      "Production uses the live rate provider.",
+      "No production setting names test rates."
     ],
-    "businessRisk": "Synthetic data can make a live report invalid.",
+    "businessRisk": "Customers are charged with test exchange rates.",
     "preconditions": [
-      "The deployment inventory exists for the selected environment.",
-      "The test data is marked as synthetic."
+      "Deployment inventory exists for the environment.",
+      "Test accounts only."
     ],
     "ownerTeamId": "team-platform",
     "sourceReferences": [
@@ -701,49 +701,49 @@
     ],
     "scenarios": [
       {
-        "id": "req-no-synthetic-main",
-        "title": "Primary business path",
+        "id": "req-live-rates-main",
+        "title": "Main path",
         "kind": "main",
         "steps": [
           {
-            "title": "Exercise production configuration contains no synthetic data providers",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-trade-enricher",
-            "operation": "Executable scenario step",
+            "title": "Production uses live exchange rates, not test rates",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-fees-currency",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-fact-trade"
+              "tbl-fact-transfer"
             ]
           }
         ]
       },
       {
-        "id": "req-no-synthetic-alternate",
-        "title": "Alternate input or timing",
+        "id": "req-live-rates-alternate",
+        "title": "Other amount or time",
         "kind": "alternate",
         "steps": [
           {
-            "title": "Exercise an alternate business condition",
-            "expected": "The expected business outcome is recorded",
-            "componentId": "svc-ledger-posting",
-            "operation": "Executable scenario step",
+            "title": "Run with a different amount or time",
+            "expected": "The expected result is recorded",
+            "componentId": "svc-account-booking",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-fact-exposure"
+              "tbl-fact-daily-total"
             ]
           }
         ]
       },
       {
-        "id": "req-no-synthetic-failure",
-        "title": "Failure or unavailable dependency",
+        "id": "req-live-rates-failure",
+        "title": "Dependency unavailable",
         "kind": "failure",
         "steps": [
           {
-            "title": "Exercise a rejected or unavailable condition",
-            "expected": "The condition is rejected with traceable evidence",
-            "componentId": "job-reporting-etl",
-            "operation": "Executable scenario step",
+            "title": "Run with an unavailable dependency",
+            "expected": "The transfer is rejected with a recorded reason",
+            "componentId": "job-reporting-loader",
+            "operation": "Test step",
             "dataIds": [
-              "tbl-dim-counterparty"
+              "tbl-dim-account"
             ]
           }
         ]

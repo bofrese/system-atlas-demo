@@ -17,7 +17,7 @@ System Atlas uses a single typed, static dataset in `src/data/atlas.ts`. The int
 
 ## Identity and references
 
-IDs are stable slugs such as `svc-trade-intake`, `api-post-trades` and `req-exposure`. Foreign keys use those IDs rather than display names. The validation command rejects duplicate IDs and broken entity, environment, snapshot, scenario or source references.
+IDs are stable slugs such as `svc-transfer-intake`, `api-post-transfers` and `req-daily-report`. Foreign keys use those IDs rather than display names. The validation command rejects duplicate IDs and broken entity, environment, snapshot, scenario or source references.
 
 ## Snapshots
 

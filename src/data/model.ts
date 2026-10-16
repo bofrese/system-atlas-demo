@@ -138,13 +138,13 @@ export interface TestExecution {
   trigger: string
   testData: Record<string, string>
   serviceVersions: Record<string, string>
-  steps: Array<{ title: string; status: ExecutionStatus; actual: string; componentId: string; evidenceReferenceId: string; duration?: string }>
+  steps: Array<{ title: string; status: ExecutionStatus; actual: string; componentId: string; evidenceReferenceId: string; duration?: string; log: string[] }>
   evidenceReferences: string[]
 }
 
 export interface Relationship {
   id: string
-  type: 'CALLS' | 'PROVIDES' | 'READS_FROM' | 'WRITES_TO' | 'PUBLISHES' | 'CONSUMES' | 'DEPLOYED_IN' | 'IMPLEMENTED_BY' | 'EXERCISED_BY' | 'ALLOWED_TO_CONNECT' | 'OWNED_BY' | 'DERIVED_FROM'
+  type: 'CALLS' | 'CONTAINS' | 'PROVIDES' | 'READS_FROM' | 'WRITES_TO' | 'PUBLISHES' | 'CONSUMES' | 'DEPLOYED_IN' | 'IMPLEMENTED_BY' | 'EXERCISED_BY' | 'ALLOWED_TO_CONNECT' | 'OWNED_BY' | 'DERIVED_FROM'
   fromEntityId: string
   toEntityId: string
   environmentId?: string

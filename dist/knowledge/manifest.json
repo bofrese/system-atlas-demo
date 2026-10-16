@@ -1,6 +1,6 @@
 {
   "title": "System Atlas knowledge export",
-  "generatedFrom": "Fictional Northstar Regulatory Reporting demonstration data",
+  "generatedFrom": "Fictional Northstar bank transfer demonstration data",
   "snapshot": "2026-10-13T08:00:00Z",
   "warning": "Passing executable requirements are evidence under recorded conditions, not proof of correctness.",
   "deepLinkFormat": "#/{entity.pageUrl}",
@@ -9,13 +9,13 @@
       "name": "entities",
       "path": "entities.json",
       "mediaType": "application/json",
-      "records": 64
+      "records": 65
     },
     {
       "name": "relationships",
       "path": "relationships.json",
       "mediaType": "application/json",
-      "records": 56
+      "records": 57
     },
     {
       "name": "deployments",
